@@ -1,0 +1,5 @@
+D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.BLL\bin\Debug\Stomatoloska.BLL.dll
+D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.BLL\bin\Debug\Stomatoloska.BLL.pdb
+D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.BLL\obj\Debug\Stomatoloska.BLL.csproj.CoreCompileInputs.cache
+D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.BLL\obj\Debug\Stomatoloska.BLL.dll
+D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.BLL\obj\Debug\Stomatoloska.BLL.pdb

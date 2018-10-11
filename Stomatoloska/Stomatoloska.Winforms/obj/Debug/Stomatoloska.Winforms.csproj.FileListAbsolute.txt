@@ -8,3 +8,13 @@ D:\Aplikacije\stomatološka\Stomatoloska\Stomatoloska\obj\Debug\Stomatoloska.exe
 D:\Aplikacije\stomatološka\Stomatoloska\Stomatoloska\obj\Debug\Stomatoloska.pdb
 D:\Aplikacije\stomatološka\Stomatoloska\Stomatoloska\obj\Debug\Stomatoloska.Winforms.csprojResolveAssemblyReference.cache
 D:\Aplikacije\stomatološka\Stomatoloska\Stomatoloska\obj\Debug\Stomatoloska.frmNarucivanje.resources
+D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.Winforms\bin\Debug\Stomatoloska.exe.config
+D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.Winforms\bin\Debug\Stomatoloska.exe
+D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.Winforms\bin\Debug\Stomatoloska.pdb
+D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.Winforms\bin\Debug\System.Windows.Forms.Calendar.dll
+D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.Winforms\obj\Debug\Stomatoloska.frmNarucivanje.resources
+D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.Winforms\obj\Debug\Stomatoloska.Properties.Resources.resources
+D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.Winforms\obj\Debug\Stomatoloska.Winforms.csproj.GenerateResource.Cache
+D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.Winforms\obj\Debug\Stomatoloska.Winforms.csproj.CoreCompileInputs.cache
+D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.Winforms\obj\Debug\Stomatoloska.exe
+D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.Winforms\obj\Debug\Stomatoloska.pdb
