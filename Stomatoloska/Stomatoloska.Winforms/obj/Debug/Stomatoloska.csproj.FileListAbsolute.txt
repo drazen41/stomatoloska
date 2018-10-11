@@ -1,0 +1,10 @@
+D:\Aplikacije\stomatološka\Stomatoloska\Stomatoloska\bin\Debug\Stomatoloska.exe.config
+D:\Aplikacije\stomatološka\Stomatoloska\Stomatoloska\bin\Debug\Stomatoloska.exe
+D:\Aplikacije\stomatološka\Stomatoloska\Stomatoloska\bin\Debug\Stomatoloska.pdb
+D:\Aplikacije\stomatološka\Stomatoloska\Stomatoloska\bin\Debug\System.Windows.Forms.Calendar.dll
+D:\Aplikacije\stomatološka\Stomatoloska\Stomatoloska\obj\Debug\Stomatoloska.csprojResolveAssemblyReference.cache
+D:\Aplikacije\stomatološka\Stomatoloska\Stomatoloska\obj\Debug\Stomatoloska.Form1.resources
+D:\Aplikacije\stomatološka\Stomatoloska\Stomatoloska\obj\Debug\Stomatoloska.Properties.Resources.resources
+D:\Aplikacije\stomatološka\Stomatoloska\Stomatoloska\obj\Debug\Stomatoloska.csproj.GenerateResource.Cache
+D:\Aplikacije\stomatološka\Stomatoloska\Stomatoloska\obj\Debug\Stomatoloska.exe
+D:\Aplikacije\stomatološka\Stomatoloska\Stomatoloska\obj\Debug\Stomatoloska.pdb
