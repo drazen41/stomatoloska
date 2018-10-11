@@ -18,3 +18,6 @@ D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.Winforms\obj\Debug\Stomatol
 D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.Winforms\obj\Debug\Stomatoloska.Winforms.csproj.CoreCompileInputs.cache
 D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.Winforms\obj\Debug\Stomatoloska.exe
 D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.Winforms\obj\Debug\Stomatoloska.pdb
+D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.Winforms\bin\Debug\Stomatoloska.BLL.dll
+D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.Winforms\bin\Debug\Stomatoloska.BLL.pdb
+D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.Winforms\obj\Debug\Stomatoloska.Winforms.csprojResolveAssemblyReference.cache

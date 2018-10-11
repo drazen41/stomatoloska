@@ -8,7 +8,7 @@ namespace Stomatoloska.BLL
 {
     public class Narudzba
     {
-        public int TerminId { get; set; }
+        public int NarudzbaId { get; set; }
         public DateTime Termin { get; set; }
         public DateTime DCR { get; set; }
         public TerminStatus TerminStatus { get; set; }
