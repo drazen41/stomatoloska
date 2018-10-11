@@ -12,6 +12,6 @@ namespace Stomatoloska.BLL
         public string Ime { get; set; }
         public DateTime DatumRodjenja { get; set; }
         public string Telefon { get; set; }
-        public string Adresa { get; set; }
+        public string Adresa { get; set; } // MOže null
     }
 }
