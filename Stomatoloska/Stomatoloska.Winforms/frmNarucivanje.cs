@@ -31,7 +31,7 @@ namespace Stomatoloska
 
         private void calendar1_ItemCreated(object sender, System.Windows.Forms.Calendar.CalendarItemCancelEventArgs e)
         {
-            MessageBox.Show("Termin kreiran.");
+           // MessageBox.Show("Termin kreiran.");
         }
 
         private void calendar1_ItemTextEditing(object sender, System.Windows.Forms.Calendar.CalendarItemCancelEventArgs e)
