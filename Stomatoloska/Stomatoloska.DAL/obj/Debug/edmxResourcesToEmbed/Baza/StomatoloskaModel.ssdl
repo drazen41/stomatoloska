@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="StomatoloskaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tRadnoVrijeme">
+    <Key>
+      <PropertyRef Name="radno_vrijeme_id" />
+    </Key>
+    <Property Name="radno_vrijeme_id" Type="int" Nullable="false" />
+    <Property Name="radni_dan" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="od_dana" Type="date" Nullable="false" />
+    <Property Name="pocetak" Type="time" Precision="0" Nullable="false" />
+    <Property Name="kraj" Type="time" Precision="0" Nullable="false" />
+    <Property Name="dcr" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tZahvat">
+    <Key>
+      <PropertyRef Name="sifra" />
+    </Key>
+    <Property Name="sifra" Type="int" Nullable="false" />
+    <Property Name="naziv" Type="nvarchar" MaxLength="200" Nullable="false" />
+    <Property Name="cijena" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+    <Property Name="trajanje_minuta" Type="int" Nullable="false" />
+    <Property Name="dcr" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="StomatoloskaModelStoreContainer">
+    <EntitySet Name="tRadnoVrijeme" EntityType="Self.tRadnoVrijeme" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tZahvat" EntityType="Self.tZahvat" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

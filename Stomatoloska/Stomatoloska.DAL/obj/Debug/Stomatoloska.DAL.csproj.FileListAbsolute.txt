@@ -1,0 +1,11 @@
+D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.DAL\obj\Debug\Stomatoloska.DAL.csprojResolveAssemblyReference.cache
+D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.DAL\obj\Debug\Stomatoloska.DAL.csproj.CoreCompileInputs.cache
+D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.DAL\bin\Debug\Stomatoloska.DAL.dll.config
+D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.DAL\bin\Debug\Stomatoloska.DAL.dll
+D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.DAL\bin\Debug\Stomatoloska.DAL.pdb
+D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.DAL\bin\Debug\EntityFramework.dll
+D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.DAL\bin\Debug\EntityFramework.SqlServer.dll
+D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.DAL\bin\Debug\EntityFramework.xml
+D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.DAL\bin\Debug\EntityFramework.SqlServer.xml
+D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.DAL\obj\Debug\Stomatoloska.DAL.dll
+D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.DAL\obj\Debug\Stomatoloska.DAL.pdb

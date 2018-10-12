@@ -105,3 +105,6 @@ D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.Webforms\obj\Debug\Stomatol
 D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.Webforms\obj\Debug\Stomatoloska.Webforms.pdb
 D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.Webforms\bin\Stomatoloska.BLL.dll
 D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.Webforms\bin\Stomatoloska.BLL.pdb
+D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.Webforms\bin\Stomatoloska.DAL.dll
+D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.Webforms\bin\Stomatoloska.DAL.pdb
+D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.Webforms\bin\Stomatoloska.DAL.dll.config

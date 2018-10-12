@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stomatoloska.Webforms", "St
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stomatoloska.BLL", "Stomatoloska.BLL\Stomatoloska.BLL.csproj", "{00AFF4CE-C8F7-429A-819B-30F4914627DE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stomatoloska.DAL", "Stomatoloska.DAL\Stomatoloska.DAL.csproj", "{B6EF7A58-6E74-48E6-B357-0418F0689AB8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{00AFF4CE-C8F7-429A-819B-30F4914627DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{00AFF4CE-C8F7-429A-819B-30F4914627DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{00AFF4CE-C8F7-429A-819B-30F4914627DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6EF7A58-6E74-48E6-B357-0418F0689AB8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6EF7A58-6E74-48E6-B357-0418F0689AB8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6EF7A58-6E74-48E6-B357-0418F0689AB8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6EF7A58-6E74-48E6-B357-0418F0689AB8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
