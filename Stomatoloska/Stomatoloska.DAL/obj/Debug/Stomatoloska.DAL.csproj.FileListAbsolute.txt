@@ -1,4 +1,3 @@
-D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.DAL\obj\Debug\Stomatoloska.DAL.csprojResolveAssemblyReference.cache
 D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.DAL\obj\Debug\Stomatoloska.DAL.csproj.CoreCompileInputs.cache
 D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.DAL\bin\Debug\Stomatoloska.DAL.dll.config
 D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.DAL\bin\Debug\Stomatoloska.DAL.dll

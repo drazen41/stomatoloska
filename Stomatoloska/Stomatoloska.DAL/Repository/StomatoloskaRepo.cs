@@ -12,9 +12,9 @@ namespace Stomatoloska.DAL.Repository
 {
     public class StomatoloskaRepo<TEntity> where TEntity : class 
     {
-        internal StomatoloskaDB context;
+        internal stomatoloskaEntities context;
         internal DbSet<TEntity> dbSet;
-        public StomatoloskaRepo(StomatoloskaDB context)
+        public StomatoloskaRepo(stomatoloskaEntities context)
         {
             this.context = context;
             this.dbSet = context.Set<TEntity>();

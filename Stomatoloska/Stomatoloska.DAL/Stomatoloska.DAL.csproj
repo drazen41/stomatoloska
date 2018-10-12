@@ -50,6 +50,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Baza\StomatoloskaDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StomatoloskaDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Baza\RadnoVrijeme.cs">
       <DependentUpon>StomatoloskaModel.tt</DependentUpon>
     </Compile>
@@ -72,9 +77,43 @@
       <DependentUpon>StomatoloskaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="Repository\RadnoVrijemeRepo.cs" />
     <Compile Include="Repository\StomatoloskaRepo.cs" />
     <Compile Include="StomatoloskaUoW.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="Baza\StomatoloskaDataSet.xsc">
+      <DependentUpon>StomatoloskaDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Baza\StomatoloskaDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>StomatoloskaDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Baza\StomatoloskaDataSet.xss">
+      <DependentUpon>StomatoloskaDataSet.xsd</DependentUpon>
+    </None>
+    <EntityDeploy Include="Baza\StomatoloskaModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>StomatoloskaModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Baza\StomatoloskaModel.edmx.diagram">
+      <DependentUpon>StomatoloskaModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Baza\StomatoloskaModel.Context.tt">
@@ -87,20 +126,6 @@
       <DependentUpon>StomatoloskaModel.edmx</DependentUpon>
       <LastGenOutput>StomatoloskaModel.cs</LastGenOutput>
     </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.Config" />
-    <EntityDeploy Include="Baza\StomatoloskaModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>StomatoloskaModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="Baza\StomatoloskaModel.edmx.diagram">
-      <DependentUpon>StomatoloskaModel.edmx</DependentUpon>
-    </None>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

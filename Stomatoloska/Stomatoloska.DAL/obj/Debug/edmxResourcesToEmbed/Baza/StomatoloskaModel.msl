@@ -1,8 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="StomatoloskaModelStoreContainer" CdmEntityContainer="StomatoloskaDB">
+  <EntityContainerMapping StorageEntityContainer="stomatoloskaModelStoreContainer" CdmEntityContainer="stomatoloskaEntities">
     <EntitySetMapping Name="tRadnoVrijeme">
-      <EntityTypeMapping TypeName="StomatoloskaModel.RadnoVrijeme">
+      <EntityTypeMapping TypeName="stomatoloskaModel.RadnoVrijeme">
         <MappingFragment StoreEntitySet="tRadnoVrijeme">
           <ScalarProperty Name="radno_vrijeme_id" ColumnName="radno_vrijeme_id" />
           <ScalarProperty Name="radni_dan" ColumnName="radni_dan" />
@@ -14,13 +14,13 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="tZahvat">
-      <EntityTypeMapping TypeName="StomatoloskaModel.Zahvat">
+      <EntityTypeMapping TypeName="stomatoloskaModel.Zahvat">
         <MappingFragment StoreEntitySet="tZahvat">
-          <ScalarProperty Name="dcr" ColumnName="dcr" />
-          <ScalarProperty Name="trajanje_minuta" ColumnName="trajanje_minuta" />
-          <ScalarProperty Name="cijena" ColumnName="cijena" />
-          <ScalarProperty Name="naziv" ColumnName="naziv" />
           <ScalarProperty Name="sifra" ColumnName="sifra" />
+          <ScalarProperty Name="naziv" ColumnName="naziv" />
+          <ScalarProperty Name="cijena" ColumnName="cijena" />
+          <ScalarProperty Name="trajanje_minuta" ColumnName="trajanje_minuta" />
+          <ScalarProperty Name="dcr" ColumnName="dcr" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

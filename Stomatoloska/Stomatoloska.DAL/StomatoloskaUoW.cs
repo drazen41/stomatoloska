@@ -10,7 +10,7 @@ namespace Stomatoloska.DAL
 {
     public class StomatoloskaUoW :IDisposable 
     {
-        private StomatoloskaDB context = new StomatoloskaDB();
+        private stomatoloskaEntities context = new stomatoloskaEntities();
         private RadnoVrijemeRepo radnoVrijemeRepo;
         private StomatoloskaRepo<Zahvat> zahvatRepo;
         public RadnoVrijemeRepo RadnoVrijemeRepo

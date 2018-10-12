@@ -4,9 +4,9 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="740c870e2aa342c5ad55d698077ec263" Name="Diagram1">
-        <EntityTypeShape EntityType="StomatoloskaModel.RadnoVrijeme" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="StomatoloskaModel.Zahvat" Width="1.5" PointX="3.375" PointY="0.75" />
+      <Diagram DiagramId="706b1509add248d9a77d1444531bd437" Name="Diagram1">
+        <EntityTypeShape EntityType="stomatoloskaModel.RadnoVrijeme" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="stomatoloskaModel.Zahvat" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -13,10 +13,10 @@ namespace Stomatoloska.DAL.Baza
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class StomatoloskaDB : DbContext
+    public partial class stomatoloskaEntities : DbContext
     {
-        public StomatoloskaDB()
-            : base("name=StomatoloskaDB")
+        public stomatoloskaEntities()
+            : base("name=stomatoloskaEntities")
         {
         }
     

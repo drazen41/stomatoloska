@@ -9,7 +9,7 @@ namespace Stomatoloska.DAL.Repository
 {
     public class RadnoVrijemeRepo : StomatoloskaRepo<RadnoVrijeme>
     {
-        public RadnoVrijemeRepo(StomatoloskaDB db)
+        public RadnoVrijemeRepo(stomatoloskaEntities db)
             : base(db)
         {          
         }

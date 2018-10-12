@@ -68,10 +68,19 @@
     <Compile Include="frmNarucivanje.Designer.cs">
       <DependentUpon>frmNarucivanje.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmRadnoVrijeme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRadnoVrijeme.Designer.cs">
+      <DependentUpon>frmRadnoVrijeme.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmNarucivanje.resx">
       <DependentUpon>frmNarucivanje.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRadnoVrijeme.resx">
+      <DependentUpon>frmRadnoVrijeme.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -99,6 +108,10 @@
     <ProjectReference Include="..\Stomatoloska.BLL\Stomatoloska.BLL.csproj">
       <Project>{00aff4ce-c8f7-429a-819b-30f4914627de}</Project>
       <Name>Stomatoloska.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Stomatoloska.DAL\Stomatoloska.DAL.csproj">
+      <Project>{b6ef7a58-6e74-48e6-b357-0418f0689ab8}</Project>
+      <Name>Stomatoloska.DAL</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

@@ -38,5 +38,17 @@ namespace Stomatoloska
         {
             MessageBox.Show("Ažuriran.");
         }
+
+        private void pregledNarudžbiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pregledRadnogVremenaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmRadnoVrijeme frmRadnoVrijeme = new frmRadnoVrijeme();
+            frmRadnoVrijeme.Show();
+            this.Hide();
+        }
     }
 }
