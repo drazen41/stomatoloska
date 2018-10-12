@@ -47,3 +47,13 @@ C:\Users\draze\source\repos\stomatoloska\Stomatoloska\Stomatoloska.Winforms\obj\
 C:\Users\draze\source\repos\stomatoloska\Stomatoloska\Stomatoloska.Winforms\obj\Debug\Stomatoloska.Winforms.csproj.CopyComplete
 C:\Users\draze\source\repos\stomatoloska\Stomatoloska\Stomatoloska.Winforms\obj\Debug\Stomatoloska.exe
 C:\Users\draze\source\repos\stomatoloska\Stomatoloska\Stomatoloska.Winforms\obj\Debug\Stomatoloska.pdb
+C:\Users\draze\source\repos\stomatoloska\Stomatoloska\Stomatoloska.Winforms\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\draze\source\repos\stomatoloska\Stomatoloska\Stomatoloska.Winforms\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\draze\source\repos\stomatoloska\Stomatoloska\Stomatoloska.Winforms\bin\Debug\Baza\StomatoloskaModel.Context.tt
+C:\Users\draze\source\repos\stomatoloska\Stomatoloska\Stomatoloska.Winforms\bin\Debug\Baza\StomatoloskaModel.tt
+C:\Users\draze\source\repos\stomatoloska\Stomatoloska\Stomatoloska.Winforms\bin\Debug\Baza\RadnoVrijeme.cs
+C:\Users\draze\source\repos\stomatoloska\Stomatoloska\Stomatoloska.Winforms\bin\Debug\Baza\StomatoloskaModel.Context.cs
+C:\Users\draze\source\repos\stomatoloska\Stomatoloska\Stomatoloska.Winforms\bin\Debug\Baza\StomatoloskaModel.cs
+C:\Users\draze\source\repos\stomatoloska\Stomatoloska\Stomatoloska.Winforms\bin\Debug\Baza\StomatoloskaModel.Designer.cs
+C:\Users\draze\source\repos\stomatoloska\Stomatoloska\Stomatoloska.Winforms\bin\Debug\Baza\Zahvat.cs
+C:\Users\draze\source\repos\stomatoloska\Stomatoloska\Stomatoloska.Winforms\bin\Debug\Baza\StomatoloskaModel.edmx.diagram

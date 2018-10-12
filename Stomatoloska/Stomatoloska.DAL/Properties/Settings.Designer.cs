@@ -26,10 +26,10 @@ namespace Stomatoloska.DAL.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=MSSQLSERVER;Initial Catalog=stomatoloska;User ID=test;Password=test")]
-        public string stomatoloskaConnectionString {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DRAZEN-PC;Initial Catalog=stomatoloska;User ID=test;Password=test")]
+        public string stomatoloskaConnectionString1 {
             get {
-                return ((string)(this["stomatoloskaConnectionString"]));
+                return ((string)(this["stomatoloskaConnectionString1"]));
             }
         }
         
@@ -37,9 +37,9 @@ namespace Stomatoloska.DAL.Properties {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
         [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DRAZEN-PC;Initial Catalog=stomatoloska;User ID=test;Password=test")]
-        public string stomatoloskaConnectionString1 {
+        public string stomatoloskaConnectionString {
             get {
-                return ((string)(this["stomatoloskaConnectionString1"]));
+                return ((string)(this["stomatoloskaConnectionString"]));
             }
         }
     }
