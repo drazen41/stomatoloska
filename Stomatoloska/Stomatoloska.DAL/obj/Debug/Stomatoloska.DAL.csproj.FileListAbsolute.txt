@@ -8,3 +8,15 @@ D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.DAL\bin\Debug\EntityFramewo
 D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.DAL\bin\Debug\EntityFramework.SqlServer.xml
 D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.DAL\obj\Debug\Stomatoloska.DAL.dll
 D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.DAL\obj\Debug\Stomatoloska.DAL.pdb
+C:\Users\draze\source\repos\stomatoloska\Stomatoloska\Stomatoloska.DAL\bin\Debug\Stomatoloska.DAL.dll.config
+C:\Users\draze\source\repos\stomatoloska\Stomatoloska\Stomatoloska.DAL\bin\Debug\Stomatoloska.DAL.dll
+C:\Users\draze\source\repos\stomatoloska\Stomatoloska\Stomatoloska.DAL\bin\Debug\Stomatoloska.DAL.pdb
+C:\Users\draze\source\repos\stomatoloska\Stomatoloska\Stomatoloska.DAL\bin\Debug\EntityFramework.dll
+C:\Users\draze\source\repos\stomatoloska\Stomatoloska\Stomatoloska.DAL\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\draze\source\repos\stomatoloska\Stomatoloska\Stomatoloska.DAL\bin\Debug\EntityFramework.xml
+C:\Users\draze\source\repos\stomatoloska\Stomatoloska\Stomatoloska.DAL\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\draze\source\repos\stomatoloska\Stomatoloska\Stomatoloska.DAL\obj\Debug\Stomatoloska.DAL.csprojAssemblyReference.cache
+C:\Users\draze\source\repos\stomatoloska\Stomatoloska\Stomatoloska.DAL\obj\Debug\Stomatoloska.DAL.csproj.CoreCompileInputs.cache
+C:\Users\draze\source\repos\stomatoloska\Stomatoloska\Stomatoloska.DAL\obj\Debug\Stomatoloska.DAL.csproj.CopyComplete
+C:\Users\draze\source\repos\stomatoloska\Stomatoloska\Stomatoloska.DAL\obj\Debug\Stomatoloska.DAL.dll
+C:\Users\draze\source\repos\stomatoloska\Stomatoloska\Stomatoloska.DAL\obj\Debug\Stomatoloska.DAL.pdb

@@ -24,7 +24,7 @@ namespace Stomatoloska
         private void PopuniDataGrid()
         {
             StomatoloskaUoW uow = new StomatoloskaUoW();
-            var podaci = uow.RadnoVrijemeRepo.PribaviAktivnaRadnaVremena(DateTime.Now);
+            //var podaci = uow.RadnoVrijemeRepo.PribaviAktivnaRadnaVremena(DateTime.Now);
             tRadnoVrijemeTableAdapter adapter = new tRadnoVrijemeTableAdapter();
             StomatoloskaDataSet.tRadnoVrijemeDataTable table = new StomatoloskaDataSet.tRadnoVrijemeDataTable();
             adapter.FillRadnoVrijemeSve(table);
