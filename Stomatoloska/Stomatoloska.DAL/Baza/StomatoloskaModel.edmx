@@ -1,0 +1,114 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="stomatoloskaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tRadnoVrijeme">
+          <Key>
+            <PropertyRef Name="radno_vrijeme_id" />
+          </Key>
+          <Property Name="radno_vrijeme_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="radni_dan" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="od_dana" Type="date" Nullable="false" />
+          <Property Name="pocetak" Type="time" Precision="0" Nullable="false" />
+          <Property Name="kraj" Type="time" Precision="0" Nullable="false" />
+          <Property Name="dcr" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tZahvat">
+          <Key>
+            <PropertyRef Name="sifra" />
+          </Key>
+          <Property Name="sifra" Type="int" Nullable="false" />
+          <Property Name="naziv" Type="nvarchar" MaxLength="200" Nullable="false" />
+          <Property Name="cijena" Type="decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="trajanje_minuta" Type="int" Nullable="false" />
+          <Property Name="dcr" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="stomatoloskaModelStoreContainer">
+          <EntitySet Name="tRadnoVrijeme" EntityType="Self.tRadnoVrijeme" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tZahvat" EntityType="Self.tZahvat" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="stomatoloskaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="RadnoVrijeme">
+          <Key>
+            <PropertyRef Name="radno_vrijeme_id" />
+          </Key>
+          <Property Name="radno_vrijeme_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="radni_dan" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="od_dana" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="pocetak" Type="Time" Nullable="false" Precision="0" />
+          <Property Name="kraj" Type="Time" Nullable="false" Precision="0" />
+          <Property Name="dcr" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Zahvat">
+          <Key>
+            <PropertyRef Name="sifra" />
+          </Key>
+          <Property Name="sifra" Type="Int32" Nullable="false" />
+          <Property Name="naziv" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="cijena" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
+          <Property Name="trajanje_minuta" Type="Int32" Nullable="false" />
+          <Property Name="dcr" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityContainer Name="stomatoloskaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tRadnoVrijeme" EntityType="stomatoloskaModel.RadnoVrijeme" />
+          <EntitySet Name="tZahvat" EntityType="stomatoloskaModel.Zahvat" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="stomatoloskaModelStoreContainer" CdmEntityContainer="stomatoloskaEntities">
+          <EntitySetMapping Name="tRadnoVrijeme">
+            <EntityTypeMapping TypeName="stomatoloskaModel.RadnoVrijeme">
+              <MappingFragment StoreEntitySet="tRadnoVrijeme">
+                <ScalarProperty Name="radno_vrijeme_id" ColumnName="radno_vrijeme_id" />
+                <ScalarProperty Name="radni_dan" ColumnName="radni_dan" />
+                <ScalarProperty Name="od_dana" ColumnName="od_dana" />
+                <ScalarProperty Name="pocetak" ColumnName="pocetak" />
+                <ScalarProperty Name="kraj" ColumnName="kraj" />
+                <ScalarProperty Name="dcr" ColumnName="dcr" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tZahvat">
+            <EntityTypeMapping TypeName="stomatoloskaModel.Zahvat">
+              <MappingFragment StoreEntitySet="tZahvat">
+                <ScalarProperty Name="sifra" ColumnName="sifra" />
+                <ScalarProperty Name="naziv" ColumnName="naziv" />
+                <ScalarProperty Name="cijena" ColumnName="cijena" />
+                <ScalarProperty Name="trajanje_minuta" ColumnName="trajanje_minuta" />
+                <ScalarProperty Name="dcr" ColumnName="dcr" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
