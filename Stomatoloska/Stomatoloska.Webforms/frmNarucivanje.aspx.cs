@@ -32,17 +32,7 @@ namespace Stomatoloska.Webforms
 
         private void PrikaziRezerviraneTermine()
         {
-            Narudzba narudzba = new Narudzba();
-            TerminStatus terminStatus = new TerminStatus();
-            terminStatus.TerminStatusId = 1;
-            terminStatus.NazivStatusa = "Kreiran";
-            narudzba.TerminStatus = terminStatus;
-            Pacijent pacijent = new Pacijent();
-            RadnoVrijeme radnoVrijeme = new RadnoVrijeme();
-            radnoVrijeme.Pocetak = new TimeSpan(7, 0, 0);
-            radnoVrijeme.Kraj = new TimeSpan(14, 0, 0);
-
-            narudzba.NarudzbaId = 1;
+            
             
             
         }

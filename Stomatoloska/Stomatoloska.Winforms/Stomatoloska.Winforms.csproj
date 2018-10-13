@@ -97,6 +97,12 @@
     <Compile Include="Data\tZahvat.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="EnumsAndComboBox .cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EnumsAndComboBox .Designer.cs">
+      <DependentUpon>EnumsAndComboBox .cs</DependentUpon>
+    </Compile>
     <Compile Include="frmNarucivanje.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,7 +162,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Stomatoloska.BLL\Stomatoloska.BLL.csproj">

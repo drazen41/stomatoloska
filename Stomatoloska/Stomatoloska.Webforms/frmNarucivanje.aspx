@@ -9,10 +9,8 @@
         </asp:Table>
     </asp:Panel>
     <asp:Panel ID="pnlTjedni" runat="server" >
-        <asp:GridView ID="GridView1" runat="server" DataSourceID="EntityDataSource1">
+        <asp:GridView ID="GridView1" runat="server">
         </asp:GridView>
-        <asp:EntityDataSource ID="EntityDataSource1" runat="server">
-        </asp:EntityDataSource>
 
     </asp:Panel>
 </asp:Content>

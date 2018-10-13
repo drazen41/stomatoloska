@@ -50,5 +50,12 @@ namespace Stomatoloska
             frmRadnoVrijeme.Show();
             this.Hide();
         }
+
+        private void test1ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EnumsAndComboBox enumsAndComboBox = new EnumsAndComboBox();
+            enumsAndComboBox.Show();
+            this.Hide();
+        }
     }
 }
