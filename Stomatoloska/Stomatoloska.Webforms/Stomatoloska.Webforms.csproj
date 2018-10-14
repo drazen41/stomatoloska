@@ -175,6 +175,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Account\Web.config" />
+    <Content Include="PacijentiForm.aspx" />
+    <Content Include="ZahvatForm.aspx" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="frmNarucivanje.aspx" />
     <Content Include="frmRadnoVrijeme.aspx" />
@@ -374,6 +376,13 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="PacijentiForm.aspx.cs">
+      <DependentUpon>PacijentiForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PacijentiForm.aspx.designer.cs">
+      <DependentUpon>PacijentiForm.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -396,6 +405,13 @@
     </Compile>
     <Compile Include="ViewSwitcher.ascx.designer.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="ZahvatForm.aspx.cs">
+      <DependentUpon>ZahvatForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ZahvatForm.aspx.designer.cs">
+      <DependentUpon>ZahvatForm.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

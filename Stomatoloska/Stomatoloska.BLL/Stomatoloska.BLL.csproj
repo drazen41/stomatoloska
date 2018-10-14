@@ -41,12 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Pacijent.cs" />
+    <Compile Include="PacijentBLL.cs" />
     <Compile Include="Narudzba.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RadnoVrijemeBLL.cs" />
     <Compile Include="TerminStatus.cs" />
-    <Compile Include="Zahtjev.cs" />
+    <Compile Include="ZahvatBLL.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Stomatoloska.DAL\Stomatoloska.DAL.csproj">

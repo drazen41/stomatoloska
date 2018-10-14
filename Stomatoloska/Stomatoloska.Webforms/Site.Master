@@ -1,5 +1,4 @@
-﻿
-<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Stomatoloska.Webforms.SiteMaster" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Stomatoloska.Webforms.SiteMaster" %>
 
 <!DOCTYPE html>
 
@@ -12,7 +11,7 @@
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/bundles/modernizr") %>
     </asp:PlaceHolder>
-    <webopt:bundlereference runat="server" path="~/Content/css" />
+    <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
 
 </head>
@@ -55,7 +54,10 @@
                         <li><a runat="server" href="~/About">About</a></li>
                         <li><a runat="server" href="~/Contact">Contact</a></li>
                         <li><a runat="server" href="~/frmRadnoVrijeme">Radno vrijeme</a></li>
+                        <li><a runat="server" href="~/ZahvatForm">Zahvati</a></li>
+                         <li><a runat="server" href="~/PacijentiForm">Pacijenti</a></li>
                         <li><a runat="server" href="~/frmNarucivanje">Naručivanje</a></li>
+
                     </ul>
                     <asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>

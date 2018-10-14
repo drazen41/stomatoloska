@@ -12,8 +12,8 @@ namespace Stomatoloska.BLL
         public DateTime Termin { get; set; }
         public DateTime DCR { get; set; }
         public TerminStatus TerminStatus { get; set; }
-        public Zahtjev Zahtjev { get; set; }
-        public Pacijent Pacijent { get; set; }
+        public ZahvatBLL Zahtjev { get; set; }
+        public PacijentBLL Pacijent { get; set; }
 
     }
 }

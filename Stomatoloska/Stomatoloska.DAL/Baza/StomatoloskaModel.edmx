@@ -5,6 +5,17 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="stomatoloskaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tPacijent">
+          <Key>
+            <PropertyRef Name="pacijent_id" />
+          </Key>
+          <Property Name="pacijent_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="prezime" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ime" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="datum_rodjenja" Type="date" Nullable="false" />
+          <Property Name="telefon" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="adresa" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
         <EntityType Name="tRadnoVrijeme">
           <Key>
             <PropertyRef Name="radno_vrijeme_id" />
@@ -19,13 +30,14 @@
           <Key>
             <PropertyRef Name="sifra" />
           </Key>
-          <Property Name="sifra" Type="int" Nullable="false" />
+          <Property Name="sifra" Type="nvarchar" MaxLength="10" Nullable="false" />
           <Property Name="naziv" Type="nvarchar" MaxLength="200" Nullable="false" />
           <Property Name="cijena" Type="decimal" Precision="9" Scale="2" Nullable="false" />
           <Property Name="trajanje_minuta" Type="int" Nullable="false" />
           <Property Name="dcr" Type="datetime" Nullable="false" />
         </EntityType>
         <EntityContainer Name="stomatoloskaModelStoreContainer">
+          <EntitySet Name="tPacijent" EntityType="Self.tPacijent" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tRadnoVrijeme" EntityType="Self.tRadnoVrijeme" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tZahvat" EntityType="Self.tZahvat" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
@@ -33,19 +45,10 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="stomatoloskaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Zahvat">
-          <Key>
-            <PropertyRef Name="sifra" />
-          </Key>
-          <Property Name="sifra" Type="Int32" Nullable="false" />
-          <Property Name="naziv" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="cijena" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
-          <Property Name="trajanje_minuta" Type="Int32" Nullable="false" />
-          <Property Name="dcr" Type="DateTime" Nullable="false" Precision="3" />
-        </EntityType>
         <EntityContainer Name="stomatoloskaEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="tZahvat" EntityType="stomatoloskaModel.Zahvat" />
           <EntitySet Name="tRadnoVrijeme" EntityType="stomatoloskaModel.RadnoVrijeme" />
+          <EntitySet Name="tZahvat" EntityType="stomatoloskaModel.Zahvat" />
+          <EntitySet Name="tPacijent" EntityType="stomatoloskaModel.Pacijent" />
         </EntityContainer>
         <EntityType Name="RadnoVrijeme">
           <Key>
@@ -57,23 +60,33 @@
           <Property Name="kraj" Type="Time" Nullable="false" Precision="0" />
           <Property Name="dcr" Type="DateTime" Nullable="false" Precision="3" />
         </EntityType>
+        <EntityType Name="Zahvat">
+          <Key>
+            <PropertyRef Name="sifra" />
+          </Key>
+          <Property Name="sifra" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="naziv" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="cijena" Type="Decimal" Nullable="false" Precision="9" Scale="2" />
+          <Property Name="trajanje_minuta" Type="Int32" Nullable="false" />
+          <Property Name="dcr" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="Pacijent">
+          <Key>
+            <PropertyRef Name="pacijent_id" />
+          </Key>
+          <Property Name="pacijent_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="prezime" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ime" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="datum_rodjenja" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="telefon" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="adresa" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="stomatoloskaModelStoreContainer" CdmEntityContainer="stomatoloskaEntities">
-          <EntitySetMapping Name="tZahvat">
-            <EntityTypeMapping TypeName="stomatoloskaModel.Zahvat">
-              <MappingFragment StoreEntitySet="tZahvat">
-                <ScalarProperty Name="sifra" ColumnName="sifra" />
-                <ScalarProperty Name="naziv" ColumnName="naziv" />
-                <ScalarProperty Name="cijena" ColumnName="cijena" />
-                <ScalarProperty Name="trajanje_minuta" ColumnName="trajanje_minuta" />
-                <ScalarProperty Name="dcr" ColumnName="dcr" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="tRadnoVrijeme">
             <EntityTypeMapping TypeName="stomatoloskaModel.RadnoVrijeme">
               <MappingFragment StoreEntitySet="tRadnoVrijeme">
@@ -82,6 +95,29 @@
                 <ScalarProperty Name="pocetak" ColumnName="pocetak" />
                 <ScalarProperty Name="radni_dan" ColumnName="radni_dan" />
                 <ScalarProperty Name="radno_vrijeme_id" ColumnName="radno_vrijeme_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tZahvat">
+            <EntityTypeMapping TypeName="stomatoloskaModel.Zahvat">
+              <MappingFragment StoreEntitySet="tZahvat">
+                <ScalarProperty Name="dcr" ColumnName="dcr" />
+                <ScalarProperty Name="trajanje_minuta" ColumnName="trajanje_minuta" />
+                <ScalarProperty Name="cijena" ColumnName="cijena" />
+                <ScalarProperty Name="naziv" ColumnName="naziv" />
+                <ScalarProperty Name="sifra" ColumnName="sifra" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tPacijent">
+            <EntityTypeMapping TypeName="stomatoloskaModel.Pacijent">
+              <MappingFragment StoreEntitySet="tPacijent">
+                <ScalarProperty Name="adresa" ColumnName="adresa" />
+                <ScalarProperty Name="telefon" ColumnName="telefon" />
+                <ScalarProperty Name="datum_rodjenja" ColumnName="datum_rodjenja" />
+                <ScalarProperty Name="ime" ColumnName="ime" />
+                <ScalarProperty Name="prezime" ColumnName="prezime" />
+                <ScalarProperty Name="pacijent_id" ColumnName="pacijent_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

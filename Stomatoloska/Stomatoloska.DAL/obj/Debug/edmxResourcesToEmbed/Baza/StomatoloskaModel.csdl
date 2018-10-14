@@ -1,18 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="stomatoloskaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityType Name="Zahvat">
-    <Key>
-      <PropertyRef Name="sifra" />
-    </Key>
-    <Property Name="sifra" Type="Int32" Nullable="false" />
-    <Property Name="naziv" Type="String" MaxLength="200" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="cijena" Type="Decimal" Precision="9" Scale="2" Nullable="false" />
-    <Property Name="trajanje_minuta" Type="Int32" Nullable="false" />
-    <Property Name="dcr" Type="DateTime" Nullable="false" Precision="3" />
-  </EntityType>
   <EntityContainer Name="stomatoloskaEntities" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="tZahvat" EntityType="stomatoloskaModel.Zahvat" />
     <EntitySet Name="tRadnoVrijeme" EntityType="stomatoloskaModel.RadnoVrijeme" />
+    <EntitySet Name="tZahvat" EntityType="stomatoloskaModel.Zahvat" />
+    <EntitySet Name="tPacijent" EntityType="stomatoloskaModel.Pacijent" />
   </EntityContainer>
   <EntityType Name="RadnoVrijeme">
     <Key>
@@ -23,5 +14,26 @@
     <Property Name="pocetak" Type="Time" Nullable="false" Precision="0" />
     <Property Name="kraj" Type="Time" Nullable="false" Precision="0" />
     <Property Name="dcr" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="Zahvat">
+    <Key>
+      <PropertyRef Name="sifra" />
+    </Key>
+    <Property Name="sifra" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="naziv" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="cijena" Type="Decimal" Nullable="false" Precision="9" Scale="2" />
+    <Property Name="trajanje_minuta" Type="Int32" Nullable="false" />
+    <Property Name="dcr" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="Pacijent">
+    <Key>
+      <PropertyRef Name="pacijent_id" />
+    </Key>
+    <Property Name="pacijent_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="prezime" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ime" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="datum_rodjenja" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="telefon" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="adresa" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
   </EntityType>
 </Schema>

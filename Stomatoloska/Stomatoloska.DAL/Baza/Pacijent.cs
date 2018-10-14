@@ -12,12 +12,13 @@ namespace Stomatoloska.DAL.Baza
     using System;
     using System.Collections.Generic;
     
-    public partial class Zahvat
+    public partial class Pacijent
     {
-        public string sifra { get; set; }
-        public string naziv { get; set; }
-        public decimal cijena { get; set; }
-        public int trajanje_minuta { get; set; }
-        public System.DateTime dcr { get; set; }
+        public int pacijent_id { get; set; }
+        public string prezime { get; set; }
+        public string ime { get; set; }
+        public System.DateTime datum_rodjenja { get; set; }
+        public string telefon { get; set; }
+        public string adresa { get; set; }
     }
 }

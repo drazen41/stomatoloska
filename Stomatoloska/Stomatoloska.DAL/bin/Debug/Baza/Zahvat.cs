@@ -14,7 +14,7 @@ namespace Stomatoloska.DAL.Baza
     
     public partial class Zahvat
     {
-        public int sifra { get; set; }
+        public string sifra { get; set; }
         public string naziv { get; set; }
         public decimal cijena { get; set; }
         public int trajanje_minuta { get; set; }

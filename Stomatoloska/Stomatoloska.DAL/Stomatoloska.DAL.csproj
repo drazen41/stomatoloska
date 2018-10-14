@@ -50,6 +50,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Baza\Pacijent.cs">
+      <DependentUpon>StomatoloskaModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Baza\RadnoVrijeme.cs">
       <DependentUpon>StomatoloskaModel.tt</DependentUpon>
     </Compile>

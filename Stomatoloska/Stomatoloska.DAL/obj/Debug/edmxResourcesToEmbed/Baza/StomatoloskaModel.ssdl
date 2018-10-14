@@ -1,5 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="stomatoloskaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tPacijent">
+    <Key>
+      <PropertyRef Name="pacijent_id" />
+    </Key>
+    <Property Name="pacijent_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="prezime" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ime" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="datum_rodjenja" Type="date" Nullable="false" />
+    <Property Name="telefon" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="adresa" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
   <EntityType Name="tRadnoVrijeme">
     <Key>
       <PropertyRef Name="radno_vrijeme_id" />
@@ -14,13 +25,14 @@
     <Key>
       <PropertyRef Name="sifra" />
     </Key>
-    <Property Name="sifra" Type="int" Nullable="false" />
+    <Property Name="sifra" Type="nvarchar" MaxLength="10" Nullable="false" />
     <Property Name="naziv" Type="nvarchar" MaxLength="200" Nullable="false" />
     <Property Name="cijena" Type="decimal" Precision="9" Scale="2" Nullable="false" />
     <Property Name="trajanje_minuta" Type="int" Nullable="false" />
     <Property Name="dcr" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityContainer Name="stomatoloskaModelStoreContainer">
+    <EntitySet Name="tPacijent" EntityType="Self.tPacijent" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tRadnoVrijeme" EntityType="Self.tRadnoVrijeme" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tZahvat" EntityType="Self.tZahvat" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
