@@ -21,10 +21,8 @@
                 <asp:DropDownList ID="DropDownListPocetakMinuta" runat="server"></asp:DropDownList><br /><br />
         Kraj radnog vremena: &nbsp;&nbsp;
                 <asp:DropDownList ID="DropDownListKrajSat" runat="server"></asp:DropDownList>
-        <asp:DropDownList ID="DropDownListKrajMinuta" runat="server"></asp:DropDownList><br /><br />
-                                    Od dana:&nbsp;&nbsp; 
-                                    <asp:TextBox ID="txtOdDana" runat="server" ></asp:TextBox>
-                                    <ajaxToolkit:CalendarExtender ID="CalendarExtender1" runat="server" TargetControlID="txtOdDana" Format="dd.MM.yyyy"  />
+        <asp:DropDownList ID="DropDownListKrajMinuta" runat="server"></asp:DropDownList>
+                                    
                                     <br /><br />
 <asp:Button Text="Unesi radno vrijeme" ID="btnUnos" runat="server" OnClick="btnUnos_Click" />
 
@@ -33,7 +31,6 @@
             <hr />
     <asp:Panel ID="pnlRadnoVrijeme" runat="server" Width="50%" GroupingText="Prikaz radnog vremena">
         <br />
-        <asp:Calendar ID="CalendarRadnoVrijeme" runat="server" SelectionMode="DayWeek"></asp:Calendar>
         <asp:Table ID="tblRadnoVrijeme" runat="server" >
             <asp:TableHeaderRow >
                 <asp:TableCell Text="Radni dan" Width="200px"></asp:TableCell>

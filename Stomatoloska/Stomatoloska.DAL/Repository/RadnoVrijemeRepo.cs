@@ -14,7 +14,7 @@ namespace Stomatoloska.DAL.Repository
             : base(db)
         {          
         }
-        public List<RadnoVrijeme> PribaviRadnaVremenaOdDatuma(DateTime datum)
+        public List<RadnoVrijeme> PribaviRadnaVremenaManjaJednakaOdDatuma(DateTime datum)
         {
             var sql = "select * FROM tRadnoVrijeme where radno_vrijeme_id IN ( select MAX(radno_vrijeme_id) rv_id  FROM tRadnoVrijeme where od_dana <= @datum group by radni_dan )";
             SqlParameter parameter = new SqlParameter("@datum", datum);

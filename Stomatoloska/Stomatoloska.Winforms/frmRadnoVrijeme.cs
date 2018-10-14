@@ -59,7 +59,7 @@ namespace Stomatoloska
         {
             StomatoloskaUoW uow = new StomatoloskaUoW();
 
-            var zadnjiPodaci = uow.RadnoVrijemeRepo.PribaviRadnaVremenaOdDatuma(DateTime.Now);
+            var zadnjiPodaci = uow.RadnoVrijemeRepo.PribaviRadnaVremenaManjaJednakaOdDatuma(DateTime.Now);
             var sviPodaci = uow.RadnoVrijemeRepo.Get().ToList<RadnoVrijeme>();
             var bindingList = new BindingList<RadnoVrijeme>(sviPodaci);
             bindingSource1.DataSource = bindingList;

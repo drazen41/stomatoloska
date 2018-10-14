@@ -50,14 +50,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Baza\RadnoVrijeme.cs">
+      <DependentUpon>StomatoloskaModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Baza\StomatoloskaDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>StomatoloskaDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Baza\RadnoVrijeme.cs">
-      <DependentUpon>StomatoloskaModel.tt</DependentUpon>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Baza\StomatoloskaModel.Context.cs">
       <AutoGen>True</AutoGen>

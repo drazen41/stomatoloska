@@ -24,16 +24,31 @@ namespace Stomatoloska.BLL
 
         public void UnesiRadnaVremena(List<RadnoVrijeme> vremena)
         {
+            var vremenaBaza = uow.RadnoVrijemeRepo.Get();
+            
+
             foreach (var vrijeme in vremena)
             {
-                uow.RadnoVrijemeRepo.Insert(vrijeme);
+                var dan = vremenaBaza.Where(x => x.radni_dan == vrijeme.radni_dan).FirstOrDefault();
+                if (dan != null)
+                {
+                    dan.pocetak = vrijeme.pocetak;
+                    dan.kraj = vrijeme.kraj;
+                    dan.dcr = vrijeme.dcr;
+                    uow.RadnoVrijemeRepo.Update(dan);
+                }
+                else 
+                {
+                    uow.RadnoVrijemeRepo.Insert(vrijeme);
+                }
                 
+
             }
             uow.Spremi();
         }
-        public List<RadnoVrijeme> PribaviVremenaOdDatuma(DateTime datum)
+        public List<RadnoVrijeme> PribaviRadnaVremena()
         {
-            return uow.RadnoVrijemeRepo.PribaviRadnaVremenaOdDatuma(datum);
+           return uow.RadnoVrijemeRepo.Get().ToList();
         }
     }
 }

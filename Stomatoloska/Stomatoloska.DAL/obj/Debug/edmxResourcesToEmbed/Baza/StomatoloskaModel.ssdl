@@ -6,7 +6,6 @@
     </Key>
     <Property Name="radno_vrijeme_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="radni_dan" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="od_dana" Type="date" Nullable="false" />
     <Property Name="pocetak" Type="time" Precision="0" Nullable="false" />
     <Property Name="kraj" Type="time" Precision="0" Nullable="false" />
     <Property Name="dcr" Type="datetime" Nullable="false" />

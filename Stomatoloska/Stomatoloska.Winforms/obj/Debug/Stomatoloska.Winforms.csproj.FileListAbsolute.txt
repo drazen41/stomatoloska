@@ -51,7 +51,6 @@ C:\Users\draze\source\repos\stomatoloska\Stomatoloska\Stomatoloska.Winforms\bin\
 C:\Users\draze\source\repos\stomatoloska\Stomatoloska\Stomatoloska.Winforms\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\draze\source\repos\stomatoloska\Stomatoloska\Stomatoloska.Winforms\bin\Debug\Baza\StomatoloskaModel.Context.tt
 C:\Users\draze\source\repos\stomatoloska\Stomatoloska\Stomatoloska.Winforms\bin\Debug\Baza\StomatoloskaModel.tt
-C:\Users\draze\source\repos\stomatoloska\Stomatoloska\Stomatoloska.Winforms\bin\Debug\Baza\RadnoVrijeme.cs
 C:\Users\draze\source\repos\stomatoloska\Stomatoloska\Stomatoloska.Winforms\bin\Debug\Baza\StomatoloskaModel.Context.cs
 C:\Users\draze\source\repos\stomatoloska\Stomatoloska\Stomatoloska.Winforms\bin\Debug\Baza\StomatoloskaModel.cs
 C:\Users\draze\source\repos\stomatoloska\Stomatoloska\Stomatoloska.Winforms\bin\Debug\Baza\StomatoloskaModel.Designer.cs

@@ -76,24 +76,6 @@ namespace Stomatoloska.Webforms {
         protected global::System.Web.UI.WebControls.DropDownList DropDownListKrajMinuta;
         
         /// <summary>
-        /// txtOdDana control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtOdDana;
-        
-        /// <summary>
-        /// CalendarExtender1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::AjaxControlToolkit.CalendarExtender CalendarExtender1;
-        
-        /// <summary>
         /// btnUnos control.
         /// </summary>
         /// <remarks>
@@ -110,15 +92,6 @@ namespace Stomatoloska.Webforms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlRadnoVrijeme;
-        
-        /// <summary>
-        /// CalendarRadnoVrijeme control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar CalendarRadnoVrijeme;
         
         /// <summary>
         /// tblRadnoVrijeme control.

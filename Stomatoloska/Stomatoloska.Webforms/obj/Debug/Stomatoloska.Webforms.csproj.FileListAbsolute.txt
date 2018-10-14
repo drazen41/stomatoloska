@@ -169,7 +169,6 @@ C:\Users\draze\source\repos\stomatoloska\Stomatoloska\Stomatoloska.Webforms\obj\
 C:\Users\draze\source\repos\stomatoloska\Stomatoloska\Stomatoloska.Webforms\obj\Debug\Stomatoloska.Webforms.pdb
 C:\Users\draze\source\repos\stomatoloska\Stomatoloska\Stomatoloska.Webforms\bin\Baza\StomatoloskaModel.Context.tt
 C:\Users\draze\source\repos\stomatoloska\Stomatoloska\Stomatoloska.Webforms\bin\Baza\StomatoloskaModel.tt
-C:\Users\draze\source\repos\stomatoloska\Stomatoloska\Stomatoloska.Webforms\bin\Baza\RadnoVrijeme.cs
 C:\Users\draze\source\repos\stomatoloska\Stomatoloska\Stomatoloska.Webforms\bin\Baza\StomatoloskaModel.Context.cs
 C:\Users\draze\source\repos\stomatoloska\Stomatoloska\Stomatoloska.Webforms\bin\Baza\StomatoloskaModel.cs
 C:\Users\draze\source\repos\stomatoloska\Stomatoloska\Stomatoloska.Webforms\bin\Baza\StomatoloskaModel.Designer.cs

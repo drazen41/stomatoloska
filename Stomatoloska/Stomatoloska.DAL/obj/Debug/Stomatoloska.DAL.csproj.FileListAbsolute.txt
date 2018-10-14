@@ -19,12 +19,11 @@ C:\Users\draze\source\repos\stomatoloska\Stomatoloska\Stomatoloska.DAL\obj\Debug
 C:\Users\draze\source\repos\stomatoloska\Stomatoloska\Stomatoloska.DAL\obj\Debug\Stomatoloska.DAL.csproj.CopyComplete
 C:\Users\draze\source\repos\stomatoloska\Stomatoloska\Stomatoloska.DAL\obj\Debug\Stomatoloska.DAL.dll
 C:\Users\draze\source\repos\stomatoloska\Stomatoloska\Stomatoloska.DAL\obj\Debug\Stomatoloska.DAL.pdb
-C:\Users\draze\source\repos\stomatoloska\Stomatoloska\Stomatoloska.DAL\obj\Debug\Stomatoloska.DAL.csprojAssemblyReference.cache
 C:\Users\draze\source\repos\stomatoloska\Stomatoloska\Stomatoloska.DAL\bin\Debug\Baza\StomatoloskaModel.Context.tt
 C:\Users\draze\source\repos\stomatoloska\Stomatoloska\Stomatoloska.DAL\bin\Debug\Baza\StomatoloskaModel.tt
-C:\Users\draze\source\repos\stomatoloska\Stomatoloska\Stomatoloska.DAL\bin\Debug\Baza\RadnoVrijeme.cs
 C:\Users\draze\source\repos\stomatoloska\Stomatoloska\Stomatoloska.DAL\bin\Debug\Baza\StomatoloskaModel.Context.cs
 C:\Users\draze\source\repos\stomatoloska\Stomatoloska\Stomatoloska.DAL\bin\Debug\Baza\StomatoloskaModel.cs
 C:\Users\draze\source\repos\stomatoloska\Stomatoloska\Stomatoloska.DAL\bin\Debug\Baza\StomatoloskaModel.Designer.cs
 C:\Users\draze\source\repos\stomatoloska\Stomatoloska\Stomatoloska.DAL\bin\Debug\Baza\Zahvat.cs
 C:\Users\draze\source\repos\stomatoloska\Stomatoloska\Stomatoloska.DAL\bin\Debug\Baza\StomatoloskaModel.edmx.diagram
+C:\Users\draze\Source\Repos\stomatoloska\Stomatoloska\Stomatoloska.DAL\obj\Debug\Stomatoloska.DAL.csprojAssemblyReference.cache

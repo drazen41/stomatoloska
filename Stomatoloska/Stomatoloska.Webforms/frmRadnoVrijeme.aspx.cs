@@ -18,14 +18,14 @@ namespace Stomatoloska.Webforms
            if (!Page.IsPostBack)
             {
                 Inicijalizacija();
-                PrikaziRadnoVrijeme(DateTime.Now);
+                PrikaziRadnoVrijeme();
             }
             
         }
 
-        private void PrikaziRadnoVrijeme(DateTime datum)
+        private void PrikaziRadnoVrijeme()
         {
-            List<RadnoVrijeme> dani = radnoVrijemeBLL.PribaviVremenaOdDatuma(datum);
+            List<RadnoVrijeme> dani = radnoVrijemeBLL.PribaviRadnaVremena();
             foreach (var dan in dani)
             {
                 string radnoVrijeme = dan.pocetak.ToString(@"hh\:mm") + "-" + dan.kraj.ToString(@"hh\:mm");
@@ -81,14 +81,15 @@ namespace Stomatoloska.Webforms
                     radnoVrijeme.dcr = DateTime.Now;
                     radnoVrijeme.kraj = new TimeSpan(Convert.ToInt32(DropDownListKrajSat.SelectedValue), Convert.ToInt32(DropDownListKrajMinuta.SelectedValue), 0);
                     radnoVrijeme.pocetak = new TimeSpan(Convert.ToInt32(DropDownListPocetakSat.SelectedValue), Convert.ToInt32(DropDownListPocetakMinuta.SelectedValue), 0);
-                    radnoVrijeme.od_dana = DateTime.ParseExact(txtOdDana.Text, "dd.MM.yyyy", null);
                     radnoVrijeme.radni_dan = dan.Value;
                     vremena.Add(radnoVrijeme);
                 }
 
             }
             radnoVrijemeBLL.UnesiRadnaVremena(vremena);
-            
+            PrikaziRadnoVrijeme();
         }
+
+        
     }
 }

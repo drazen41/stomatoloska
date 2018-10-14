@@ -25,7 +25,7 @@ namespace Stomatoloska.DAL.Baza
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<RadnoVrijeme> tRadnoVrijeme { get; set; }
         public virtual DbSet<Zahvat> tZahvat { get; set; }
+        public virtual DbSet<RadnoVrijeme> tRadnoVrijeme { get; set; }
     }
 }
