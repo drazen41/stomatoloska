@@ -22,3 +22,16 @@ C:\Users\draze\Source\Repos\stomatoloska\Stomatoloska\Stomatoloska.BLL\bin\Debug
 C:\Users\draze\Source\Repos\stomatoloska\Stomatoloska\Stomatoloska.BLL\bin\Debug\Stomatoloska.DAL.dll.config
 C:\Users\draze\Source\Repos\stomatoloska\Stomatoloska\Stomatoloska.BLL\bin\Debug\EntityFramework.xml
 C:\Users\draze\Source\Repos\stomatoloska\Stomatoloska\Stomatoloska.BLL\obj\Debug\Stomatoloska.BLL.csproj.CopyComplete
+D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.BLL\bin\Debug\Baza\StomatoloskaModel.Context.tt
+D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.BLL\bin\Debug\Baza\StomatoloskaModel.tt
+D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.BLL\bin\Debug\Baza\StomatoloskaModel.Context.cs
+D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.BLL\bin\Debug\Baza\StomatoloskaModel.cs
+D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.BLL\bin\Debug\Baza\StomatoloskaModel.Designer.cs
+D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.BLL\bin\Debug\Baza\Zahvat.cs
+D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.BLL\bin\Debug\Baza\StomatoloskaModel.edmx.diagram
+D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.BLL\bin\Debug\Stomatoloska.DAL.dll
+D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.BLL\bin\Debug\EntityFramework.dll
+D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.BLL\bin\Debug\Stomatoloska.DAL.pdb
+D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.BLL\bin\Debug\Stomatoloska.DAL.dll.config
+D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.BLL\bin\Debug\EntityFramework.xml
+D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.BLL\obj\Debug\Stomatoloska.BLL.csprojResolveAssemblyReference.cache

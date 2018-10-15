@@ -24,7 +24,7 @@
         <asp:DropDownList ID="DropDownListKrajMinuta" runat="server"></asp:DropDownList>
                                     
                                     <br /><br />
-<asp:Button Text="Unesi radno vrijeme" ID="btnUnos" runat="server" OnClick="btnUnos_Click" />
+<asp:Button Text="Unesi radno vrijeme" ID="btnUnos" runat="server" OnClick="btnUnos_Click" CssClass="btn btn-primary" />
 
 
     </asp:Panel>

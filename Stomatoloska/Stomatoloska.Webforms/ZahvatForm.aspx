@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ZahvatForm.aspx.cs" Inherits="Stomatoloska.Webforms.ZahtvatForm" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="act" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <asp:UpdatePanel ID="UpdatePanel1" runat="server" UpdateMode="Always" >
         <ContentTemplate>
@@ -11,14 +12,15 @@
             Cijena:&nbsp;&nbsp;
                  <asp:TextBox runat="server" ID="txtCijena"></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorCijena" runat="server" ErrorMessage="Cijena je obavezna" ControlToValidate="txtCijena" ForeColor="Red">*</asp:RequiredFieldValidator>
-                <asp:CustomValidator ID="CustomValidatorCijena" runat="server" ErrorMessage="Cijena je u formatu X,XX" OnServerValidate="CustomValidatorCijena_ServerValidate" ControlToValidate="txtCijena" ForeColor="Red">*</asp:CustomValidator>
+                <asp:CustomValidator ID="CustomValidatorCijena" runat="server" ErrorMessage="Cijena je u formatu X.XXX,XX" OnServerValidate="CustomValidatorCijena_ServerValidate" ControlToValidate="txtCijena" ForeColor="Red">*</asp:CustomValidator>
                 <br />
             Potrebno vrijeme:&nbsp;&nbsp;<asp:DropDownList runat="server" ID="ddlVrijeme">
                 <asp:ListItem Text="30 minuta" Value="30"></asp:ListItem>
                 <asp:ListItem Text="60 minuta" Value="60"></asp:ListItem>
                 <asp:ListItem Text="120 minuta" Value="120"></asp:ListItem>
                                          </asp:DropDownList><br /><br />
-                            <asp:Button runat="server" ID="btnUnos" Text="Unesi zahvat" OnClick="btnUnos_Click" />&nbsp;&nbsp;<asp:Button ID="btnCancel" runat="server" visible="false" OnClick="btnCancel_Click" Text="Odustani" />
+                            <asp:Button runat="server" ID="btnUnos" Text="Unesi zahvat" OnClick="btnUnos_Click" CssClass="btn btn-primary" />&nbsp;&nbsp;
+                <asp:Button ID="btnCancel" runat="server" visible="false" OnClick="btnCancel_Click" Text="Odustani" CssClass="btn" />
                 <asp:ValidationSummary ID="ValidationSummaryZahvat" runat="server" ForeColor="Red" />
             </asp:Panel>
 <asp:Panel runat="server" GroupingText="Pregled zahvata">

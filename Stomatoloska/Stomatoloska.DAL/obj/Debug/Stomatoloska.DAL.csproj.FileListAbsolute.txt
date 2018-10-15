@@ -27,3 +27,10 @@ C:\Users\draze\source\repos\stomatoloska\Stomatoloska\Stomatoloska.DAL\bin\Debug
 C:\Users\draze\source\repos\stomatoloska\Stomatoloska\Stomatoloska.DAL\bin\Debug\Baza\Zahvat.cs
 C:\Users\draze\source\repos\stomatoloska\Stomatoloska\Stomatoloska.DAL\bin\Debug\Baza\StomatoloskaModel.edmx.diagram
 C:\Users\draze\Source\Repos\stomatoloska\Stomatoloska\Stomatoloska.DAL\obj\Debug\Stomatoloska.DAL.csprojAssemblyReference.cache
+D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.DAL\bin\Debug\Baza\StomatoloskaModel.Context.tt
+D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.DAL\bin\Debug\Baza\StomatoloskaModel.tt
+D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.DAL\bin\Debug\Baza\StomatoloskaModel.Context.cs
+D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.DAL\bin\Debug\Baza\StomatoloskaModel.cs
+D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.DAL\bin\Debug\Baza\StomatoloskaModel.Designer.cs
+D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.DAL\bin\Debug\Baza\Zahvat.cs
+D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.DAL\bin\Debug\Baza\StomatoloskaModel.edmx.diagram
