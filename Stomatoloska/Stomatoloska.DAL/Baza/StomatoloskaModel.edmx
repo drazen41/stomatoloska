@@ -5,6 +5,17 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="stomatoloskaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tNarudzba">
+          <Key>
+            <PropertyRef Name="narudzba_id" />
+          </Key>
+          <Property Name="narudzba_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="termin" Type="datetime" Nullable="false" />
+          <Property Name="status" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="pacijent_id" Type="int" Nullable="false" />
+          <Property Name="sifra" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="dcr" Type="datetime" Nullable="false" />
+        </EntityType>
         <EntityType Name="tPacijent">
           <Key>
             <PropertyRef Name="pacijent_id" />
@@ -36,10 +47,43 @@
           <Property Name="trajanje_minuta" Type="int" Nullable="false" />
           <Property Name="dcr" Type="datetime" Nullable="false" />
         </EntityType>
+        <Association Name="FK_tNarudzba_tPacijent">
+          <End Role="tPacijent" Type="Self.tPacijent" Multiplicity="1" />
+          <End Role="tNarudzba" Type="Self.tNarudzba" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tPacijent">
+              <PropertyRef Name="pacijent_id" />
+            </Principal>
+            <Dependent Role="tNarudzba">
+              <PropertyRef Name="pacijent_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tNarudzba_tZahvat">
+          <End Role="tZahvat" Type="Self.tZahvat" Multiplicity="1" />
+          <End Role="tNarudzba" Type="Self.tNarudzba" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tZahvat">
+              <PropertyRef Name="sifra" />
+            </Principal>
+            <Dependent Role="tNarudzba">
+              <PropertyRef Name="sifra" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="stomatoloskaModelStoreContainer">
+          <EntitySet Name="tNarudzba" EntityType="Self.tNarudzba" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tPacijent" EntityType="Self.tPacijent" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tRadnoVrijeme" EntityType="Self.tRadnoVrijeme" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tZahvat" EntityType="Self.tZahvat" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_tNarudzba_tPacijent" Association="Self.FK_tNarudzba_tPacijent">
+            <End Role="tPacijent" EntitySet="tPacijent" />
+            <End Role="tNarudzba" EntitySet="tNarudzba" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tNarudzba_tZahvat" Association="Self.FK_tNarudzba_tZahvat">
+            <End Role="tZahvat" EntitySet="tZahvat" />
+            <End Role="tNarudzba" EntitySet="tNarudzba" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -49,6 +93,15 @@
           <EntitySet Name="tRadnoVrijeme" EntityType="stomatoloskaModel.RadnoVrijeme" />
           <EntitySet Name="tZahvat" EntityType="stomatoloskaModel.Zahvat" />
           <EntitySet Name="tPacijent" EntityType="stomatoloskaModel.Pacijent" />
+          <EntitySet Name="tNarudzba" EntityType="stomatoloskaModel.Narudzba" />
+          <AssociationSet Name="FK_tNarudzba_tPacijent" Association="stomatoloskaModel.FK_tNarudzba_tPacijent">
+            <End Role="Pacijent" EntitySet="tPacijent" />
+            <End Role="tNarudzba" EntitySet="tNarudzba" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tNarudzba_tZahvat" Association="stomatoloskaModel.FK_tNarudzba_tZahvat">
+            <End Role="Zahvat" EntitySet="tZahvat" />
+            <End Role="tNarudzba" EntitySet="tNarudzba" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="RadnoVrijeme">
           <Key>
@@ -69,6 +122,7 @@
           <Property Name="cijena" Type="Decimal" Nullable="false" Precision="9" Scale="2" />
           <Property Name="trajanje_minuta" Type="Int32" Nullable="false" />
           <Property Name="dcr" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="tNarudzba" Relationship="stomatoloskaModel.FK_tNarudzba_tZahvat" FromRole="Zahvat" ToRole="tNarudzba" />
         </EntityType>
         <EntityType Name="Pacijent">
           <Key>
@@ -80,7 +134,45 @@
           <Property Name="datum_rodjenja" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="telefon" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="adresa" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tNarudzba" Relationship="stomatoloskaModel.FK_tNarudzba_tPacijent" FromRole="Pacijent" ToRole="tNarudzba" />
         </EntityType>
+        <EntityType Name="Narudzba">
+          <Key>
+            <PropertyRef Name="narudzba_id" />
+          </Key>
+          <Property Name="narudzba_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="termin" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="status" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="pacijent_id" Type="Int32" Nullable="false" />
+          <Property Name="sifra" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="dcr" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="Pacijent" Relationship="stomatoloskaModel.FK_tNarudzba_tPacijent" FromRole="tNarudzba" ToRole="Pacijent" />
+          <NavigationProperty Name="Zahvat" Relationship="stomatoloskaModel.FK_tNarudzba_tZahvat" FromRole="tNarudzba" ToRole="Zahvat" />
+        </EntityType>
+        <Association Name="FK_tNarudzba_tPacijent">
+          <End Type="stomatoloskaModel.Pacijent" Role="Pacijent" Multiplicity="1" />
+          <End Type="stomatoloskaModel.Narudzba" Role="tNarudzba" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Pacijent">
+              <PropertyRef Name="pacijent_id" />
+            </Principal>
+            <Dependent Role="tNarudzba">
+              <PropertyRef Name="pacijent_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tNarudzba_tZahvat">
+          <End Type="stomatoloskaModel.Zahvat" Role="Zahvat" Multiplicity="1" />
+          <End Type="stomatoloskaModel.Narudzba" Role="tNarudzba" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zahvat">
+              <PropertyRef Name="sifra" />
+            </Principal>
+            <Dependent Role="tNarudzba">
+              <PropertyRef Name="sifra" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -118,6 +210,18 @@
                 <ScalarProperty Name="ime" ColumnName="ime" />
                 <ScalarProperty Name="prezime" ColumnName="prezime" />
                 <ScalarProperty Name="pacijent_id" ColumnName="pacijent_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tNarudzba">
+            <EntityTypeMapping TypeName="stomatoloskaModel.Narudzba">
+              <MappingFragment StoreEntitySet="tNarudzba">
+                <ScalarProperty Name="dcr" ColumnName="dcr" />
+                <ScalarProperty Name="sifra" ColumnName="sifra" />
+                <ScalarProperty Name="pacijent_id" ColumnName="pacijent_id" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="termin" ColumnName="termin" />
+                <ScalarProperty Name="narudzba_id" ColumnName="narudzba_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

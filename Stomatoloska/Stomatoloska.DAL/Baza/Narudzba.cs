@@ -12,21 +12,16 @@ namespace Stomatoloska.DAL.Baza
     using System;
     using System.Collections.Generic;
     
-    public partial class Zahvat
+    public partial class Narudzba
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Zahvat()
-        {
-            this.tNarudzba = new HashSet<Narudzba>();
-        }
-    
+        public int narudzba_id { get; set; }
+        public System.DateTime termin { get; set; }
+        public string status { get; set; }
+        public int pacijent_id { get; set; }
         public string sifra { get; set; }
-        public string naziv { get; set; }
-        public decimal cijena { get; set; }
-        public int trajanje_minuta { get; set; }
         public System.DateTime dcr { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Narudzba> tNarudzba { get; set; }
+        public virtual Pacijent Pacijent { get; set; }
+        public virtual Zahvat Zahvat { get; set; }
     }
 }

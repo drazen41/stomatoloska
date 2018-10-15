@@ -22,7 +22,7 @@ namespace Stomatoloska.Webforms
                 {
                     ddlZahvati.Items.Add(new ListItem { Text = zahvat.naziv, Value = zahvat.sifra });
                 }
-                var pacijenti = pacijentBLL.PribaviPacijente();
+                var pacijenti = pacijentBLL.PribaviPacijente().OrderBy(x=>x.prezime);
                 foreach (var pacijent in pacijenti)
                 {
                     lbPacijenti.Items.Add(new ListItem

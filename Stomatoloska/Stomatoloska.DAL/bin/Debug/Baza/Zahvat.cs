@@ -14,10 +14,19 @@ namespace Stomatoloska.DAL.Baza
     
     public partial class Zahvat
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Zahvat()
+        {
+            this.tNarudzba = new HashSet<Narudzba>();
+        }
+    
         public string sifra { get; set; }
         public string naziv { get; set; }
         public decimal cijena { get; set; }
         public int trajanje_minuta { get; set; }
         public System.DateTime dcr { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Narudzba> tNarudzba { get; set; }
     }
 }
