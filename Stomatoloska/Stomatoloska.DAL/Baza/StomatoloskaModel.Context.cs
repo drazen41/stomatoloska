@@ -27,5 +27,6 @@ namespace Stomatoloska.DAL.Baza
     
         public virtual DbSet<RadnoVrijeme> tRadnoVrijeme { get; set; }
         public virtual DbSet<Zahvat> tZahvat { get; set; }
+        public virtual DbSet<Pacijent> tPacijent { get; set; }
     }
 }

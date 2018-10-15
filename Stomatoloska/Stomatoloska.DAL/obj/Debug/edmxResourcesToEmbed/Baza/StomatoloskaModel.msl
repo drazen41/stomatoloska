@@ -4,23 +4,34 @@
     <EntitySetMapping Name="tRadnoVrijeme">
       <EntityTypeMapping TypeName="stomatoloskaModel.RadnoVrijeme">
         <MappingFragment StoreEntitySet="tRadnoVrijeme">
-          <ScalarProperty Name="radno_vrijeme_id" ColumnName="radno_vrijeme_id" />
-          <ScalarProperty Name="radni_dan" ColumnName="radni_dan" />
-          <ScalarProperty Name="od_dana" ColumnName="od_dana" />
-          <ScalarProperty Name="pocetak" ColumnName="pocetak" />
-          <ScalarProperty Name="kraj" ColumnName="kraj" />
           <ScalarProperty Name="dcr" ColumnName="dcr" />
+          <ScalarProperty Name="kraj" ColumnName="kraj" />
+          <ScalarProperty Name="pocetak" ColumnName="pocetak" />
+          <ScalarProperty Name="radni_dan" ColumnName="radni_dan" />
+          <ScalarProperty Name="radno_vrijeme_id" ColumnName="radno_vrijeme_id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
     <EntitySetMapping Name="tZahvat">
       <EntityTypeMapping TypeName="stomatoloskaModel.Zahvat">
         <MappingFragment StoreEntitySet="tZahvat">
-          <ScalarProperty Name="sifra" ColumnName="sifra" />
-          <ScalarProperty Name="naziv" ColumnName="naziv" />
-          <ScalarProperty Name="cijena" ColumnName="cijena" />
-          <ScalarProperty Name="trajanje_minuta" ColumnName="trajanje_minuta" />
           <ScalarProperty Name="dcr" ColumnName="dcr" />
+          <ScalarProperty Name="trajanje_minuta" ColumnName="trajanje_minuta" />
+          <ScalarProperty Name="cijena" ColumnName="cijena" />
+          <ScalarProperty Name="naziv" ColumnName="naziv" />
+          <ScalarProperty Name="sifra" ColumnName="sifra" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tPacijent">
+      <EntityTypeMapping TypeName="stomatoloskaModel.Pacijent">
+        <MappingFragment StoreEntitySet="tPacijent">
+          <ScalarProperty Name="adresa" ColumnName="adresa" />
+          <ScalarProperty Name="telefon" ColumnName="telefon" />
+          <ScalarProperty Name="datum_rodjenja" ColumnName="datum_rodjenja" />
+          <ScalarProperty Name="ime" ColumnName="ime" />
+          <ScalarProperty Name="prezime" ColumnName="prezime" />
+          <ScalarProperty Name="pacijent_id" ColumnName="pacijent_id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

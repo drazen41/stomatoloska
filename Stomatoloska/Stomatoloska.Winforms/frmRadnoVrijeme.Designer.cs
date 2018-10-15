@@ -28,30 +28,47 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.components = new System.ComponentModel.Container();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.radni_dan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.radno_vrijeme_id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.od_dana = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pocetak = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.kraj = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.bindingSource2 = new System.Windows.Forms.BindingSource(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource2)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dataGridView2
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.radni_dan,
+            this.radno_vrijeme_id,
+            this.od_dana,
             this.pocetak,
             this.kraj});
-            this.dataGridView1.Location = new System.Drawing.Point(30, 59);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(573, 317);
-            this.dataGridView1.TabIndex = 1;
+            this.dataGridView2.Location = new System.Drawing.Point(28, 149);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(439, 150);
+            this.dataGridView2.TabIndex = 0;
             // 
             // radni_dan
             // 
             this.radni_dan.HeaderText = "Radni dan";
             this.radni_dan.Name = "radni_dan";
+            // 
+            // radno_vrijeme_id
+            // 
+            this.radno_vrijeme_id.HeaderText = "radno_vrijeme_id";
+            this.radno_vrijeme_id.Name = "radno_vrijeme_id";
+            this.radno_vrijeme_id.Visible = false;
+            // 
+            // od_dana
+            // 
+            this.od_dana.HeaderText = "Od dana";
+            this.od_dana.Name = "od_dana";
             // 
             // pocetak
             // 
@@ -65,22 +82,27 @@
             // 
             // frmRadnoVrijeme
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1207, 1045);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(905, 849);
+            this.Controls.Add(this.dataGridView2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmRadnoVrijeme";
             this.Text = "frmRadnoVrijeme";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bindingSource2)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.DataGridViewTextBoxColumn radni_dan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn radno_vrijeme_id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn od_dana;
         private System.Windows.Forms.DataGridViewTextBoxColumn pocetak;
         private System.Windows.Forms.DataGridViewTextBoxColumn kraj;
+        private System.Windows.Forms.BindingSource bindingSource2;
     }
 }

@@ -16,7 +16,6 @@ namespace Stomatoloska.DAL.Baza
     {
         public int radno_vrijeme_id { get; set; }
         public string radni_dan { get; set; }
-        public System.DateTime od_dana { get; set; }
         public System.TimeSpan pocetak { get; set; }
         public System.TimeSpan kraj { get; set; }
         public System.DateTime dcr { get; set; }

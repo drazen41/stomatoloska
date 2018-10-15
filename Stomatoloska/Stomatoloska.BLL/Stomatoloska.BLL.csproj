@@ -41,12 +41,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Pacijent.cs" />
+    <Compile Include="PacijentBLL.cs" />
     <Compile Include="Narudzba.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RadnoVrijeme.cs" />
+    <Compile Include="RadnoVrijemeBLL.cs" />
     <Compile Include="TerminStatus.cs" />
-    <Compile Include="Zahtjev.cs" />
+    <Compile Include="ZahvatBLL.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Stomatoloska.DAL\Stomatoloska.DAL.csproj">
+      <Project>{b6ef7a58-6e74-48e6-b357-0418f0689ab8}</Project>
+      <Name>Stomatoloska.DAL</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

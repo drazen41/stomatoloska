@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,10 +14,13 @@ namespace Stomatoloska.DAL.Repository
             : base(db)
         {          
         }
-        public List<RadnoVrijeme> PribaviAktivnaRadnaVremena(DateTime datum)
+        public List<RadnoVrijeme> PribaviRadnaVremenaManjaJednakaOdDatuma(DateTime datum)
         {
             var sql = "select * FROM tRadnoVrijeme where radno_vrijeme_id IN ( select MAX(radno_vrijeme_id) rv_id  FROM tRadnoVrijeme where od_dana <= @datum group by radni_dan )";
-            return base.GetWithRawSql(sql, datum).ToList();
+            SqlParameter parameter = new SqlParameter("@datum", datum);
+            object[] parameters = new object[1];
+            parameters[0] = parameter;
+            return base.GetWithRawSql(sql, parameters).ToList();
             
         }
         

@@ -13,6 +13,15 @@ namespace Stomatoloska.DAL
         private stomatoloskaEntities context = new stomatoloskaEntities();
         private RadnoVrijemeRepo radnoVrijemeRepo;
         private StomatoloskaRepo<Zahvat> zahvatRepo;
+        private StomatoloskaRepo<Pacijent> pacijentRepo;
+        public StomatoloskaRepo<Pacijent> PacijentRepo
+        {
+            get
+            {
+                if (pacijentRepo == null) pacijentRepo = new StomatoloskaRepo<Pacijent>(context);
+                return pacijentRepo;
+            }
+        } 
         public RadnoVrijemeRepo RadnoVrijemeRepo
         {
             get
