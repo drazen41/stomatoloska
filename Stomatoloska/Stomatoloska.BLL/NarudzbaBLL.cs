@@ -72,5 +72,21 @@ namespace Stomatoloska.BLL
             }
             return eventi;
         }
+        public bool ProvjeriTerminPrijeUnosa(DateTime termin, int sifraZahvata)
+        {
+            bool ok = true;
+            var narudzba = uow.NarudzbaRepo.Get(x => x.termin > termin).OrderBy(x=>x.termin).FirstOrDefault();
+            if (narudzba != null)
+            {
+
+            }
+
+            return ok;
+        }
+        public void UnesiNarudzbu(Narudzba narudzba)
+        {
+            uow.NarudzbaRepo.Insert(narudzba);
+            uow.Spremi();
+        }
     }
 }

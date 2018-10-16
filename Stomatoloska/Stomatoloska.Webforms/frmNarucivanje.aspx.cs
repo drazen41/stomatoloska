@@ -44,8 +44,13 @@ namespace Stomatoloska.Webforms
         protected void calNarucivanje_SelectionChanged(object sender, EventArgs e)
         {
             List<Narudzba> narudzbe = null;
+            PribaviPodatkeZaKalendar();
+            PrikaziRezerviraneTermine(narudzbe);
+        }
+        private void PribaviPodatkeZaKalendar()
+        {
             if (calNarucivanje.SelectedDates.Count > 1)
-            {             
+            {
                 var start = calNarucivanje.SelectedDates[0].Date;
                 var end = calNarucivanje.SelectedDates[4].Date;
                 DayPilotCalendar.ViewType = DayPilot.Web.Ui.Enums.Calendar.ViewTypeEnum.WorkWeek;
@@ -60,9 +65,7 @@ namespace Stomatoloska.Webforms
                 DayPilotCalendar.DataSource = narudzbaBLL.PribaviPodatkeZaKalendar(calNarucivanje.SelectedDate);
                 DayPilotCalendar.DataBind();
             }
-            PrikaziRezerviraneTermine(narudzbe);
         }
-
         private void PrikaziRezerviraneTermine(List<Narudzba> narudzbe)
         {
             var radnaVremena = radnoVrijemeBLL.PribaviRadnaVremena();
@@ -87,7 +90,7 @@ namespace Stomatoloska.Webforms
             TextBoxEditName.Text = e.Text;
             TextBoxEditStart.Text = e.Start.ToString("M/d/yyyy HH:mm");
             TextBoxEditEnd.Text = e.End.ToString("M/d/yyyy HH:mm");
-            HiddenEditId.Value = e.Value;
+            HiddenEditId.Value = e.Id;
 
             UpdatePanelEdit.Update();
             ModalPopupEdit.Show();
@@ -115,15 +118,22 @@ namespace Stomatoloska.Webforms
         }
         protected void DayPilotCalendar_TimeRangeSelected(object sender, DayPilot.Web.Ui.Events.TimeRangeSelectedEventArgs e)
         {
+
             var datum = e.Start;
             //var radnoVrijeme = radnoVrijemeBLL.PribaviRadnaVremena().Where(x=>x.ra)
+            if (ddlZahvati.SelectedValue == "-1" || lbPacijenti.SelectedItem.Value == "-1")
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert", "alert('Odaberite pacijenta i zahvat.')", true);
+                return;
+            }
             var ok = radnoVrijemeBLL.ProvjeriRadnoVrijeme(datum);
-            if (!ok)
+            if (!ok )
             {
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert", "alert('Neradno vrijeme.')", true);
                 return;
             }
-            TextBoxCreateName.Text = ddlZahvati.SelectedValue;
+
+            TextBoxCreateName.Text = ddlZahvati.SelectedItem.Text ;
             TextBoxCreateStart.Text = e.Start.ToString("dd.MM.yyyy HH:mm");
             TextBoxCreateEnd.Text = e.End.ToString("dd.MM.yyyy HH:mm");
 
@@ -133,17 +143,26 @@ namespace Stomatoloska.Webforms
         protected void ButtonCreateSave_Click(object sender, EventArgs e)
         {
 
-            DateTime start = DateTime.ParseExact(TextBoxCreateStart.Text, "M/d/yyyy HH:mm", Thread.CurrentThread.CurrentCulture);
-            DateTime end = DateTime.ParseExact(TextBoxCreateEnd.Text, "M/d/yyyy HH:mm", Thread.CurrentThread.CurrentCulture);
+            DateTime start = DateTime.ParseExact(TextBoxCreateStart.Text, "dd.MM.yyyy HH:mm", Thread.CurrentThread.CurrentCulture);
+            DateTime end = DateTime.ParseExact(TextBoxCreateEnd.Text, "dd.MM.yyyy HH:mm", Thread.CurrentThread.CurrentCulture);
             string name = TextBoxCreateName.Text;
 
             //DbInsertEvent(start, end, name);
-
+            Narudzba narudzba = new Narudzba();
+            narudzba.dcr = DateTime.Now;
+            narudzba.pacijent_id = Int32.Parse(lbPacijenti.SelectedValue);
+            narudzba.sifra = ddlZahvati.SelectedValue;
+            narudzba.termin = start;
+            NarudzbaBLL.Status status = NarudzbaBLL.Status.Kreirana;
+            narudzba.status = status.ToString();
+            narudzbaBLL.UnesiNarudzbu(narudzba);
+            
             ModalPopupCreate.Hide();
 
             //DayPilotCalendarWeek.DataSource = DbSelectEvents(DayPilotCalendarWeek.StartDate, DayPilotCalendarWeek.EndDate.AddDays(1));
             //DayPilotCalendarWeek.DataBind();
-            UpdatePanel1.Update();
+            PribaviPodatkeZaKalendar();
+            //UpdatePanel1.Update();
         }
 
         protected void ButtonCreateCancel_Click(object sender, EventArgs e)

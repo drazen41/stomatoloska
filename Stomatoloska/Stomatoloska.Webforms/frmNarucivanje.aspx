@@ -7,6 +7,7 @@
             <asp:Panel ID="pnlNarucivanje" runat="server" GroupingText="Naručivanje pacijenta">
                 Odabir pacijenta:<br />
                 <asp:ListBox ID="lbPacijenti" runat="server" Rows="10" Width="350px"></asp:ListBox> <br /><br />
+                <asp:HiddenField ID="HiddenFieldPacijent" runat="server" />
                 Odabir zahvata: &nbsp;&nbsp;<asp:DropDownList ID="ddlZahvati" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlZahvati_SelectedIndexChanged" > 
                          </asp:DropDownList>&nbsp;&nbsp;
             Cijena zahvata:&nbsp;&nbsp;<asp:Label ID="lblCijenaZahvata" runat="server" ></asp:Label>&nbsp;&nbsp;&nbsp;&nbsp;Trajanje: &nbsp;&nbsp;<asp:Label ID="lblTrajanjeZahvata" runat="server" ></asp:Label> <br /><br />
