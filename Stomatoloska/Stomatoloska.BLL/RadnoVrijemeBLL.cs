@@ -50,5 +50,49 @@ namespace Stomatoloska.BLL
         {
            return uow.RadnoVrijemeRepo.Get().ToList();
         }
+        public string RadniDanZaDatum(DateTime datum)
+        {
+            var dan = datum.DayOfWeek;
+            string danBaza = "";
+            switch (dan)
+            {
+                case DayOfWeek.Sunday:
+                    danBaza = "nedjelja";
+                    break;
+                case DayOfWeek.Monday:
+                    danBaza = "ponedjeljak";
+                    break;
+                case DayOfWeek.Tuesday:
+                    danBaza = "utorak";
+                    break;
+                case DayOfWeek.Wednesday:
+                    danBaza = "srijeda";
+                    break;
+                case DayOfWeek.Thursday:
+                    danBaza = "četvrtak";
+                    break;
+                case DayOfWeek.Friday:
+                    danBaza = "petak";
+                    break;
+                case DayOfWeek.Saturday:
+                    danBaza = "subota";
+                    break;
+                default:
+                    break;
+            }
+            return danBaza;
+        }
+        public RadnoVrijeme PribaviRadnoVrijemeZaDatum(DateTime datum)
+        {
+            var radniDan = RadniDanZaDatum(datum);
+
+            return uow.RadnoVrijemeRepo.Get(x => x.radni_dan == radniDan).FirstOrDefault();
+        }
+        public bool ProvjeriRadnoVrijeme(DateTime datum)
+        {
+            var radnoVrijeme = PribaviRadnoVrijemeZaDatum(datum);
+            return  (datum.TimeOfDay >= radnoVrijeme.pocetak && datum.TimeOfDay <= radnoVrijeme.kraj); 
+            
+        }
     }
 }

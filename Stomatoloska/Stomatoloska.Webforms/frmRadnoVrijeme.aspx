@@ -8,7 +8,7 @@
                                 <asp:Panel ID="pnlAzuriranje" runat="server" Width="50%" GroupingText="Unos radnog vremena">
         <br />
         Radni dani
-        <asp:CheckBoxList ID="CheckBoxListRadniDan" runat="server" RepeatDirection="Horizontal">
+        <asp:CheckBoxList ID="CheckBoxListRadniDan" runat="server" RepeatDirection="Horizontal" CellPadding="5" CellSpacing="2">
             <asp:ListItem>ponedjeljak</asp:ListItem>
             <asp:ListItem>utorak</asp:ListItem>
             <asp:ListItem>srijeda</asp:ListItem>
@@ -24,7 +24,7 @@
         <asp:DropDownList ID="DropDownListKrajMinuta" runat="server"></asp:DropDownList>
                                     
                                     <br /><br />
-<asp:Button Text="Unesi radno vrijeme" ID="btnUnos" runat="server" OnClick="btnUnos_Click" />
+<asp:Button Text="Unesi radno vrijeme" ID="btnUnos" runat="server" OnClick="btnUnos_Click" CssClass="btn btn-primary" />
 
 
     </asp:Panel>

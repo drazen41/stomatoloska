@@ -16,6 +16,7 @@ namespace Stomatoloska.Webforms
             // Code that runs on application startup
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("MzQ2NTdAMzEzNjJlMzMyZTMwQWpRbUFDRUp2VXIwSVFJNk9RNFNvVW1QNTdNcG5DRDlGMHp2MmdKNnllOD0=");
         }
     }
 }

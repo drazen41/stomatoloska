@@ -35,5 +35,17 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="tNarudzba">
+      <EntityTypeMapping TypeName="stomatoloskaModel.Narudzba">
+        <MappingFragment StoreEntitySet="tNarudzba">
+          <ScalarProperty Name="dcr" ColumnName="dcr" />
+          <ScalarProperty Name="sifra" ColumnName="sifra" />
+          <ScalarProperty Name="pacijent_id" ColumnName="pacijent_id" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="termin" ColumnName="termin" />
+          <ScalarProperty Name="narudzba_id" ColumnName="narudzba_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

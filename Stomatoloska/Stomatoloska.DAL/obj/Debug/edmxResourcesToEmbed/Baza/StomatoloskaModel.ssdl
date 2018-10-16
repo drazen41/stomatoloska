@@ -1,5 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="stomatoloskaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tNarudzba">
+    <Key>
+      <PropertyRef Name="narudzba_id" />
+    </Key>
+    <Property Name="narudzba_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="termin" Type="datetime" Nullable="false" />
+    <Property Name="status" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="pacijent_id" Type="int" Nullable="false" />
+    <Property Name="sifra" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="dcr" Type="datetime" Nullable="false" />
+  </EntityType>
   <EntityType Name="tPacijent">
     <Key>
       <PropertyRef Name="pacijent_id" />
@@ -31,9 +42,42 @@
     <Property Name="trajanje_minuta" Type="int" Nullable="false" />
     <Property Name="dcr" Type="datetime" Nullable="false" />
   </EntityType>
+  <Association Name="FK_tNarudzba_tPacijent">
+    <End Role="tPacijent" Type="Self.tPacijent" Multiplicity="1" />
+    <End Role="tNarudzba" Type="Self.tNarudzba" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tPacijent">
+        <PropertyRef Name="pacijent_id" />
+      </Principal>
+      <Dependent Role="tNarudzba">
+        <PropertyRef Name="pacijent_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tNarudzba_tZahvat">
+    <End Role="tZahvat" Type="Self.tZahvat" Multiplicity="1" />
+    <End Role="tNarudzba" Type="Self.tNarudzba" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tZahvat">
+        <PropertyRef Name="sifra" />
+      </Principal>
+      <Dependent Role="tNarudzba">
+        <PropertyRef Name="sifra" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="stomatoloskaModelStoreContainer">
+    <EntitySet Name="tNarudzba" EntityType="Self.tNarudzba" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tPacijent" EntityType="Self.tPacijent" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tRadnoVrijeme" EntityType="Self.tRadnoVrijeme" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tZahvat" EntityType="Self.tZahvat" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_tNarudzba_tPacijent" Association="Self.FK_tNarudzba_tPacijent">
+      <End Role="tPacijent" EntitySet="tPacijent" />
+      <End Role="tNarudzba" EntitySet="tNarudzba" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tNarudzba_tZahvat" Association="Self.FK_tNarudzba_tZahvat">
+      <End Role="tZahvat" EntitySet="tZahvat" />
+      <End Role="tNarudzba" EntitySet="tNarudzba" />
+    </AssociationSet>
   </EntityContainer>
 </Schema>

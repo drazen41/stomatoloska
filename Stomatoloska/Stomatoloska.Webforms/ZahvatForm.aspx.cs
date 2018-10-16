@@ -32,10 +32,20 @@ namespace Stomatoloska.Webforms
                 {
                     zahvatBll.AzurirajZahvat(zahvat);
                     gvZahvati.SelectedIndex = -1;
+                    btnCancel.Visible = false;
                 }
                 else
                 {
-                    zahvatBll.UnesiZahvat(zahvat);
+                    try
+                    {
+                        zahvatBll.UnesiZahvat(zahvat);
+                    }
+                    catch (Exception ex)
+                    {
+                        ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert", "alert('" + ex.Message + "')", true);
+                        
+                    }
+                   
                     
                 }
                 

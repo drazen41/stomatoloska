@@ -5,10 +5,13 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="706b1509add248d9a77d1444531bd437" Name="Diagram1">
-        <EntityTypeShape EntityType="stomatoloskaModel.RadnoVrijeme" Width="1.5" PointX="3.125" PointY="0.75" />
+        <EntityTypeShape EntityType="stomatoloskaModel.RadnoVrijeme" Width="1.5" PointX="7.25" PointY="0.75" />
         <EntityTypeShape EntityType="stomatoloskaModel.Zahvat" Width="1.5" PointX="0.75" PointY="0.75" />
         <EntityTypeShape EntityType="stomatoloskaModel.Pacijent" Width="1.5" PointX="0.75" PointY="3.75" />
-      </Diagram>
+        <EntityTypeShape EntityType="stomatoloskaModel.Narudzba" Width="1.5" PointX="3" PointY="2.125" />
+        <AssociationConnector Association="stomatoloskaModel.FK_tNarudzba_tPacijent" />
+        <AssociationConnector Association="stomatoloskaModel.FK_tNarudzba_tZahvat" />
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

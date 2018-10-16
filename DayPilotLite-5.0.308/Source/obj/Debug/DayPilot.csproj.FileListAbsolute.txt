@@ -1,0 +1,6 @@
+D:\Aplikacije\stomatoloska\DayPilotLite-5.0.308\Source\bin\Debug\DayPilot.dll
+D:\Aplikacije\stomatoloska\DayPilotLite-5.0.308\Source\bin\Debug\DayPilot.pdb
+D:\Aplikacije\stomatoloska\DayPilotLite-5.0.308\Source\obj\Debug\DayPilot.csprojResolveAssemblyReference.cache
+D:\Aplikacije\stomatoloska\DayPilotLite-5.0.308\Source\obj\Debug\DayPilot.csproj.CoreCompileInputs.cache
+D:\Aplikacije\stomatoloska\DayPilotLite-5.0.308\Source\obj\Debug\DayPilot.dll
+D:\Aplikacije\stomatoloska\DayPilotLite-5.0.308\Source\obj\Debug\DayPilot.pdb

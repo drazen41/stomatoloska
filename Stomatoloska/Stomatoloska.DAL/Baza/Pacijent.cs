@@ -14,11 +14,20 @@ namespace Stomatoloska.DAL.Baza
     
     public partial class Pacijent
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Pacijent()
+        {
+            this.tNarudzba = new HashSet<Narudzba>();
+        }
+    
         public int pacijent_id { get; set; }
         public string prezime { get; set; }
         public string ime { get; set; }
         public System.DateTime datum_rodjenja { get; set; }
         public string telefon { get; set; }
         public string adresa { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Narudzba> tNarudzba { get; set; }
     }
 }
