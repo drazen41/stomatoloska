@@ -49,10 +49,15 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Syncfusion.EJ, Version=15.2450.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\ASP.NET\16.3.0.21\precompiledassemblies\4.5.1\Syncfusion.EJ.dll</HintPath>
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\ASP.NET\16.3.0.21\precompiledassemblies\4.5\Syncfusion.EJ.dll</HintPath>
     </Reference>
-    <Reference Include="Syncfusion.EJ.Web">
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\ASP.NET\16.3.0.21\precompiledassemblies\4.5.1\Syncfusion.EJ.Web.dll</HintPath>
+    <Reference Include="Syncfusion.EJ.Web, Version=16.3451.0.21, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\ASP.NET\16.3.0.21\precompiledassemblies\4.5\Syncfusion.EJ.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Syncfusion.Licensing, Version=16.3451.0.21, Culture=neutral, PublicKeyToken=632609b4d040f6b4, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\ASP.NET\16.3.0.21\precompiledassemblies\4.5\Syncfusion.Licensing.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
@@ -185,7 +190,9 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Account\Web.config" />
+    <Content Include="NarucivanjeForm.aspx" />
     <Content Include="PacijentiForm.aspx" />
+    <Content Include="Scripts\daypilot-modal-2.7.js" />
     <Content Include="ZahvatForm.aspx" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="frmNarucivanje.aspx" />
@@ -368,6 +375,13 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="NarucivanjeForm.aspx.cs">
+      <DependentUpon>NarucivanjeForm.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NarucivanjeForm.aspx.designer.cs">
+      <DependentUpon>NarucivanjeForm.aspx</DependentUpon>
+    </Compile>
     <Compile Include="frmNarucivanje.aspx.cs">
       <DependentUpon>frmNarucivanje.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -426,6 +440,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\ej\common-images\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Stomatoloska.BLL\Stomatoloska.BLL.csproj">

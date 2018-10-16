@@ -20,7 +20,8 @@ namespace Stomatoloska.Webforms
                             "~/Scripts/WebForms/GridView.js",
                             "~/Scripts/WebForms/DetailsView.js",
                             "~/Scripts/WebForms/TreeView.js",
-                            "~/Scripts/WebForms/WebParts.js"));
+                            "~/Scripts/WebForms/WebParts.js",
+                            "~/Scripts/daypilot-modal-2.7.js"));
 
             // Order is very important for these files to work, they have explicit dependencies
             bundles.Add(new ScriptBundle("~/bundles/MsAjaxJs").Include(

@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Stomatoloska.BLL;
 using Stomatoloska.DAL.Baza;
+using System.Threading;
 
 namespace Stomatoloska.Webforms
 {
@@ -82,6 +83,72 @@ namespace Stomatoloska.Webforms
         protected void DayPilotCalendar_EventClick(object sender, DayPilot.Web.Ui.Events.EventClickEventArgs e)
         {
             var start = e.Start;
+            // populate the fields
+            TextBoxEditName.Text = e.Text;
+            TextBoxEditStart.Text = e.Start.ToString("M/d/yyyy HH:mm");
+            TextBoxEditEnd.Text = e.End.ToString("M/d/yyyy HH:mm");
+            HiddenEditId.Value = e.Value;
+
+            UpdatePanelEdit.Update();
+            ModalPopupEdit.Show();
+        }
+        protected void ButtonEditSave_Click(object sender, EventArgs e)
+        {
+            DateTime start = DateTime.ParseExact(TextBoxEditStart.Text, "M/d/yyyy HH:mm", Thread.CurrentThread.CurrentCulture);
+            DateTime end = DateTime.ParseExact(TextBoxEditEnd.Text, "M/d/yyyy HH:mm", Thread.CurrentThread.CurrentCulture);
+            string name = TextBoxEditName.Text;
+            string id = HiddenEditId.Value;
+
+            //DbUpdateEvent(id, start, end, name);
+
+            ModalPopupEdit.Hide();
+
+            //DayPilotCalendarWeek.DataSource = DbSelectEvents(DayPilotCalendarWeek.StartDate, DayPilotCalendarWeek.EndDate.AddDays(1));
+            //DayPilotCalendarWeek.DataBind();
+            UpdatePanel1.Update();
+
+        }
+
+        protected void ButtonEditCancel_Click(object sender, EventArgs e)
+        {
+            ModalPopupEdit.Hide();
+        }
+        protected void DayPilotCalendar_TimeRangeSelected(object sender, DayPilot.Web.Ui.Events.TimeRangeSelectedEventArgs e)
+        {
+            var datum = e.Start;
+            //var radnoVrijeme = radnoVrijemeBLL.PribaviRadnaVremena().Where(x=>x.ra)
+            var ok = radnoVrijemeBLL.ProvjeriRadnoVrijeme(datum);
+            if (!ok)
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert", "alert('Neradno vrijeme.')", true);
+                return;
+            }
+            TextBoxCreateName.Text = ddlZahvati.SelectedValue;
+            TextBoxCreateStart.Text = e.Start.ToString("dd.MM.yyyy HH:mm");
+            TextBoxCreateEnd.Text = e.End.ToString("dd.MM.yyyy HH:mm");
+
+            UpdatePanelCreate.Update();
+            ModalPopupCreate.Show();
+        }
+        protected void ButtonCreateSave_Click(object sender, EventArgs e)
+        {
+
+            DateTime start = DateTime.ParseExact(TextBoxCreateStart.Text, "M/d/yyyy HH:mm", Thread.CurrentThread.CurrentCulture);
+            DateTime end = DateTime.ParseExact(TextBoxCreateEnd.Text, "M/d/yyyy HH:mm", Thread.CurrentThread.CurrentCulture);
+            string name = TextBoxCreateName.Text;
+
+            //DbInsertEvent(start, end, name);
+
+            ModalPopupCreate.Hide();
+
+            //DayPilotCalendarWeek.DataSource = DbSelectEvents(DayPilotCalendarWeek.StartDate, DayPilotCalendarWeek.EndDate.AddDays(1));
+            //DayPilotCalendarWeek.DataBind();
+            UpdatePanel1.Update();
+        }
+
+        protected void ButtonCreateCancel_Click(object sender, EventArgs e)
+        {
+            ModalPopupCreate.Hide();
         }
     }
 }

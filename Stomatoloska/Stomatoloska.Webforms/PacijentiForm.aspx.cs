@@ -83,7 +83,7 @@ namespace Stomatoloska.Webforms
 
         protected void gvPacijenti_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            var test = "";
+            
             if (e.CommandName == "Obrisi")
             {
                 var pacijentId = int.Parse(e.CommandArgument.ToString());
