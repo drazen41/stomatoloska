@@ -183,3 +183,4 @@ D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.Webforms\bin\Baza\Stomatolo
 D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.Webforms\bin\Baza\Zahvat.cs
 D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.Webforms\bin\Baza\StomatoloskaModel.edmx.diagram
 D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.Webforms\bin\AjaxControlToolkit.dll
+D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.Webforms\bin\DayPilot.dll

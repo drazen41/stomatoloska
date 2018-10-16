@@ -34,3 +34,4 @@ D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.DAL\bin\Debug\Baza\Stomatol
 D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.DAL\bin\Debug\Baza\StomatoloskaModel.Designer.cs
 D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.DAL\bin\Debug\Baza\Zahvat.cs
 D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.DAL\bin\Debug\Baza\StomatoloskaModel.edmx.diagram
+D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.DAL\obj\Debug\Stomatoloska.DAL.csprojResolveAssemblyReference.cache

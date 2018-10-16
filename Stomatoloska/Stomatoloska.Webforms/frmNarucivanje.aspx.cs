@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Stomatoloska.BLL;
+using Stomatoloska.DAL.Baza;
 
 namespace Stomatoloska.Webforms
 {
@@ -12,6 +13,8 @@ namespace Stomatoloska.Webforms
     {
         ZahvatBLL zahvatBLL = new ZahvatBLL();
         PacijentBLL pacijentBLL = new PacijentBLL();
+        RadnoVrijemeBLL radnoVrijemeBLL = new RadnoVrijemeBLL();
+        NarudzbaBLL narudzbaBLL = new NarudzbaBLL();
         protected void Page_Load(object sender, EventArgs e)
         {
             if(!Page.IsPostBack )
@@ -31,27 +34,37 @@ namespace Stomatoloska.Webforms
                         Value = pacijent.pacijent_id.ToString()
                     });
                 }
+                calNarucivanje.SelectedDate = DateTime.Today;
+                DayPilotCalendar.DataSource = narudzbaBLL.PribaviPodatkeZaKalendar(calNarucivanje.SelectedDate);
+                DayPilotCalendar.DataBind();
             }
         }
 
         protected void calNarucivanje_SelectionChanged(object sender, EventArgs e)
         {
-            if (calNarucivanje.SelectedDates.Count > 0)
-            {
-                pnlTjedni.Visible = true;
-                pnlDnevni.Visible = false;
-                PrikaziRezerviraneTermine();
+            List<Narudzba> narudzbe = null;
+            if (calNarucivanje.SelectedDates.Count > 1)
+            {             
+                var start = calNarucivanje.SelectedDates[0].Date;
+                var end = calNarucivanje.SelectedDates[4].Date;
+                DayPilotCalendar.ViewType = DayPilot.Web.Ui.Enums.Calendar.ViewTypeEnum.WorkWeek;
+                DayPilotCalendar.StartDate = start;
+                DayPilotCalendar.DataSource = narudzbaBLL.PribaviPodatkeZaKalendar(start, end);
+                DayPilotCalendar.DataBind();
             }
             else
             {
-                pnlTjedni.Visible = false;
-                pnlDnevni.Visible = true;
+                DayPilotCalendar.ViewType = DayPilot.Web.Ui.Enums.Calendar.ViewTypeEnum.Day;
+                DayPilotCalendar.StartDate = calNarucivanje.SelectedDate;
+                DayPilotCalendar.DataSource = narudzbaBLL.PribaviPodatkeZaKalendar(calNarucivanje.SelectedDate);
+                DayPilotCalendar.DataBind();
             }
+            PrikaziRezerviraneTermine(narudzbe);
         }
 
-        private void PrikaziRezerviraneTermine()
+        private void PrikaziRezerviraneTermine(List<Narudzba> narudzbe)
         {
-            
+            var radnaVremena = radnoVrijemeBLL.PribaviRadnaVremena();
             
             
         }
@@ -62,7 +75,13 @@ namespace Stomatoloska.Webforms
             {
                 var zahvat = zahvatBLL.PribaviZahvatZaSifru(ddlZahvati.SelectedValue);
                 lblCijenaZahvata.Text = string.Format("{0:C}", zahvat.cijena);
+                lblTrajanjeZahvata.Text = zahvat.trajanje_minuta.ToString() + " minuta";
             }
+        }
+
+        protected void DayPilotCalendar_EventClick(object sender, DayPilot.Web.Ui.Events.EventClickEventArgs e)
+        {
+            var start = e.Start;
         }
     }
 }

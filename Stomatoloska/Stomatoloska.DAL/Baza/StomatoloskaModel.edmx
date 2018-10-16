@@ -102,7 +102,7 @@
             <End Role="Zahvat" EntitySet="tZahvat" />
             <End Role="tNarudzba" EntitySet="tNarudzba" />
           </AssociationSet>
-        </EntityContainer>
+          </EntityContainer>
         <EntityType Name="RadnoVrijeme">
           <Key>
             <PropertyRef Name="radno_vrijeme_id" />
@@ -173,7 +173,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>

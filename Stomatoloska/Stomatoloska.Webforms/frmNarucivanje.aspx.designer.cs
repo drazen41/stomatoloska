@@ -31,6 +31,15 @@ namespace Stomatoloska.Webforms {
         protected global::System.Web.UI.WebControls.Panel pnlNarucivanje;
         
         /// <summary>
+        /// lbPacijenti control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListBox lbPacijenti;
+        
+        /// <summary>
         /// ddlZahvati control.
         /// </summary>
         /// <remarks>
@@ -49,13 +58,22 @@ namespace Stomatoloska.Webforms {
         protected global::System.Web.UI.WebControls.Label lblCijenaZahvata;
         
         /// <summary>
-        /// lbPacijenti control.
+        /// lblTrajanjeZahvata control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListBox lbPacijenti;
+        protected global::System.Web.UI.WebControls.Label lblTrajanjeZahvata;
+        
+        /// <summary>
+        /// lblOdabraniTermin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblOdabraniTermin;
         
         /// <summary>
         /// calNarucivanje control.
@@ -67,48 +85,12 @@ namespace Stomatoloska.Webforms {
         protected global::System.Web.UI.WebControls.Calendar calNarucivanje;
         
         /// <summary>
-        /// pnlDnevni control.
+        /// DayPilotCalendar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlDnevni;
-        
-        /// <summary>
-        /// tblDnevni control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Table tblDnevni;
-        
-        /// <summary>
-        /// thrDnevni control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TableHeaderRow thrDnevni;
-        
-        /// <summary>
-        /// pnlTjedni control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlTjedni;
-        
-        /// <summary>
-        /// GridView1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::DayPilot.Web.Ui.DayPilotCalendar DayPilotCalendar;
     }
 }
