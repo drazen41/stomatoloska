@@ -130,6 +130,15 @@ namespace Stomatoloska.Webforms {
         protected global::System.Web.UI.UpdatePanel UpdatePanelCreate;
         
         /// <summary>
+        /// TextBoxPacijent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxPacijent;
+        
+        /// <summary>
         /// TextBoxCreateName control.
         /// </summary>
         /// <remarks>
@@ -172,7 +181,7 @@ namespace Stomatoloska.Webforms {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton ButtonCreateCancel;
+        protected global::System.Web.UI.WebControls.Button ButtonCreateCancel;
         
         /// <summary>
         /// ButtonDummyEdit control.
@@ -211,6 +220,15 @@ namespace Stomatoloska.Webforms {
         protected global::System.Web.UI.UpdatePanel UpdatePanelEdit;
         
         /// <summary>
+        /// TextBoxPacijentEdit control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TextBoxPacijentEdit;
+        
+        /// <summary>
         /// TextBoxEditName control.
         /// </summary>
         /// <remarks>
@@ -236,6 +254,15 @@ namespace Stomatoloska.Webforms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBoxEditEnd;
+        
+        /// <summary>
+        /// ddlStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlStatus;
         
         /// <summary>
         /// HiddenEditId control.

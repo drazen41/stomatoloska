@@ -5,7 +5,8 @@
       <PropertyRef Name="narudzba_id" />
     </Key>
     <Property Name="narudzba_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="termin" Type="datetime" Nullable="false" />
+    <Property Name="termin_pocetak" Type="datetime" Nullable="false" />
+    <Property Name="termin_kraj" Type="datetime" Nullable="false" />
     <Property Name="status" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="pacijent_id" Type="int" Nullable="false" />
     <Property Name="sifra" Type="nvarchar" MaxLength="10" Nullable="false" />

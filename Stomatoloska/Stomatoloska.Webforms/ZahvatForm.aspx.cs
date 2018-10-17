@@ -88,7 +88,20 @@ namespace Stomatoloska.Webforms
         {
             var red = gvZahvati.Rows[e.RowIndex];
             var sifra = red.Cells[1].Text;
-            zahvatBll.ObrisiZahvat(sifra);
+            try
+            {
+                zahvatBll.ObrisiZahvat(sifra);
+            }
+            catch (System.Data.Entity.Infrastructure.DbUpdateException)
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert", "alert('Za zahvat ima unesene narudžbe.')", true);
+            }
+            catch (Exception ex )
+            {
+                Type tip = ex.GetType();
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert", "alert('Došlo je do greške prilikom upisa.')", true);
+            }
+            
         }
 
         protected void gvZahvati_PreRender(object sender, EventArgs e)
@@ -113,6 +126,14 @@ namespace Stomatoloska.Webforms
             txtCijena.Text = "";
             txtNaziv.Text = "";
             txtSifra.Enabled = true;
+        }
+
+        protected void gvZahvati_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            var zahvati = zahvatBll.PribaviZahvate(e.NewPageIndex, gvZahvati.PageSize);
+            gvZahvati.DataSource = zahvati;
+            gvZahvati.DataBind();
+            gvZahvati.PageIndex = e.NewPageIndex;
         }
     }
 }

@@ -17,6 +17,10 @@ namespace Stomatoloska.BLL
         {
             return uow.ZahvatRepo.Get().ToList();
         }
+        public List<Zahvat> PribaviZahvate(int page, int broj)
+        {
+            return PribaviZahvate().Skip(page * broj).Take(broj).ToList<Zahvat>();
+        }
         public void UnesiZahvat(Zahvat zahvat)
         {
             var uBazi = uow.ZahvatRepo.Get(x => x.naziv == zahvat.naziv).FirstOrDefault();

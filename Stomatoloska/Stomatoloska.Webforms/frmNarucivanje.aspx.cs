@@ -51,8 +51,9 @@ namespace Stomatoloska.Webforms
         {
             if (calNarucivanje.SelectedDates.Count > 1)
             {
+
                 var start = calNarucivanje.SelectedDates[0].Date;
-                var end = calNarucivanje.SelectedDates[4].Date;
+                var end = calNarucivanje.SelectedDates[4].Date.AddHours(23).AddMinutes(59);
                 DayPilotCalendar.ViewType = DayPilot.Web.Ui.Enums.Calendar.ViewTypeEnum.WorkWeek;
                 DayPilotCalendar.StartDate = start;
                 DayPilotCalendar.DataSource = narudzbaBLL.PribaviPodatkeZaKalendar(start, end);
@@ -87,28 +88,34 @@ namespace Stomatoloska.Webforms
         {
             var start = e.Start;
             // populate the fields
-            TextBoxEditName.Text = e.Text;
-            TextBoxEditStart.Text = e.Start.ToString("M/d/yyyy HH:mm");
-            TextBoxEditEnd.Text = e.End.ToString("M/d/yyyy HH:mm");
+
+            TextBoxPacijentEdit.Text = e.Text.Split('-')[0];
+            TextBoxEditName.Text = e.Text.Split('-')[1];
+            TextBoxEditStart.Text = e.Start.ToString("dd.MM.yyyy HH:mm");
+            TextBoxEditEnd.Text = e.End.ToString("dd.MM.yyyy HH:mm");
             HiddenEditId.Value = e.Id;
+            ddlStatus.DataSource = Enum.GetNames(typeof(NarudzbaBLL.Status));
+            ddlStatus.DataBind();
 
             UpdatePanelEdit.Update();
             ModalPopupEdit.Show();
         }
         protected void ButtonEditSave_Click(object sender, EventArgs e)
         {
-            DateTime start = DateTime.ParseExact(TextBoxEditStart.Text, "M/d/yyyy HH:mm", Thread.CurrentThread.CurrentCulture);
-            DateTime end = DateTime.ParseExact(TextBoxEditEnd.Text, "M/d/yyyy HH:mm", Thread.CurrentThread.CurrentCulture);
+            DateTime start = DateTime.Parse(TextBoxEditStart.Text);
+            DateTime end = DateTime.Parse(TextBoxEditEnd.Text);
             string name = TextBoxEditName.Text;
-            string id = HiddenEditId.Value;
+            int id = Int32.Parse(HiddenEditId.Value);
 
-            //DbUpdateEvent(id, start, end, name);
+            Narudzba narudzba = new Narudzba();
+            narudzba.narudzba_id = id;
+            narudzba.status = ddlStatus.SelectedValue;
+            narudzbaBLL.AzurirajStatusNarudzbe(narudzba);
+
+            PribaviPodatkeZaKalendar();
 
             ModalPopupEdit.Hide();
 
-            //DayPilotCalendarWeek.DataSource = DbSelectEvents(DayPilotCalendarWeek.StartDate, DayPilotCalendarWeek.EndDate.AddDays(1));
-            //DayPilotCalendarWeek.DataBind();
-            UpdatePanel1.Update();
 
         }
 
@@ -132,10 +139,12 @@ namespace Stomatoloska.Webforms
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert", "alert('Neradno vrijeme.')", true);
                 return;
             }
-
+            TextBoxPacijent.Text = lbPacijenti.SelectedItem.Text;
+           
             TextBoxCreateName.Text = ddlZahvati.SelectedItem.Text ;
             TextBoxCreateStart.Text = e.Start.ToString("dd.MM.yyyy HH:mm");
-            TextBoxCreateEnd.Text = e.End.ToString("dd.MM.yyyy HH:mm");
+            TextBoxCreateEnd.Text = e.Start.AddMinutes(Double.Parse(lblTrajanjeZahvata.Text.Split(' ')[0])).ToString("dd.MM.yyyy HH:mm");
+            //TextBoxCreateEnd.Text = e.End.ToString("dd.MM.yyyy HH:mm");
 
             UpdatePanelCreate.Update();
             ModalPopupCreate.Show();
@@ -147,22 +156,19 @@ namespace Stomatoloska.Webforms
             DateTime end = DateTime.ParseExact(TextBoxCreateEnd.Text, "dd.MM.yyyy HH:mm", Thread.CurrentThread.CurrentCulture);
             string name = TextBoxCreateName.Text;
 
-            //DbInsertEvent(start, end, name);
             Narudzba narudzba = new Narudzba();
             narudzba.dcr = DateTime.Now;
             narudzba.pacijent_id = Int32.Parse(lbPacijenti.SelectedValue);
             narudzba.sifra = ddlZahvati.SelectedValue;
-            narudzba.termin = start;
+            narudzba.termin_pocetak = start;
+            narudzba.termin_kraj = end;
             NarudzbaBLL.Status status = NarudzbaBLL.Status.Kreirana;
             narudzba.status = status.ToString();
             narudzbaBLL.UnesiNarudzbu(narudzba);
             
             ModalPopupCreate.Hide();
 
-            //DayPilotCalendarWeek.DataSource = DbSelectEvents(DayPilotCalendarWeek.StartDate, DayPilotCalendarWeek.EndDate.AddDays(1));
-            //DayPilotCalendarWeek.DataBind();
             PribaviPodatkeZaKalendar();
-            //UpdatePanel1.Update();
         }
 
         protected void ButtonCreateCancel_Click(object sender, EventArgs e)

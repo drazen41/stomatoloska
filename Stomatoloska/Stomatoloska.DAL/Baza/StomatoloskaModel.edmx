@@ -10,7 +10,8 @@
             <PropertyRef Name="narudzba_id" />
           </Key>
           <Property Name="narudzba_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="termin" Type="datetime" Nullable="false" />
+          <Property Name="termin_pocetak" Type="datetime" Nullable="false" />
+          <Property Name="termin_kraj" Type="datetime" Nullable="false" />
           <Property Name="status" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="pacijent_id" Type="int" Nullable="false" />
           <Property Name="sifra" Type="nvarchar" MaxLength="10" Nullable="false" />
@@ -141,7 +142,8 @@
             <PropertyRef Name="narudzba_id" />
           </Key>
           <Property Name="narudzba_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="termin" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="termin_pocetak" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="termin_kraj" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="status" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="pacijent_id" Type="Int32" Nullable="false" />
           <Property Name="sifra" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
@@ -220,7 +222,8 @@
                 <ScalarProperty Name="sifra" ColumnName="sifra" />
                 <ScalarProperty Name="pacijent_id" ColumnName="pacijent_id" />
                 <ScalarProperty Name="status" ColumnName="status" />
-                <ScalarProperty Name="termin" ColumnName="termin" />
+                <ScalarProperty Name="termin_kraj" ColumnName="termin_kraj" />
+                <ScalarProperty Name="termin_pocetak" ColumnName="termin_pocetak" />
                 <ScalarProperty Name="narudzba_id" ColumnName="narudzba_id" />
               </MappingFragment>
             </EntityTypeMapping>

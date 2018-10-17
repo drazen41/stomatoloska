@@ -19,7 +19,8 @@
                 
                 
                 <asp:Calendar ID="calNarucivanje" runat="server" SelectionMode="DayWeek" OnSelectionChanged="calNarucivanje_SelectionChanged" FirstDayOfWeek="Monday" 
-                    SelectedDate="10/16/2018 12:10:15"></asp:Calendar>
+                    SelectedDate="10/16/2018 12:10:15"></asp:Calendar> 
+                
                                 <h3>Spremanje termina</h3>
 
                 <DayPilot:DayPilotCalendar ID="DayPilotCalendar" runat="server" BusinessBeginsHour="7" 
@@ -56,25 +57,33 @@
   <asp:Panel ID="PanelPopupCreate" runat="server" CssClass="modalPopup" style="display:none" Width="500px">
       <asp:UpdatePanel ID="UpdatePanelCreate" runat="server" UpdateMode="Conditional">
           <ContentTemplate>
-          <h2>Kreiranje termina</h2>
-          
-          <div>
+              <asp:Panel runat="server" CssClass="form-group">
+                  <h2>Kreiranje termina</h2>
+          <div class="col-md-12"  >
+              Pacijent:<br />
+              <asp:TextBox ID="TextBoxPacijent" runat="server" Enabled ="false" CssClass="form-control "></asp:TextBox>
+          </div>
+         
+          <div class="col-xs-12">
               Naziv:<br />
-              <asp:TextBox ID="TextBoxCreateName" runat="server"></asp:TextBox>
+              <asp:TextBox ID="TextBoxCreateName" runat="server" Enabled ="false" CssClass="form-control"  ></asp:TextBox>
           </div>
 
-          <div>
+          <div class="col-xs-12">
               Start:<br />
-              <asp:TextBox ID="TextBoxCreateStart" runat="server"></asp:TextBox>
+              <asp:TextBox ID="TextBoxCreateStart" runat="server" Enabled="false" CssClass="form-control "  ></asp:TextBox>
           </div>
 
-          <div>
+          <div class="col-xs-12">
               End:<br />
-              <asp:TextBox ID="TextBoxCreateEnd" runat="server"></asp:TextBox>
-          </div>
+              <asp:TextBox ID="TextBoxCreateEnd" runat="server" Enabled="false"  CssClass="form-control " ></asp:TextBox>
+          </div><br />
+             
+          <asp:Button id="ButtonCreateSave" runat="server" Text="Spremi" OnClick="ButtonCreateSave_Click"  CssClass="btn btn-primary col-xs-3"/>&nbsp;&nbsp;
+          <asp:Button id="ButtonCreateCancel" runat="server" Text="Odustani" OnClick="ButtonCreateCancel_Click" CssClass="btn btn-default" />
 
-          <asp:Button id="ButtonCreateSave" runat="server" Text="Spremi" OnClick="ButtonCreateSave_Click" />
-          <asp:LinkButton id="ButtonCreateCancel" runat="server" Text="Odustani" OnClick="ButtonCreateCancel_Click" />
+              </asp:Panel>
+          
           </ContentTemplate>
       </asp:UpdatePanel>
   </asp:Panel>
@@ -87,25 +96,39 @@
       <asp:UpdatePanel ID="UpdatePanelEdit" runat="server" UpdateMode="Conditional">
           <ContentTemplate>
           <h2>Ažuriranje termina</h2>
-          
-          <div>
-              <asp:TextBox ID="TextBoxEditName" runat="server"></asp:TextBox>
+          <asp:Panel runat="server" CssClass="form-group" >
+              <div class="col-xs-12">
+                  Pacijent:<br />
+              <asp:TextBox ID="TextBoxPacijentEdit" runat="server" Enabled="false" CssClass="form-control " ></asp:TextBox>
+          </div>
+          <div class="col-xs-12">
+              Zahvat:<br />
+              <asp:TextBox ID="TextBoxEditName" runat="server" Enabled="false" CssClass="form-control "  ></asp:TextBox>
           </div>
 
-          <div>
+          <div class="col-xs-12">
               Start:<br />
-              <asp:TextBox ID="TextBoxEditStart" runat="server"></asp:TextBox>
+              <asp:TextBox ID="TextBoxEditStart" runat="server" Enabled ="false" CssClass="form-control " ></asp:TextBox>
           </div>
 
-          <div>
+          <div class="col-xs-12">
               End:<br />
-              <asp:TextBox ID="TextBoxEditEnd" runat="server"></asp:TextBox>
+              <asp:TextBox ID="TextBoxEditEnd" runat="server" Enabled="false" CssClass="form-control "  ></asp:TextBox>
           </div>
-
+        <div class="col-md-6">
+            Odabir statusa:<br />
+             <asp:DropDownList runat="server" ID="ddlStatus" CssClass="form-control "></asp:DropDownList><br />
+          </div><div class="clearfix"></div>
           <asp:HiddenField ID="HiddenEditId" runat="server" />
+       
+              <div class="col-md-6">
+                  <asp:Button id="ButtonEditSave" runat="server" Text="Spremi" OnClick="ButtonEditSave_Click" CssClass="btn btn-primary"/>&nbsp;&nbsp;
+          <asp:LinkButton id="ButtonEditCancel" runat="server" Text="Odustani" OnClick="ButtonEditCancel_Click" CssClass="btn btn-default" />
+              </div>
+          
 
-          <asp:Button id="ButtonEditSave" runat="server" Text="Spremi" OnClick="ButtonEditSave_Click" />
-          <asp:LinkButton id="ButtonEditCancel" runat="server" Text="Odustani" OnClick="ButtonEditCancel_Click" />
+          </asp:Panel>
+              
           </ContentTemplate>
       </asp:UpdatePanel>
   </asp:Panel>

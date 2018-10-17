@@ -19,7 +19,7 @@ namespace Stomatoloska.BLL
         }
         public enum Status
         {
-            Kreirana,Izvrsena,Otkazana
+            Kreirana,Izvrsena,Otkazana,Greska,NijeDosao
         }
         private StomatoloskaUoW uow = null;
         public NarudzbaBLL()
@@ -29,7 +29,7 @@ namespace Stomatoloska.BLL
         public List<Narudzba> PribaviNarudzbe(DateTime start,DateTime end)
         {
             return uow.NarudzbaRepo
-                .Get(x => x.termin >= start && x.termin <= end, q => q.OrderBy(x => x.termin), "Pacijent,Zahvat")
+                .Get(x => x.termin_pocetak >= start && x.termin_kraj  <= end, q => q.OrderBy(x => x.termin_pocetak), "Pacijent,Zahvat")
                 .ToList<Narudzba>();
         }
         public List<Narudzba >PribaviNarudzbe(DateTime datum)
@@ -41,14 +41,14 @@ namespace Stomatoloska.BLL
         public List<CalendarEvent> PribaviPodatkeZaKalendar(DateTime start, DateTime end)
         {
             List<CalendarEvent> eventi = new List<CalendarEvent>();
-            var narudzbe = PribaviNarudzbe(start, end);
+            var narudzbe = PribaviNarudzbe(start, end).Where(x=>x.status == Status.Kreirana.ToString());
             foreach (var narudzba in narudzbe )
             {
                 CalendarEvent ce = new CalendarEvent();
                 Zahvat zahvat = narudzba.Zahvat;
                 Pacijent pacijent = narudzba.Pacijent;
-                ce.Start = narudzba.termin;
-                ce.End = narudzba.termin.AddMinutes(zahvat.trajanje_minuta);
+                ce.Start = narudzba.termin_pocetak;
+                ce.End = narudzba.termin_kraj;
                 ce.Id = narudzba.narudzba_id;
                 ce.Name = pacijent.prezime + " " + pacijent.ime + "-" + zahvat.sifra;
                 eventi.Add(ce);
@@ -58,16 +58,16 @@ namespace Stomatoloska.BLL
         public List<CalendarEvent> PribaviPodatkeZaKalendar(DateTime datum)
         {
             List<CalendarEvent> eventi = new List<CalendarEvent>();
-            var narudzbe = PribaviNarudzbe(datum);
+            var narudzbe = PribaviNarudzbe(datum).Where(x => x.status == Status.Kreirana.ToString());
             foreach (var narudzba in narudzbe)
             {
                 CalendarEvent ce = new CalendarEvent();
                 Zahvat zahvat = narudzba.Zahvat;
                 Pacijent pacijent = narudzba.Pacijent;
-                ce.Start = narudzba.termin;
-                ce.End = narudzba.termin.AddMinutes(zahvat.trajanje_minuta);
+                ce.Start = narudzba.termin_pocetak;
+                ce.End = narudzba.termin_kraj;
                 ce.Id = narudzba.narudzba_id;
-                ce.Name = pacijent.prezime + " " + pacijent.ime + "-" + zahvat.sifra;
+                ce.Name = pacijent.prezime + " " + pacijent.ime + "-" + zahvat.naziv;
                 eventi.Add(ce);
             }
             return eventi;
@@ -75,7 +75,7 @@ namespace Stomatoloska.BLL
         public bool ProvjeriTerminPrijeUnosa(DateTime termin, int sifraZahvata)
         {
             bool ok = true;
-            var narudzba = uow.NarudzbaRepo.Get(x => x.termin > termin).OrderBy(x=>x.termin).FirstOrDefault();
+            var narudzba = uow.NarudzbaRepo.Get(x => x.termin_pocetak > termin).OrderBy(x=>x.termin_pocetak).FirstOrDefault();
             if (narudzba != null)
             {
 
@@ -86,6 +86,22 @@ namespace Stomatoloska.BLL
         public void UnesiNarudzbu(Narudzba narudzba)
         {
             uow.NarudzbaRepo.Insert(narudzba);
+            uow.Spremi();
+        }
+        public Narudzba PribaviNarudzbu(int narudzbaId)
+        {
+            return uow.NarudzbaRepo.GetByID(narudzbaId);
+        }
+        public void AzurirajStatusNarudzbe(Narudzba narudzba )
+        {
+            Narudzba narudzbaBaza = PribaviNarudzbu(narudzba.narudzba_id);
+            if (narudzbaBaza == null || narudzba.status == NarudzbaBLL.Status.Kreirana.ToString())
+            {
+                return;
+
+            }
+            narudzbaBaza.status = narudzba.status;
+            uow.NarudzbaRepo.Update(narudzbaBaza);
             uow.Spremi();
         }
     }

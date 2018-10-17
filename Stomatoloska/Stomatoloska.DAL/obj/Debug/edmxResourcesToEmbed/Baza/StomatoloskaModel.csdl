@@ -52,7 +52,8 @@
       <PropertyRef Name="narudzba_id" />
     </Key>
     <Property Name="narudzba_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="termin" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="termin_pocetak" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="termin_kraj" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="status" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="pacijent_id" Type="Int32" Nullable="false" />
     <Property Name="sifra" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />

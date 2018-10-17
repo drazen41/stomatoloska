@@ -5,12 +5,12 @@
         <ContentTemplate>
             <asp:Panel runat="server" GroupingText="Unos i ažuriranje zahvata">
                  Šifra: &nbsp;&nbsp;
-                 <asp:TextBox runat="server" ID="txtSifra"></asp:TextBox>                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorSifra" runat="server" ErrorMessage="Šifra je obavezna" ControlToValidate="txtSifra" ForeColor="Red">*</asp:RequiredFieldValidator>
+                 <asp:TextBox runat="server" ID="txtSifra" ></asp:TextBox>                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorSifra" runat="server" ErrorMessage="Šifra je obavezna" ControlToValidate="txtSifra" ForeColor="Red">*</asp:RequiredFieldValidator>
 <br />
             Naziv: &nbsp;&nbsp;
-                 <asp:TextBox runat="server" ID="txtNaziv"></asp:TextBox><asp:RequiredFieldValidator ID="RequiredFieldValidatorNaziv" runat="server" ErrorMessage="Naziv zahvata je obavezan" ControlToValidate="txtNaziv" ForeColor="Red">*</asp:RequiredFieldValidator><br />
+                 <asp:TextBox runat="server" ID="txtNaziv" Width="250px" ></asp:TextBox><asp:RequiredFieldValidator ID="RequiredFieldValidatorNaziv" runat="server" ErrorMessage="Naziv zahvata je obavezan" ControlToValidate="txtNaziv" ForeColor="Red">*</asp:RequiredFieldValidator><br />
             Cijena:&nbsp;&nbsp;
-                 <asp:TextBox runat="server" ID="txtCijena"></asp:TextBox>
+                 <asp:TextBox runat="server" ID="txtCijena" ></asp:TextBox>
                 <asp:RequiredFieldValidator ID="RequiredFieldValidatorCijena" runat="server" ErrorMessage="Cijena je obavezna" ControlToValidate="txtCijena" ForeColor="Red">*</asp:RequiredFieldValidator>
                 <asp:CustomValidator ID="CustomValidatorCijena" runat="server" ErrorMessage="Cijena je u formatu X.XXX,XX" OnServerValidate="CustomValidatorCijena_ServerValidate" ControlToValidate="txtCijena" ForeColor="Red">*</asp:CustomValidator>
                 <br />
@@ -24,7 +24,7 @@
                 <asp:ValidationSummary ID="ValidationSummaryZahvat" runat="server" ForeColor="Red" />
             </asp:Panel>
 <asp:Panel runat="server" GroupingText="Pregled zahvata">
-    <asp:GridView runat="server" ID="gvZahvati" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" DataKeyNames="sifra" OnSelectedIndexChanged="gvZahvati_SelectedIndexChanged" OnPreRender="gvZahvati_PreRender" OnRowDeleting="gvZahvati_RowDeleting">
+    <asp:GridView runat="server" ID="gvZahvati" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" DataKeyNames="sifra" OnSelectedIndexChanged="gvZahvati_SelectedIndexChanged" OnPreRender="gvZahvati_PreRender" OnRowDeleting="gvZahvati_RowDeleting" AllowPaging="True" OnPageIndexChanging="gvZahvati_PageIndexChanging" Width="100%">
 
         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
         <Columns>

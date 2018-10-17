@@ -15,7 +15,8 @@ namespace Stomatoloska.DAL.Baza
     public partial class Narudzba
     {
         public int narudzba_id { get; set; }
-        public System.DateTime termin { get; set; }
+        public System.DateTime termin_pocetak { get; set; }
+        public System.DateTime termin_kraj { get; set; }
         public string status { get; set; }
         public int pacijent_id { get; set; }
         public string sifra { get; set; }
