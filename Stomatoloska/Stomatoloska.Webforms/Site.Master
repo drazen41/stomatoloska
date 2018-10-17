@@ -29,7 +29,7 @@
 </head>
 <body>
     <form runat="server">
-        <asp:ScriptManager runat="server" EnablePartialRendering ="false" EnablePageMethods="true">
+        <asp:ScriptManager runat="server" EnablePartialRendering ="true" EnablePageMethods="true">
             <Scripts>
                 <%--To learn more about bundling scripts in ScriptManager see http://go.microsoft.com/fwlink/?LinkID=301884 --%>
                 <%--Framework Scripts--%>
@@ -68,8 +68,18 @@
                         <li><a runat="server" href="~/frmRadnoVrijeme">Radno vrijeme</a></li>
                         <li><a runat="server" href="~/ZahvatForm">Zahvati</a></li>
                          <li><a runat="server" href="~/PacijentiForm">Pacijenti</a></li>
-                        <li><a runat="server" href="~/frmNarucivanje">Naručivanje</a></li>
-                        <li><a runat="server" href="~/NarucivanjeForm">Naručivanje Form</a></li>
+                        <%--<li class="drop"><ul class="nav navbar-nav">
+                            <li><a runat="server" href="~/frmNarucivanje">Naručivanje</a></li>
+                        </ul></li>--%>
+                        <li class="menu-item dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Naručivanje<b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li class="menu-item"><a runat="server" href="~/frmNarucivanje">Unos i ažuriranje naručivanja</a></li>
+                                <li class="menu-item"><a runat="server" href="~/PregledNarudzbi">Pregled narudžbi</a></li>
+                            </ul>
+                        </li> 
+                        
+                        
                     </ul>
                     <%--<asp:LoginView runat="server" ViewStateMode="Disabled">
                         <AnonymousTemplate>

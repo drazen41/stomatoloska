@@ -190,6 +190,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Account\Web.config" />
+    <Content Include="PregledNarudzbi.aspx" />
     <Content Include="NarucivanjeForm.aspx" />
     <Content Include="PacijentiForm.aspx" />
     <Content Include="Scripts\daypilot-modal-2.7.js" />
@@ -374,6 +375,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PregledNarudzbi.aspx.cs">
+      <DependentUpon>PregledNarudzbi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PregledNarudzbi.aspx.designer.cs">
+      <DependentUpon>PregledNarudzbi.aspx</DependentUpon>
     </Compile>
     <Compile Include="NarucivanjeForm.aspx.cs">
       <DependentUpon>NarucivanjeForm.aspx</DependentUpon>

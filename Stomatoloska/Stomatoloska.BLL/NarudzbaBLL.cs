@@ -16,6 +16,7 @@ namespace Stomatoloska.BLL
             public DateTime End { get; set; }
             public string Name { get; set; }
             public int Id { get; set; }
+            public string Status { get; set; }
         }
         public enum Status
         {
@@ -38,10 +39,19 @@ namespace Stomatoloska.BLL
             var end = datum.AddDays(1).AddTicks(-1);
             return PribaviNarudzbe(start, end);
         }
-        public List<CalendarEvent> PribaviPodatkeZaKalendar(DateTime start, DateTime end)
+        public List<CalendarEvent> PribaviPodatkeZaKalendar(DateTime start, DateTime end, bool sve = false)
         {
             List<CalendarEvent> eventi = new List<CalendarEvent>();
-            var narudzbe = PribaviNarudzbe(start, end).Where(x=>x.status == Status.Kreirana.ToString());
+            //var narudzbe = PribaviNarudzbe(start, end).Where(x => x.status == Status.Kreirana.ToString() || x.status==Status.Izvrsena.ToString());
+            IEnumerable<Narudzba> narudzbe = null;
+            if (!sve)
+            {
+                narudzbe = PribaviNarudzbe(start,end).Where(x => x.status == Status.Kreirana.ToString() || x.status == Status.Izvrsena.ToString());
+            }
+            else
+            {
+                narudzbe = PribaviNarudzbe(start,end).Where(x => x.status != Status.Greska.ToString());
+            }
             foreach (var narudzba in narudzbe )
             {
                 CalendarEvent ce = new CalendarEvent();
@@ -51,14 +61,23 @@ namespace Stomatoloska.BLL
                 ce.End = narudzba.termin_kraj;
                 ce.Id = narudzba.narudzba_id;
                 ce.Name = pacijent.prezime + " " + pacijent.ime + "-" + zahvat.sifra;
+                ce.Status = narudzba.status;
                 eventi.Add(ce);
             }
             return eventi;
         }
-        public List<CalendarEvent> PribaviPodatkeZaKalendar(DateTime datum)
+        public List<CalendarEvent> PribaviPodatkeZaKalendar(DateTime datum, bool sve = false)
         {
             List<CalendarEvent> eventi = new List<CalendarEvent>();
-            var narudzbe = PribaviNarudzbe(datum).Where(x => x.status == Status.Kreirana.ToString());
+            IEnumerable<Narudzba> narudzbe = null;
+            if (!sve)
+            {
+                narudzbe = PribaviNarudzbe(datum).Where(x => x.status == Status.Kreirana.ToString() || x.status == Status.Izvrsena.ToString());
+            }
+            else
+            {
+                narudzbe = PribaviNarudzbe(datum).Where(x => x.status != Status.Greska.ToString());
+            }
             foreach (var narudzba in narudzbe)
             {
                 CalendarEvent ce = new CalendarEvent();
@@ -68,23 +87,36 @@ namespace Stomatoloska.BLL
                 ce.End = narudzba.termin_kraj;
                 ce.Id = narudzba.narudzba_id;
                 ce.Name = pacijent.prezime + " " + pacijent.ime + "-" + zahvat.naziv;
+                ce.Status = narudzba.status;
                 eventi.Add(ce);
             }
             return eventi;
         }
-        public bool ProvjeriTerminPrijeUnosa(DateTime termin, int sifraZahvata)
+        
+        public bool ProvjeriTerminPrijeUnosa(Narudzba narudzba )
         {
-            bool ok = true;
-            var narudzba = uow.NarudzbaRepo.Get(x => x.termin_pocetak > termin).OrderBy(x=>x.termin_pocetak).FirstOrDefault();
-            if (narudzba != null)
-            {
+            bool ok = true;            
+            //var zahvat = uow.ZahvatRepo.GetByID(/*sifraZahvata*/);
+            var radnoVrijemeBll = new RadnoVrijemeBLL();
+            var dan = radnoVrijemeBll.RadniDanZaDatum(narudzba.termin_pocetak);
+            var radnoVrijeme = uow.RadnoVrijemeRepo.Get(x => x.radni_dan == dan).FirstOrDefault();
 
-            }
+            if (narudzba.termin_pocetak.TimeOfDay < radnoVrijeme.pocetak || narudzba.termin_kraj.TimeOfDay > radnoVrijeme.kraj)
+                return false;
+            var slijedecaNarudzba = uow.NarudzbaRepo.Get(x => x.termin_pocetak >= narudzba.termin_pocetak && x.status == Status.Kreirana.ToString(),q=>q.OrderBy(x=>x.termin_pocetak))
+                .FirstOrDefault();
+            if (slijedecaNarudzba != null && slijedecaNarudzba.termin_pocetak  < narudzba.termin_kraj)
+                return false;
+            
+            
+
 
             return ok;
         }
         public void UnesiNarudzbu(Narudzba narudzba)
         {
+            if (!ProvjeriTerminPrijeUnosa(narudzba))
+                throw new Exception("Nema vremena za narudžbu.");
             uow.NarudzbaRepo.Insert(narudzba);
             uow.Spremi();
         }

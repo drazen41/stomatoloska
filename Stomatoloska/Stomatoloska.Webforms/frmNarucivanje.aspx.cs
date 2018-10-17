@@ -38,6 +38,7 @@ namespace Stomatoloska.Webforms
                 calNarucivanje.SelectedDate = DateTime.Today;
                 DayPilotCalendar.DataSource = narudzbaBLL.PribaviPodatkeZaKalendar(calNarucivanje.SelectedDate);
                 DayPilotCalendar.DataBind();
+                
             }
         }
 
@@ -131,6 +132,7 @@ namespace Stomatoloska.Webforms
             if (ddlZahvati.SelectedValue == "-1" || lbPacijenti.SelectedItem.Value == "-1")
             {
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert", "alert('Odaberite pacijenta i zahvat.')", true);
+                //DayPilotCalendar_BeforeEventRender(this.DayPilotCalendar, this.DayPilotCalendar.,);
                 return;
             }
             var ok = radnoVrijemeBLL.ProvjeriRadnoVrijeme(datum);
@@ -164,7 +166,16 @@ namespace Stomatoloska.Webforms
             narudzba.termin_kraj = end;
             NarudzbaBLL.Status status = NarudzbaBLL.Status.Kreirana;
             narudzba.status = status.ToString();
-            narudzbaBLL.UnesiNarudzbu(narudzba);
+            try
+            {
+                narudzbaBLL.UnesiNarudzbu(narudzba);
+            }
+            catch (Exception ex)
+            {
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert", "alert('" + ex.Message + "')", true);
+
+            }
+            
             
             ModalPopupCreate.Hide();
 
@@ -174,6 +185,35 @@ namespace Stomatoloska.Webforms
         protected void ButtonCreateCancel_Click(object sender, EventArgs e)
         {
             ModalPopupCreate.Hide();
+        }
+
+        protected void DayPilotCalendar_BeforeEventRender(object sender, DayPilot.Web.Ui.Events.Calendar.BeforeEventRenderEventArgs e)
+        {
+            if (e.DataItem.Source != null )
+            {
+                NarudzbaBLL.Status status = NarudzbaBLL.Status.Kreirana;
+                Enum.TryParse<NarudzbaBLL.Status>(e.DataItem["Status"].ToString(),out status);
+                switch (status)
+                {
+                    case NarudzbaBLL.Status.Kreirana:
+                        e.DurationBarColor = "Blue";
+                        break;
+                    case NarudzbaBLL.Status.Izvrsena:
+                        e.DurationBarColor = "Green";
+                        break;
+                    case NarudzbaBLL.Status.Otkazana:
+                        e.DurationBarColor = "Orange";
+                        break;
+                    
+                    case NarudzbaBLL.Status.NijeDosao:
+                        e.DurationBarColor = "Red";
+                        break;
+                    default:
+                        break;
+                }
+               
+            }
+           
         }
     }
 }

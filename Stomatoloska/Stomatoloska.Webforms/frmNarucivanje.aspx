@@ -25,7 +25,10 @@
 
                 <DayPilot:DayPilotCalendar ID="DayPilotCalendar" runat="server" BusinessBeginsHour="7" 
                     BusinessEndsHour="21" style="top: 0px; left: 0px" ViewType="Day"
-                     DataStartField="Start" DataEndField="End" DataTextField="Name" DataValueField="Id" OnEventClick="DayPilotCalendar_EventClick" TimeFormat="Clock24Hours" TimeRangeSelectedHandling="PostBack" EventClickHandling="PostBack" OnTimeRangeSelected="DayPilotCalendar_TimeRangeSelected" />
+                     DataStartField="Start" DataEndField="End" DataTextField="Name" DataValueField="Id" 
+                    OnEventClick="DayPilotCalendar_EventClick" TimeFormat="Clock24Hours" TimeRangeSelectedHandling="PostBack" 
+                    EventClickHandling="PostBack" OnTimeRangeSelected="DayPilotCalendar_TimeRangeSelected" DayFontSize="12pt" 
+                    DurationBarColor="Blue" OnBeforeEventRender="DayPilotCalendar_BeforeEventRender"  />
     
             </asp:Panel>
             
