@@ -20,6 +20,7 @@ namespace Stomatoloska.BLL
         }
         public void UnesiPacijenta(Pacijent pacijent)
         {
+            
             var pacijentBaza = PribaviPacijentZaPrezimeImeDatumRodjenja(pacijent);
             if (pacijentBaza == null)
             {

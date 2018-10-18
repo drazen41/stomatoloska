@@ -136,5 +136,27 @@ namespace Stomatoloska.BLL
             uow.NarudzbaRepo.Update(narudzbaBaza);
             uow.Spremi();
         }
+        public List<Narudzba> PribaviNarudzbeZaStatus(Status status)
+        {
+            List<Narudzba> lista = null;
+            switch (status)
+            {
+                case Status.Kreirana:
+
+                    break;
+                case Status.Izvrsena:
+                    lista = uow.NarudzbaRepo.Get(x => x.status == "Izvrsena", q => q.OrderBy(x => x.zahvat_id), "Zahvat").ToList<Narudzba>();
+                    break;
+                case Status.Otkazana:
+                    break;
+                case Status.Greska:
+                    break;
+                case Status.NijeDosao:
+                    break;
+                default:
+                    break;
+            }
+            return lista;
+        }
     }
 }

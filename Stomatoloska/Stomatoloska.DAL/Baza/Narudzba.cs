@@ -19,10 +19,10 @@ namespace Stomatoloska.DAL.Baza
         public System.DateTime termin_kraj { get; set; }
         public string status { get; set; }
         public int pacijent_id { get; set; }
-        public string sifra { get; set; }
+        public int zahvat_id { get; set; }
         public System.DateTime dcr { get; set; }
     
-        public virtual Pacijent Pacijent { get; set; }
         public virtual Zahvat Zahvat { get; set; }
+        public virtual Pacijent Pacijent { get; set; }
     }
 }

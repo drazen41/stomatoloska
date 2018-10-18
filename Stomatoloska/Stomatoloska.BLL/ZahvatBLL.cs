@@ -15,7 +15,7 @@ namespace Stomatoloska.BLL
         }
         public List<Zahvat> PribaviZahvate()
         {
-            return uow.ZahvatRepo.Get().ToList();
+            return uow.ZahvatRepo.Get(null,q=>q.OrderByDescending(x=>x.dcr)).ToList();
         }
         public List<Zahvat> PribaviZahvate(int page, int broj)
         {
@@ -31,19 +31,35 @@ namespace Stomatoloska.BLL
             uow.ZahvatRepo.Insert(zahvat);
             uow.Spremi();
         }
+        
         public void AzurirajZahvat(Zahvat zahvat )
         {
             uow.ZahvatRepo.Update(zahvat);
             uow.Spremi();
         }
+        public void AzurirajZahvat(Zahvat zahvat, string staraSifra)
+        {
+            var zahvatBaza = uow.ZahvatRepo.Get(x => x.sifra == staraSifra).FirstOrDefault();
+            zahvatBaza.sifra = zahvat.sifra;
+            zahvatBaza.naziv = zahvat.naziv;
+            zahvatBaza.dcr = DateTime.Now;
+            zahvatBaza.cijena = zahvat.cijena;
+            zahvatBaza.trajanje_minuta = zahvat.trajanje_minuta;
+            uow.ZahvatRepo.Update(zahvatBaza);
+            uow.Spremi();
+        }
         public Zahvat PribaviZahvatZaSifru(string sifra)
         {
-            return uow.ZahvatRepo.GetByID(sifra);
+            return uow.ZahvatRepo.Get(x => x.sifra == sifra).FirstOrDefault();
         }
         public void ObrisiZahvat(string sifra )
         {
             uow.ZahvatRepo.Delete(sifra);
             uow.Spremi();
+        }
+        public Zahvat PribaviZahvat(int id)
+        {
+            return uow.ZahvatRepo.GetByID(id);
         }
     }
 }

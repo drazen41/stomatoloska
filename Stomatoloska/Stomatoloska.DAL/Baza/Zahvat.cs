@@ -17,9 +17,10 @@ namespace Stomatoloska.DAL.Baza
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Zahvat()
         {
-            this.tNarudzba = new HashSet<Narudzba>();
+            this.Narudzba = new HashSet<Narudzba>();
         }
     
+        public int zahvat_id { get; set; }
         public string sifra { get; set; }
         public string naziv { get; set; }
         public decimal cijena { get; set; }
@@ -27,6 +28,6 @@ namespace Stomatoloska.DAL.Baza
         public System.DateTime dcr { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Narudzba> tNarudzba { get; set; }
+        public virtual ICollection<Narudzba> Narudzba { get; set; }
     }
 }

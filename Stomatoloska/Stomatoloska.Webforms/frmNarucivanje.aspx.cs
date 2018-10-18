@@ -24,7 +24,7 @@ namespace Stomatoloska.Webforms
                 ddlZahvati.Items.Add(new ListItem { Text = "-- Odaberite --", Value = "-1", Selected = true });
                 foreach (var zahvat in zahvati )
                 {
-                    ddlZahvati.Items.Add(new ListItem { Text = zahvat.naziv, Value = zahvat.sifra });
+                    ddlZahvati.Items.Add(new ListItem { Text = zahvat.naziv, Value = zahvat.zahvat_id.ToString() });
                 }
                 var pacijenti = pacijentBLL.PribaviPacijente().OrderBy(x=>x.prezime);
                 foreach (var pacijent in pacijenti)
@@ -79,7 +79,7 @@ namespace Stomatoloska.Webforms
         {
             if (ddlZahvati.SelectedIndex != -1)
             {
-                var zahvat = zahvatBLL.PribaviZahvatZaSifru(ddlZahvati.SelectedValue);
+                var zahvat = zahvatBLL.PribaviZahvat(Int32.Parse(ddlZahvati.SelectedValue));
                 lblCijenaZahvata.Text = string.Format("{0:C}", zahvat.cijena);
                 lblTrajanjeZahvata.Text = zahvat.trajanje_minuta.ToString() + " minuta";
             }
@@ -161,7 +161,7 @@ namespace Stomatoloska.Webforms
             Narudzba narudzba = new Narudzba();
             narudzba.dcr = DateTime.Now;
             narudzba.pacijent_id = Int32.Parse(lbPacijenti.SelectedValue);
-            narudzba.sifra = ddlZahvati.SelectedValue;
+            narudzba.zahvat_id = Int32.Parse(ddlZahvati.SelectedValue);
             narudzba.termin_pocetak = start;
             narudzba.termin_kraj = end;
             NarudzbaBLL.Status status = NarudzbaBLL.Status.Kreirana;

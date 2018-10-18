@@ -26,8 +26,8 @@ namespace Stomatoloska.Webforms
 
         protected void btnUnosPacijenta_Click(object sender, EventArgs e)
         {
-            
-            pacijent.adresa = txtAdresa.Text;
+            if (!string.IsNullOrEmpty(txtAdresa.Text ))
+                pacijent.adresa = txtAdresa.Text;
             pacijent.datum_rodjenja = DateTime.Parse(txtDatumRodjenja.Text);
             pacijent.ime = txtIme.Text;
             pacijent.prezime = txtPrezime.Text;

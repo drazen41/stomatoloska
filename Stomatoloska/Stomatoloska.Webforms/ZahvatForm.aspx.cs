@@ -30,9 +30,12 @@ namespace Stomatoloska.Webforms
 
                 if (gvZahvati.SelectedIndex > -1)
                 {
-                    zahvatBll.AzurirajZahvat(zahvat);
+                    string sifra = ViewState["sifra"].ToString();
+                    //zahvatBll.AzurirajZahvat(zahvat);
+                    zahvatBll.AzurirajZahvat(zahvat, sifra);
                     gvZahvati.SelectedIndex = -1;
                     btnCancel.Visible = false;
+                    ViewState["sifra"] = null;
                 }
                 else
                 {
@@ -52,9 +55,6 @@ namespace Stomatoloska.Webforms
             }
             btnUnos.Text = "Unesi zahvat";
             txtSifra.Enabled = true;
-
-
-
         }
 
         protected void CustomValidatorCijena_ServerValidate(object source, ServerValidateEventArgs args)
@@ -81,7 +81,8 @@ namespace Stomatoloska.Webforms
             txtCijena.Text = red.Cells[3].Text;
             ddlVrijeme.SelectedValue = red.Cells[4].Text;
             btnUnos.Text = "Ažuriraj zahvat";
-            txtSifra.Enabled = false;
+            //txtSifra.Enabled = false;
+            ViewState["sifra"] = red.Cells[1].Text;
         }
 
         protected void gvZahvati_RowDeleting(object sender, GridViewDeleteEventArgs e)

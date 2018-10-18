@@ -9,7 +9,7 @@
     <Property Name="termin_kraj" Type="datetime" Nullable="false" />
     <Property Name="status" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="pacijent_id" Type="int" Nullable="false" />
-    <Property Name="sifra" Type="nvarchar" MaxLength="10" Nullable="false" />
+    <Property Name="zahvat_id" Type="int" Nullable="false" />
     <Property Name="dcr" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="tPacijent">
@@ -21,7 +21,7 @@
     <Property Name="ime" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="datum_rodjenja" Type="date" Nullable="false" />
     <Property Name="telefon" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="adresa" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="adresa" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <EntityType Name="tRadnoVrijeme">
     <Key>
@@ -35,8 +35,9 @@
   </EntityType>
   <EntityType Name="tZahvat">
     <Key>
-      <PropertyRef Name="sifra" />
+      <PropertyRef Name="zahvat_id" />
     </Key>
+    <Property Name="zahvat_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="sifra" Type="nvarchar" MaxLength="10" Nullable="false" />
     <Property Name="naziv" Type="nvarchar" MaxLength="200" Nullable="false" />
     <Property Name="cijena" Type="decimal" Precision="9" Scale="2" Nullable="false" />
@@ -60,10 +61,10 @@
     <End Role="tNarudzba" Type="Self.tNarudzba" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="tZahvat">
-        <PropertyRef Name="sifra" />
+        <PropertyRef Name="zahvat_id" />
       </Principal>
       <Dependent Role="tNarudzba">
-        <PropertyRef Name="sifra" />
+        <PropertyRef Name="zahvat_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

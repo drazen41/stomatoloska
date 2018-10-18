@@ -2,16 +2,16 @@
 <Schema Namespace="stomatoloskaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
   <EntityContainer Name="stomatoloskaEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="tRadnoVrijeme" EntityType="stomatoloskaModel.RadnoVrijeme" />
-    <EntitySet Name="tZahvat" EntityType="stomatoloskaModel.Zahvat" />
-    <EntitySet Name="tPacijent" EntityType="stomatoloskaModel.Pacijent" />
     <EntitySet Name="tNarudzba" EntityType="stomatoloskaModel.Narudzba" />
-    <AssociationSet Name="FK_tNarudzba_tPacijent" Association="stomatoloskaModel.FK_tNarudzba_tPacijent">
-      <End Role="Pacijent" EntitySet="tPacijent" />
+    <EntitySet Name="tZahvat" EntityType="stomatoloskaModel.Zahvat" />
+    <AssociationSet Name="FK_tNarudzba_tZahvat" Association="stomatoloskaModel.FK_tNarudzba_tZahvat">
+      <End Role="tZahvat" EntitySet="tZahvat" />
       <End Role="tNarudzba" EntitySet="tNarudzba" />
     </AssociationSet>
-    <AssociationSet Name="FK_tNarudzba_tZahvat" Association="stomatoloskaModel.FK_tNarudzba_tZahvat">
-      <End Role="Zahvat" EntitySet="tZahvat" />
-      <End Role="tNarudzba" EntitySet="tNarudzba" />
+    <EntitySet Name="tPacijent" EntityType="stomatoloskaModel.Pacijent" />
+    <AssociationSet Name="FK_tNarudzba_tPacijent" Association="stomatoloskaModel.FK_tNarudzba_tPacijent">
+      <End Role="tPacijent" EntitySet="tPacijent" />
+      <End Role="Narudzba" EntitySet="tNarudzba" />
     </AssociationSet>
   </EntityContainer>
   <EntityType Name="RadnoVrijeme">
@@ -24,29 +24,6 @@
     <Property Name="kraj" Type="Time" Nullable="false" Precision="0" />
     <Property Name="dcr" Type="DateTime" Nullable="false" Precision="3" />
   </EntityType>
-  <EntityType Name="Zahvat">
-    <Key>
-      <PropertyRef Name="sifra" />
-    </Key>
-    <Property Name="sifra" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
-    <Property Name="naziv" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
-    <Property Name="cijena" Type="Decimal" Nullable="false" Precision="9" Scale="2" />
-    <Property Name="trajanje_minuta" Type="Int32" Nullable="false" />
-    <Property Name="dcr" Type="DateTime" Nullable="false" Precision="3" />
-    <NavigationProperty Name="tNarudzba" Relationship="stomatoloskaModel.FK_tNarudzba_tZahvat" FromRole="Zahvat" ToRole="tNarudzba" />
-  </EntityType>
-  <EntityType Name="Pacijent">
-    <Key>
-      <PropertyRef Name="pacijent_id" />
-    </Key>
-    <Property Name="pacijent_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="prezime" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="ime" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="datum_rodjenja" Type="DateTime" Nullable="false" Precision="0" />
-    <Property Name="telefon" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="adresa" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="tNarudzba" Relationship="stomatoloskaModel.FK_tNarudzba_tPacijent" FromRole="Pacijent" ToRole="tNarudzba" />
-  </EntityType>
   <EntityType Name="Narudzba">
     <Key>
       <PropertyRef Name="narudzba_id" />
@@ -56,32 +33,56 @@
     <Property Name="termin_kraj" Type="DateTime" Nullable="false" Precision="3" />
     <Property Name="status" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="pacijent_id" Type="Int32" Nullable="false" />
-    <Property Name="sifra" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="zahvat_id" Type="Int32" Nullable="false" />
     <Property Name="dcr" Type="DateTime" Nullable="false" Precision="3" />
-    <NavigationProperty Name="Pacijent" Relationship="stomatoloskaModel.FK_tNarudzba_tPacijent" FromRole="tNarudzba" ToRole="Pacijent" />
-    <NavigationProperty Name="Zahvat" Relationship="stomatoloskaModel.FK_tNarudzba_tZahvat" FromRole="tNarudzba" ToRole="Zahvat" />
+    <NavigationProperty Name="Zahvat" Relationship="stomatoloskaModel.FK_tNarudzba_tZahvat" FromRole="tNarudzba" ToRole="tZahvat" />
+    <NavigationProperty Name="Pacijent" Relationship="stomatoloskaModel.FK_tNarudzba_tPacijent" FromRole="Narudzba" ToRole="tPacijent" />
   </EntityType>
-  <Association Name="FK_tNarudzba_tPacijent">
-    <End Type="stomatoloskaModel.Pacijent" Role="Pacijent" Multiplicity="1" />
+  <EntityType Name="Zahvat">
+    <Key>
+      <PropertyRef Name="zahvat_id" />
+    </Key>
+    <Property Name="zahvat_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sifra" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="naziv" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="cijena" Type="Decimal" Nullable="false" Precision="9" Scale="2" />
+    <Property Name="trajanje_minuta" Type="Int32" Nullable="false" />
+    <Property Name="dcr" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="Narudzba" Relationship="stomatoloskaModel.FK_tNarudzba_tZahvat" FromRole="tZahvat" ToRole="tNarudzba" />
+  </EntityType>
+  <Association Name="FK_tNarudzba_tZahvat">
+    <End Type="stomatoloskaModel.Zahvat" Role="tZahvat" Multiplicity="1" />
     <End Type="stomatoloskaModel.Narudzba" Role="tNarudzba" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Pacijent">
-        <PropertyRef Name="pacijent_id" />
+      <Principal Role="tZahvat">
+        <PropertyRef Name="zahvat_id" />
       </Principal>
       <Dependent Role="tNarudzba">
-        <PropertyRef Name="pacijent_id" />
+        <PropertyRef Name="zahvat_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="FK_tNarudzba_tZahvat">
-    <End Type="stomatoloskaModel.Zahvat" Role="Zahvat" Multiplicity="1" />
-    <End Type="stomatoloskaModel.Narudzba" Role="tNarudzba" Multiplicity="*" />
+  <EntityType Name="Pacijent">
+    <Key>
+      <PropertyRef Name="pacijent_id" />
+    </Key>
+    <Property Name="pacijent_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="prezime" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ime" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="datum_rodjenja" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="telefon" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="adresa" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="true" />
+    <NavigationProperty Name="Narudzba" Relationship="stomatoloskaModel.FK_tNarudzba_tPacijent" FromRole="tPacijent" ToRole="Narudzba" />
+  </EntityType>
+  <Association Name="FK_tNarudzba_tPacijent">
+    <End Type="stomatoloskaModel.Pacijent" Role="tPacijent" Multiplicity="1" />
+    <End Type="stomatoloskaModel.Narudzba" Role="Narudzba" Multiplicity="*" />
     <ReferentialConstraint>
-      <Principal Role="Zahvat">
-        <PropertyRef Name="sifra" />
+      <Principal Role="tPacijent">
+        <PropertyRef Name="pacijent_id" />
       </Principal>
-      <Dependent Role="tNarudzba">
-        <PropertyRef Name="sifra" />
+      <Dependent Role="Narudzba">
+        <PropertyRef Name="pacijent_id" />
       </Dependent>
     </ReferentialConstraint>
   </Association>

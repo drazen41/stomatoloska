@@ -12,6 +12,19 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="tNarudzba">
+      <EntityTypeMapping TypeName="stomatoloskaModel.Narudzba">
+        <MappingFragment StoreEntitySet="tNarudzba">
+          <ScalarProperty Name="dcr" ColumnName="dcr" />
+          <ScalarProperty Name="zahvat_id" ColumnName="zahvat_id" />
+          <ScalarProperty Name="pacijent_id" ColumnName="pacijent_id" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="termin_kraj" ColumnName="termin_kraj" />
+          <ScalarProperty Name="termin_pocetak" ColumnName="termin_pocetak" />
+          <ScalarProperty Name="narudzba_id" ColumnName="narudzba_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
     <EntitySetMapping Name="tZahvat">
       <EntityTypeMapping TypeName="stomatoloskaModel.Zahvat">
         <MappingFragment StoreEntitySet="tZahvat">
@@ -20,6 +33,7 @@
           <ScalarProperty Name="cijena" ColumnName="cijena" />
           <ScalarProperty Name="naziv" ColumnName="naziv" />
           <ScalarProperty Name="sifra" ColumnName="sifra" />
+          <ScalarProperty Name="zahvat_id" ColumnName="zahvat_id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -32,19 +46,6 @@
           <ScalarProperty Name="ime" ColumnName="ime" />
           <ScalarProperty Name="prezime" ColumnName="prezime" />
           <ScalarProperty Name="pacijent_id" ColumnName="pacijent_id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="tNarudzba">
-      <EntityTypeMapping TypeName="stomatoloskaModel.Narudzba">
-        <MappingFragment StoreEntitySet="tNarudzba">
-          <ScalarProperty Name="dcr" ColumnName="dcr" />
-          <ScalarProperty Name="sifra" ColumnName="sifra" />
-          <ScalarProperty Name="pacijent_id" ColumnName="pacijent_id" />
-          <ScalarProperty Name="status" ColumnName="status" />
-          <ScalarProperty Name="termin_kraj" ColumnName="termin_kraj" />
-          <ScalarProperty Name="termin_pocetak" ColumnName="termin_pocetak" />
-          <ScalarProperty Name="narudzba_id" ColumnName="narudzba_id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
