@@ -32,5 +32,3 @@ D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.BLL\bin\Debug\EntityFramewo
 D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.BLL\bin\Debug\Stomatoloska.DAL.pdb
 D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.BLL\bin\Debug\EntityFramework.xml
 D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.BLL\obj\Debug\Stomatoloska.BLL.csprojResolveAssemblyReference.cache
-D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.BLL\bin\Debug\Stomatoloska.DAL.dll.config
-D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.BLL\obj\Debug\Stomatoloska.BLL.csproj.CoreCompileInputs.cache

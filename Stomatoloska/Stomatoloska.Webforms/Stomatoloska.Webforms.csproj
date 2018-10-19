@@ -239,6 +239,8 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ZahvatForm.aspx" />
+    <EmbeddedResource Include="Reports\rptTerminZahvat.rdlc" />
+    <EmbeddedResource Include="Reports\rptTerminDan.rdlc" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="frmNarucivanje.aspx" />
     <Content Include="frmRadnoVrijeme.aspx" />
@@ -413,12 +415,6 @@
     <Compile Include="Contact.aspx.designer.cs">
       <DependentUpon>Contact.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Reports\CrystalReportIskoristeniTermini.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CrystalReportIskoristeniTermini.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -531,12 +527,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Reports\CrystalReportIskoristeniTermini.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>CrystalReportIskoristeniTermini.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptTest.rdlc" />
-    <EmbeddedResource Include="Reports\rptIskoristeniTermini.rdlc" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />

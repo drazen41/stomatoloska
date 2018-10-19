@@ -70,14 +70,5 @@ D:\Aplikacije\stomatoloska\Stomatoloska\StomatoloskaReports\obj\Debug\Stomatolos
 D:\Aplikacije\stomatoloska\Stomatoloska\StomatoloskaReports\obj\Debug\StomatoloskaReports.csproj.GenerateResource.Cache
 D:\Aplikacije\stomatoloska\Stomatoloska\StomatoloskaReports\obj\Debug\StomatoloskaReports.exe
 D:\Aplikacije\stomatoloska\Stomatoloska\StomatoloskaReports\obj\Debug\StomatoloskaReports.pdb
-D:\Aplikacije\stomatoloska\Stomatoloska\StomatoloskaReports\bin\Debug\Microsoft.SqlServer.Types.dll
-D:\Aplikacije\stomatoloska\Stomatoloska\StomatoloskaReports\bin\Debug\EnvDTE.dll
-D:\Aplikacije\stomatoloska\Stomatoloska\StomatoloskaReports\bin\Debug\Microsoft.VisualStudio.Shell.Interop.dll
-D:\Aplikacije\stomatoloska\Stomatoloska\StomatoloskaReports\bin\Debug\Microsoft.VisualStudio.Shell.Interop.8.0.dll
-D:\Aplikacije\stomatoloska\Stomatoloska\StomatoloskaReports\bin\Debug\EnvDTE80.dll
-D:\Aplikacije\stomatoloska\Stomatoloska\StomatoloskaReports\bin\Debug\stdole.dll
-D:\Aplikacije\stomatoloska\Stomatoloska\StomatoloskaReports\bin\Debug\Microsoft.VisualStudio.OLE.Interop.dll
-D:\Aplikacije\stomatoloska\Stomatoloska\StomatoloskaReports\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.dll
-D:\Aplikacije\stomatoloska\Stomatoloska\StomatoloskaReports\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.8.0.dll
-D:\Aplikacije\stomatoloska\Stomatoloska\StomatoloskaReports\bin\Debug\Microsoft.MSXML.dll
-D:\Aplikacije\stomatoloska\Stomatoloska\StomatoloskaReports\obj\Debug\StomatoloskaReports.csproj.CoreCompileInputs.cache
+D:\Aplikacije\stomatoloska\Stomatoloska\StomatoloskaReports\obj\Debug\RdlCompile.cache
+D:\Aplikacije\stomatoloska\Stomatoloska\StomatoloskaReports\obj\Debug\RdlCompile.compiled

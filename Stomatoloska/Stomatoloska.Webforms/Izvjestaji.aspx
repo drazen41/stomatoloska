@@ -7,8 +7,9 @@
       
         
    </asp:Panel>
-   <asp:Panel ID="pnlIzvjestaji" runat="server" GroupingText="Izvještaji" Height="700px" Width="700px">
-        <rsweb:ReportViewer ID="ReportViewerStomatoloska" runat="server" Height="100%" ProcessingMode="Local" >
+    <hr />
+   <asp:Panel ID="pnlIzvjestaji" runat="server" GroupingText="Izvještaji" Height="100%" Width="100%">
+        <rsweb:ReportViewer ID="ReportViewerStomatoloska" runat="server" Height="700px" Width="100%" ProcessingMode="Local" >
           
        </rsweb:ReportViewer>
    </asp:Panel>

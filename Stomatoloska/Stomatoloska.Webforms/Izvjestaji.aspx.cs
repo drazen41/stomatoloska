@@ -7,15 +7,17 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Stomatoloska.BLL;
 using Stomatoloska.DAL.Baza;
+using Stomatoloska.Webforms.Reports;
+using System.Data;
 
 namespace Stomatoloska.Webforms
 {
     public partial class Izvjestaji : System.Web.UI.Page
     {
-        private NarudzbaBLL narudzbeBll = new NarudzbaBLL();
+        private ReportsData reportsData = new ReportsData();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!Page.IsPostBack )
+            if (!Page.IsPostBack)
             {
                 PopuniDDL();
             }
@@ -33,26 +35,42 @@ namespace Stomatoloska.Webforms
 
         protected void ddlIzvjestaji_SelectedIndexChanged(object sender, EventArgs e)
         {
+            LocalReport localReport = this.ReportViewerStomatoloska.LocalReport;
+            ReportDataSource rds = new ReportDataSource();
             int report = Int32.Parse(ddlIzvjestaji.SelectedValue);
             string path = "";
             switch (report)
             {
                 case 1:
-                    path = "Reports/rptIskoristeniTermini.rdlc";
+                    path = "Reports/rptTerminZahvat.rdlc";
+                    rds.Name = "DataSet1";
+                    rds.Value = reportsData.PribaviIskoristeneTerminePoZahvatu();
+                    localReport.DataSources.Add(rds);
+                    break;
+                case 2:
+                    path = "Reports/rptTerminDan.rdlc";
+                    rds.Name = "DataSet1";
+                    rds.Value = reportsData.PribaviIskoristeneTerminePoDanima();
+                    localReport.DataSources.Add(rds);
+                    break;
+                case 3:
+                    path = "Reports/rptTerminZahvat.rdlc";
+                    rds.Name = "DataSet1";
+                    rds.Value = reportsData.PribaviNeiskoristeneTerminePoZahvatu();
+                    localReport.DataSources.Add(rds);
                     break;
                 default:
                     break;
             }
-            LocalReport localReport = this.ReportViewerStomatoloska.LocalReport;
-            localReport.ReportPath = "Reports/rptIskoristeniTermini.rdlc";
 
-            ReportDataSource rds = new ReportDataSource();
-            rds.Name = "DataSet1";
-            rds.Value = narudzbeBll.PribaviNarudzbeZaStatus(NarudzbaBLL.Status.Izvrsena);
-            localReport.DataSources.Add(rds);
+            localReport.ReportPath = path;
+
+
+
             //rds.va
-           //this.ReportViewerStomatoloska.LocalReport.DataSources.a
+            //this.ReportViewerStomatoloska.LocalReport.DataSources.a
         }
-        
+
+
     }
 }

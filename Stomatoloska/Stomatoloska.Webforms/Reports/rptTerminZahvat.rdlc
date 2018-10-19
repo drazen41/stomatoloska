@@ -43,7 +43,7 @@
               <Width>3.41017cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.58934cm</Width>
+              <Width>3.20084cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -646,7 +646,7 @@
           <TablixMembers>
             <TablixMember>
               <TablixHeader>
-                <Size>6.731cm</Size>
+                <Size>6.35cm</Size>
                 <CellContents>
                   <Textbox Name="Textbox8">
                     <CanGrow>true</CanGrow>
@@ -683,7 +683,7 @@
               <TablixMembers>
                 <TablixMember>
                   <TablixHeader>
-                    <Size>2.5cm</Size>
+                    <Size>2.14017cm</Size>
                     <CellContents>
                       <Textbox Name="Textbox19">
                         <CanGrow>true</CanGrow>
@@ -736,7 +736,7 @@
                 </SortExpression>
               </SortExpressions>
               <TablixHeader>
-                <Size>6.731cm</Size>
+                <Size>6.35cm</Size>
                 <CellContents>
                   <Textbox Name="naziv">
                     <CanGrow>true</CanGrow>
@@ -779,7 +779,7 @@
                     </SortExpression>
                   </SortExpressions>
                   <TablixHeader>
-                    <Size>2.5cm</Size>
+                    <Size>2.14017cm</Size>
                     <CellContents>
                       <Textbox Name="sifra">
                         <CanGrow>true</CanGrow>
@@ -817,7 +817,7 @@
                 </TablixMember>
                 <TablixMember>
                   <TablixHeader>
-                    <Size>2.5cm</Size>
+                    <Size>2.14017cm</Size>
                     <CellContents>
                       <Textbox Name="Textbox27">
                         <CanGrow>true</CanGrow>
@@ -851,7 +851,7 @@
                 </TablixMember>
                 <TablixMember>
                   <TablixHeader>
-                    <Size>2.5cm</Size>
+                    <Size>2.14017cm</Size>
                     <CellContents>
                       <Textbox Name="Textbox23">
                         <CanGrow>true</CanGrow>
@@ -887,7 +887,7 @@
             </TablixMember>
             <TablixMember>
               <TablixHeader>
-                <Size>6.731cm</Size>
+                <Size>6.35cm</Size>
                 <CellContents>
                   <Textbox Name="Textbox32">
                     <CanGrow>true</CanGrow>
@@ -920,7 +920,7 @@
               <TablixMembers>
                 <TablixMember>
                   <TablixHeader>
-                    <Size>2.5cm</Size>
+                    <Size>2.14017cm</Size>
                     <CellContents>
                       <Textbox Name="Textbox33">
                         <CanGrow>true</CanGrow>
@@ -956,7 +956,7 @@
             </TablixMember>
             <TablixMember>
               <TablixHeader>
-                <Size>6.731cm</Size>
+                <Size>6.35cm</Size>
                 <CellContents>
                   <Textbox Name="Textbox5">
                     <CanGrow>true</CanGrow>
@@ -989,7 +989,7 @@
               <TablixMembers>
                 <TablixMember>
                   <TablixHeader>
-                    <Size>2.5cm</Size>
+                    <Size>2.14017cm</Size>
                     <CellContents>
                       <Textbox Name="Textbox21">
                         <CanGrow>true</CanGrow>
@@ -1029,7 +1029,7 @@
         <Top>2.76437cm</Top>
         <Left>0.64303cm</Left>
         <Height>3.6cm</Height>
-        <Width>17.73051cm</Width>
+        <Width>17.60118cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -1038,7 +1038,7 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>2.775in</Height>
+    <Height>2.61667in</Height>
     <Style />
   </Body>
   <Width>18.83687cm</Width>
@@ -1108,8 +1108,10 @@
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
     <DataSource Name="DataSourceStomatoloska">
-      <DataSourceReference>DataSourceStomatoloska</DataSourceReference>
-      <rd:SecurityType>DataBase</rd:SecurityType>
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString>Data Source=DSVEC-4597\SQLEXPRESS;Initial Catalog=stomatoloska</ConnectString>
+      </ConnectionProperties>
       <rd:DataSourceID>76b0382b-5603-4656-a85e-e9a11926c799</rd:DataSourceID>
     </DataSource>
   </DataSources>
