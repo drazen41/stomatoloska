@@ -239,8 +239,10 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="ZahvatForm.aspx" />
+    <EmbeddedResource Include="Reports\rptNeiskoristeniTerminiZahvat.rdlc" />
     <EmbeddedResource Include="Reports\rptTerminZahvat.rdlc" />
     <EmbeddedResource Include="Reports\rptTerminDan.rdlc" />
+    <EmbeddedResource Include="Reports\rptNeiskoristenTerminDan.rdlc" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="frmNarucivanje.aspx" />
     <Content Include="frmRadnoVrijeme.aspx" />

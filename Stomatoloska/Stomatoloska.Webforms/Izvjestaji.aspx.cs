@@ -42,21 +42,27 @@ namespace Stomatoloska.Webforms
             switch (report)
             {
                 case 1:
-                    path = "Reports/rptTerminZahvat.rdlc";
+                    path = Server.MapPath("~/Reports/rptTerminZahvat.rdlc");
                     rds.Name = "DataSet1";
                     rds.Value = reportsData.PribaviIskoristeneTerminePoZahvatu();
                     localReport.DataSources.Add(rds);
                     break;
                 case 2:
-                    path = "Reports/rptTerminDan.rdlc";
+                    path = Server.MapPath("~/Reports/rptTerminDan.rdlc");
                     rds.Name = "DataSet1";
                     rds.Value = reportsData.PribaviIskoristeneTerminePoDanima();
                     localReport.DataSources.Add(rds);
                     break;
                 case 3:
-                    path = "Reports/rptTerminZahvat.rdlc";
+                    path = Server.MapPath("~/Reports/rptNeiskoristeniTerminiZahvat.rdlc");
                     rds.Name = "DataSet1";
                     rds.Value = reportsData.PribaviNeiskoristeneTerminePoZahvatu();
+                    localReport.DataSources.Add(rds);
+                    break;
+                case 4:
+                    path = Server.MapPath("~/Reports/rptNeiskoristenTerminDan.rdlc");
+                    rds.Name = "DataSet1";
+                    rds.Value = reportsData.PribaviNeiskoristeneTerminePoDanima();
                     localReport.DataSources.Add(rds);
                     break;
                 default:

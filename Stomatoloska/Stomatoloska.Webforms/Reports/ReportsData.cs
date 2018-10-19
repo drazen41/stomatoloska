@@ -15,6 +15,7 @@ namespace Stomatoloska.Webforms.Reports
     {
         
         private NarudzbaBLL narudzbaBLL = new NarudzbaBLL();
+        private RadnoVrijemeBLL radnoVrijemeBll = new RadnoVrijemeBLL();
         public DataTable PribaviIskoristeneTerminePoZahvatu()
         {
             DataTable table = new DataTable();
@@ -56,6 +57,54 @@ namespace Stomatoloska.Webforms.Reports
             sda.Fill(table);
             return table;
 
+        }
+        public DataTable PribaviNeiskoristeneTerminePoDanima()
+        {
+            DataTable table = new DataTable();
+            var radnoVrijeme = radnoVrijemeBll.PribaviRadnaVremena();
+            var narudzbe = narudzbaBLL.PribaviNarudzbe()
+                .Where(x=>x.status == NarudzbaBLL.Status.Izvrsena.ToString() || x.status==NarudzbaBLL.Status.Kreirana.ToString() || x.status == NarudzbaBLL.Status.NijeDosao.ToString());
+            var minDatum = narudzbe.Min(x => x.termin_pocetak).Date;
+            int dana = (DateTime.Now - minDatum).Days;
+            table.Columns.Add("datum",typeof(DateTime));
+            table.Columns.Add("termin_pocetak",typeof(DateTime));
+            table.Columns.Add("termin_kraj",typeof(DateTime));
+            table.Columns.Add("razlika",typeof(Int32));
+            //DataRow red = table.NewRow();
+            //red["datum"] = DateTime.Now;
+            //red["termin_pocetak"] = DateTime.Now.AddHours(1);
+            //red["termin_kraj"] = DateTime.Now.AddHours(2);
+            //red["razlika"] = 60;
+            //table.Rows.Add(red);
+            var trenutniDatum = minDatum;
+            for (int i = 0 ; i < dana+1  ; i++)
+            {
+                var radniDan = radnoVrijemeBll.RadniDanZaDatum(trenutniDatum);
+                var radnoVrijemeDan = radnoVrijeme.Where(x => x.radni_dan == radniDan).FirstOrDefault();
+                double minuta = 0;
+                if (radnoVrijemeDan != null)
+                {
+                    minuta = radnoVrijemeDan.kraj.TotalMinutes - radnoVrijemeDan.pocetak.TotalMinutes;
+                    int brojac = 0;
+                    while (brojac < minuta)
+                    {
+                        DataRow red = table.NewRow();
+                        red["datum"] = trenutniDatum.AddDays(i);
+                        red["termin_pocetak"] = trenutniDatum.AddMinutes(brojac);
+                        red["termin_kraj"] = trenutniDatum.AddMinutes(brojac + 60);
+                        red["razlika"] = 60;
+                        table.Rows.Add(red);
+                        brojac += 30;
+
+                    }
+
+                }
+                
+            }
+
+
+
+            return table;
         }
         
 

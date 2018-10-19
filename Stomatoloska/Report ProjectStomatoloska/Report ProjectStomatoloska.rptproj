@@ -17,6 +17,10 @@
       <Name>rptTerminDan.rdl</Name>
       <FullPath>rptTerminDan.rdl</FullPath>
     </ProjectItem>
+    <ProjectItem>
+      <Name>rptNeiskoristenTerminDan.rdl</Name>
+      <FullPath>rptNeiskoristenTerminDan.rdl</FullPath>
+    </ProjectItem>
   </Reports>
   <Configurations>
     <Configuration>

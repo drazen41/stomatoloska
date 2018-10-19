@@ -27,6 +27,10 @@ namespace Stomatoloska.BLL
         {
             uow = new StomatoloskaUoW();
         }
+        public List<Narudzba> PribaviNarudzbe()
+        {
+            return uow.NarudzbaRepo.Get().ToList<Narudzba>();
+        }
         public List<Narudzba> PribaviNarudzbe(DateTime start,DateTime end)
         {
             return uow.NarudzbaRepo
