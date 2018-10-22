@@ -63,7 +63,7 @@ namespace Stomatoloska.Webforms.Reports
             DataTable table = new DataTable();
             var radnoVrijeme = radnoVrijemeBll.PribaviRadnaVremena();
             var narudzbe = narudzbaBLL.PribaviNarudzbe()
-                .Where(x=>x.status == NarudzbaBLL.Status.Izvrsena.ToString() || x.status==NarudzbaBLL.Status.Kreirana.ToString() || x.status == NarudzbaBLL.Status.NijeDosao.ToString());
+                .Where(x=>x.status == NarudzbaBLL.Status.Izvrsena.ToString() || x.status==NarudzbaBLL.Status.Kreirana.ToString() || x.status == NarudzbaBLL.Status.NijeDosao.ToString()).ToList();
             var minDatum = narudzbe.Min(x => x.termin_pocetak).Date;
             int dana = (DateTime.Now - minDatum).Days;
             table.Columns.Add("datum",typeof(DateTime));
@@ -77,28 +77,90 @@ namespace Stomatoloska.Webforms.Reports
             //red["razlika"] = 60;
             //table.Rows.Add(red);
             var trenutniDatum = minDatum;
+            DateTime terminPocetak = new DateTime(1900, 1, 1);
+            DateTime terminKraj = new DateTime(1900, 1, 1);
+            bool noviPocetak = false;
             for (int i = 0 ; i < dana+1  ; i++)
             {
+                trenutniDatum = minDatum.AddDays(i).Date;
                 var radniDan = radnoVrijemeBll.RadniDanZaDatum(trenutniDatum);
                 var radnoVrijemeDan = radnoVrijeme.Where(x => x.radni_dan == radniDan).FirstOrDefault();
+                Narudzba termin = null;
                 double minuta = 0;
                 if (radnoVrijemeDan != null)
                 {
                     minuta = radnoVrijemeDan.kraj.TotalMinutes - radnoVrijemeDan.pocetak.TotalMinutes;
+                    trenutniDatum = trenutniDatum.Add(radnoVrijemeDan.pocetak);
                     int brojac = 0;
+                    DataRow red = null;
+                    int razlika = 0;
                     while (brojac < minuta)
                     {
-                        DataRow red = table.NewRow();
-                        red["datum"] = trenutniDatum.AddDays(i);
-                        red["termin_pocetak"] = trenutniDatum.AddMinutes(brojac);
-                        red["termin_kraj"] = trenutniDatum.AddMinutes(brojac + 60);
-                        red["razlika"] = 60;
-                        table.Rows.Add(red);
-                        brojac += 30;
+                        termin = narudzbe.Where(x => x.termin_pocetak == trenutniDatum).FirstOrDefault();
+                        //if (termin != null)
+                        //{
+
+                        //}
+
+
+                        if (termin != null)
+                        {
+                            terminKraj = termin.termin_kraj;
+                            int minutaTermin = (int)((termin.termin_kraj - termin.termin_pocetak).TotalMinutes);
+                            if (terminPocetak.Date > new DateTime(1900, 1, 1))
+                            {
+                                //terminPocetak = termin.termin_pocetak;
+                                //razlika += (int)(terminKraj - terminPocetak).TotalMinutes;
+                                red = table.NewRow();
+                                red["datum"] = trenutniDatum.Date;
+                                red["termin_pocetak"] = terminPocetak;
+                                red["termin_kraj"] = trenutniDatum;
+                                red["razlika"] = (int)((trenutniDatum - terminPocetak).TotalMinutes);
+                                table.Rows.Add(red);
+                                brojac += (int)(terminKraj - trenutniDatum).TotalMinutes;
+                                terminPocetak = new DateTime(1900, 1, 1);
+                                terminKraj = new DateTime(1900, 1, 1);                               
+                                trenutniDatum = trenutniDatum.AddMinutes(minutaTermin);
+                                razlika = 0;
+                            }
+                            else
+                            {
+                                
+                                trenutniDatum = trenutniDatum.AddMinutes(minutaTermin);
+                                brojac += minutaTermin;
+                            }
+                            noviPocetak = true;
+                        }
+                        else
+                        {
+                            if (noviPocetak || trenutniDatum.TimeOfDay == radnoVrijemeDan.pocetak)
+                                terminPocetak = trenutniDatum;
+                            trenutniDatum = trenutniDatum.AddMinutes(30);
+                            brojac += 30;
+                            //razlika += 30;
+                            if (trenutniDatum.TimeOfDay == radnoVrijemeDan.kraj)
+                            {
+                                red = table.NewRow();
+                                red["datum"] = trenutniDatum.Date;
+                                red["termin_pocetak"] = terminPocetak;
+                                red["termin_kraj"] = trenutniDatum;
+                                red["razlika"] = (int)((trenutniDatum - terminPocetak).TotalMinutes);
+                                table.Rows.Add(red);
+                                terminPocetak = new DateTime(1900, 1, 1);
+                                terminKraj = new DateTime(1900, 1, 1);
+                                razlika = 0;
+                            }
+                            noviPocetak = false;
+
+                        }
+                        
+                        
+                      
 
                     }
 
                 }
+                
                 
             }
 

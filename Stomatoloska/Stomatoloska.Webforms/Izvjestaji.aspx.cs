@@ -61,6 +61,7 @@ namespace Stomatoloska.Webforms
                     break;
                 case 4:
                     path = Server.MapPath("~/Reports/rptNeiskoristenTerminDan.rdlc");
+                    //DataTable table = reportsData.PribaviNeiskoristeneTerminePoDanima();
                     rds.Name = "DataSet1";
                     rds.Value = reportsData.PribaviNeiskoristeneTerminePoDanima();
                     localReport.DataSources.Add(rds);

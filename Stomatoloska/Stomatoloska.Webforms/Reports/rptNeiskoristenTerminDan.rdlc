@@ -10,7 +10,9 @@
             <TextRuns>
               <TextRun>
                 <Value>NEISKORIŠTENI TERMINI PO DANIMA</Value>
-                <Style />
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
               </TextRun>
             </TextRuns>
             <Style>
@@ -19,8 +21,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>1.04987cm</Top>
-        <Left>5.83353cm</Left>
+        <Top>1.13454cm</Top>
+        <Left>3.74037cm</Left>
         <Height>0.6cm</Height>
         <Width>9.95067cm</Width>
         <Style>
@@ -199,7 +201,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Sum(Fields!razlika.Value)/60</Value>
-                              <Style />
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -229,7 +233,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value />
-                              <Style />
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -264,7 +270,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Sum(Fields!razlika.Value)/60</Value>
-                              <Style />
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -294,7 +302,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value />
-                              <Style />
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -337,7 +347,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>datum</Value>
+                            <Value>Datum</Value>
                             <Style>
                               <FontWeight>Bold</FontWeight>
                             </Style>
@@ -374,7 +384,7 @@
                           <Paragraph>
                             <TextRuns>
                               <TextRun>
-                                <Value>razlika</Value>
+                                <Value>Minuta</Value>
                                 <Style>
                                   <FontWeight>Bold</FontWeight>
                                 </Style>
@@ -511,7 +521,9 @@
                             <TextRuns>
                               <TextRun>
                                 <Value>Ukupno sati</Value>
-                                <Style />
+                                <Style>
+                                  <FontWeight>Bold</FontWeight>
+                                </Style>
                               </TextRun>
                             </TextRuns>
                             <Style />
@@ -547,7 +559,9 @@
                         <TextRuns>
                           <TextRun>
                             <Value>Sveukupno sati</Value>
-                            <Style />
+                            <Style>
+                              <FontWeight>Bold</FontWeight>
+                            </Style>
                           </TextRun>
                         </TextRuns>
                         <Style />
@@ -580,7 +594,9 @@
                             <TextRuns>
                               <TextRun>
                                 <Value />
-                                <Style />
+                                <Style>
+                                  <FontWeight>Bold</FontWeight>
+                                </Style>
                               </TextRun>
                             </TextRuns>
                             <Style />
@@ -619,7 +635,7 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>2.775in</Height>
+    <Height>2.18333in</Height>
     <Style />
   </Body>
   <Width>18.83687cm</Width>
@@ -693,7 +709,6 @@
         <DataProvider>SQL</DataProvider>
         <ConnectString>Data Source=DSVEC-4597\SQLEXPRESS;Initial Catalog=stomatoloska</ConnectString>
       </ConnectionProperties>
-      <rd:SecurityType>DataBase</rd:SecurityType>
       <rd:DataSourceID>76b0382b-5603-4656-a85e-e9a11926c799</rd:DataSourceID>
     </DataSource>
   </DataSources>
