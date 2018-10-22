@@ -181,13 +181,6 @@ D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.Webforms\bin\Baza\Stomatolo
 D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.Webforms\bin\Baza\StomatoloskaModel.edmx.diagram
 D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.Webforms\bin\AjaxControlToolkit.dll
 D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.Webforms\bin\DayPilot.dll
-D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.Webforms\bin\Syncfusion.EJ.dll
-D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.Webforms\bin\Syncfusion.EJ.Web.dll
-D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.Webforms\bin\Syncfusion.Licensing.dll
-D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.Webforms\bin\Syncfusion.Linq.Base.dll
-D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.Webforms\bin\Syncfusion.EJ.xml
-D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.Webforms\bin\Syncfusion.EJ.Web.xml
-D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.Webforms\bin\Syncfusion.Linq.Base.xml
 D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.Webforms\bin\SqlServerTypes\x64\msvcr120.dll
 D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.Webforms\bin\SqlServerTypes\x64\SqlServerSpatial140.dll
 D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.Webforms\bin\SqlServerTypes\x86\msvcr120.dll

@@ -43,10 +43,6 @@
     <Reference Include="AjaxControlToolkit, Version=18.1.1.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
       <HintPath>..\packages\AjaxControlToolkit.18.1.1\lib\net40\AjaxControlToolkit.dll</HintPath>
     </Reference>
-    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
-    <Reference Include="CrystalDecisions.Web, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="DayPilot">
       <HintPath>..\DayPilot.dll</HintPath>
     </Reference>
@@ -75,18 +71,6 @@
     <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
       <Private>True</Private>
-    </Reference>
-    <Reference Include="Syncfusion.EJ, Version=15.2450.0.40, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\ASP.NET\16.3.0.21\precompiledassemblies\4.5\Syncfusion.EJ.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.EJ.Web, Version=16.3451.0.21, Culture=neutral, PublicKeyToken=3d67ed1f87d44c89, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\ASP.NET\16.3.0.21\precompiledassemblies\4.5\Syncfusion.EJ.Web.dll</HintPath>
-    </Reference>
-    <Reference Include="Syncfusion.Licensing, Version=16.3451.0.21, Culture=neutral, PublicKeyToken=632609b4d040f6b4, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Program Files (x86)\Syncfusion\Essential Studio\ASP.NET\16.3.0.21\precompiledassemblies\4.5\Syncfusion.Licensing.dll</HintPath>
     </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
@@ -219,10 +203,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Account\Web.config" />
-    <Content Include="IzvjestajiCR.aspx" />
     <Content Include="Izvjestaji.aspx" />
     <Content Include="PregledNarudzbi.aspx" />
-    <Content Include="NarucivanjeForm.aspx" />
     <Content Include="PacijentiForm.aspx" />
     <Content Include="Scripts\daypilot-modal-2.7.js" />
     <Content Include="SqlServerTypes\readme.htm" />
@@ -424,13 +406,6 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="IzvjestajiCR.aspx.cs">
-      <DependentUpon>IzvjestajiCR.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="IzvjestajiCR.aspx.designer.cs">
-      <DependentUpon>IzvjestajiCR.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Izvjestaji.aspx.cs">
       <DependentUpon>Izvjestaji.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -444,13 +419,6 @@
     </Compile>
     <Compile Include="PregledNarudzbi.aspx.designer.cs">
       <DependentUpon>PregledNarudzbi.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="NarucivanjeForm.aspx.cs">
-      <DependentUpon>NarucivanjeForm.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="NarucivanjeForm.aspx.designer.cs">
-      <DependentUpon>NarucivanjeForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="frmNarucivanje.aspx.cs">
       <DependentUpon>frmNarucivanje.aspx</DependentUpon>
