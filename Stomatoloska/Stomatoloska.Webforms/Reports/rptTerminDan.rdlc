@@ -333,14 +333,10 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Count(Fields!sifra.Value)</Value>
-                              <Style>
-                                <FontWeight>Bold</FontWeight>
-                              </Style>
+                              <Style />
                             </TextRun>
                           </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
+                          <Style />
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox16</rd:DefaultName>
@@ -367,14 +363,10 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Sum(Fields!cijena.Value)</Value>
-                              <Style>
-                                <FontWeight>Bold</FontWeight>
-                              </Style>
+                              <Style />
                             </TextRun>
                           </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
+                          <Style />
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox17</rd:DefaultName>
@@ -401,14 +393,10 @@
                           <TextRuns>
                             <TextRun>
                               <Value />
-                              <Style>
-                                <FontWeight>Bold</FontWeight>
-                              </Style>
+                              <Style />
                             </TextRun>
                           </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
+                          <Style />
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox18</rd:DefaultName>
@@ -435,14 +423,10 @@
                           <TextRuns>
                             <TextRun>
                               <Value />
-                              <Style>
-                                <FontWeight>Bold</FontWeight>
-                              </Style>
+                              <Style />
                             </TextRun>
                           </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
+                          <Style />
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox19</rd:DefaultName>
@@ -474,14 +458,10 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Count(Fields!sifra.Value)</Value>
-                              <Style>
-                                <FontWeight>Bold</FontWeight>
-                              </Style>
+                              <Style />
                             </TextRun>
                           </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
+                          <Style />
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox27</rd:DefaultName>
@@ -508,14 +488,10 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Sum(Fields!cijena.Value)</Value>
-                              <Style>
-                                <FontWeight>Bold</FontWeight>
-                              </Style>
+                              <Style />
                             </TextRun>
                           </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
+                          <Style />
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox28</rd:DefaultName>
@@ -542,14 +518,10 @@
                           <TextRuns>
                             <TextRun>
                               <Value />
-                              <Style>
-                                <FontWeight>Bold</FontWeight>
-                              </Style>
+                              <Style />
                             </TextRun>
                           </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
+                          <Style />
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox29</rd:DefaultName>
@@ -576,14 +548,10 @@
                           <TextRuns>
                             <TextRun>
                               <Value />
-                              <Style>
-                                <FontWeight>Bold</FontWeight>
-                              </Style>
+                              <Style />
                             </TextRun>
                           </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
+                          <Style />
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox30</rd:DefaultName>
@@ -799,14 +767,10 @@
                             <TextRuns>
                               <TextRun>
                                 <Value>Ukupno</Value>
-                                <Style>
-                                  <FontWeight>Bold</FontWeight>
-                                </Style>
+                                <Style />
                               </TextRun>
                             </TextRuns>
-                            <Style>
-                              <TextAlign>Center</TextAlign>
-                            </Style>
+                            <Style />
                           </Paragraph>
                         </Paragraphs>
                         <rd:DefaultName>Textbox15</rd:DefaultName>
@@ -839,14 +803,10 @@
                         <TextRuns>
                           <TextRun>
                             <Value>Sveukupno</Value>
-                            <Style>
-                              <FontWeight>Bold</FontWeight>
-                            </Style>
+                            <Style />
                           </TextRun>
                         </TextRuns>
-                        <Style>
-                          <TextAlign>Center</TextAlign>
-                        </Style>
+                        <Style />
                       </Paragraph>
                     </Paragraphs>
                     <rd:DefaultName>Textbox25</rd:DefaultName>
@@ -876,14 +836,10 @@
                             <TextRuns>
                               <TextRun>
                                 <Value />
-                                <Style>
-                                  <FontWeight>Bold</FontWeight>
-                                </Style>
+                                <Style />
                               </TextRun>
                             </TextRuns>
-                            <Style>
-                              <TextAlign>Center</TextAlign>
-                            </Style>
+                            <Style />
                           </Paragraph>
                         </Paragraphs>
                         <rd:DefaultName>Textbox26</rd:DefaultName>
@@ -910,7 +866,7 @@
         <Top>2.21403cm</Top>
         <Left>0.7747cm</Left>
         <Height>2.4cm</Height>
-        <Width>17.46952cm</Width>
+        <Width>17.46951cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -919,13 +875,13 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>2.025in</Height>
+    <Height>2.775in</Height>
     <Style />
   </Body>
   <Width>18.83687cm</Width>
   <Page>
     <PageFooter>
-      <Height>1.651cm</Height>
+      <Height>1.778cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -993,6 +949,7 @@
         <DataProvider>SQL</DataProvider>
         <ConnectString>Data Source=DSVEC-4597\SQLEXPRESS;Initial Catalog=stomatoloska</ConnectString>
       </ConnectionProperties>
+      <rd:SecurityType>DataBase</rd:SecurityType>
       <rd:DataSourceID>76b0382b-5603-4656-a85e-e9a11926c799</rd:DataSourceID>
     </DataSource>
   </DataSources>

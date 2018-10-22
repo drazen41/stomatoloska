@@ -72,3 +72,4 @@ D:\Aplikacije\stomatoloska\Stomatoloska\StomatoloskaReports\obj\Debug\Stomatolos
 D:\Aplikacije\stomatoloska\Stomatoloska\StomatoloskaReports\obj\Debug\StomatoloskaReports.pdb
 D:\Aplikacije\stomatoloska\Stomatoloska\StomatoloskaReports\obj\Debug\RdlCompile.cache
 D:\Aplikacije\stomatoloska\Stomatoloska\StomatoloskaReports\obj\Debug\RdlCompile.compiled
+D:\Aplikacije\stomatoloska\Stomatoloska\StomatoloskaReports\obj\Debug\StomatoloskaReports.csprojResolveAssemblyReference.cache
