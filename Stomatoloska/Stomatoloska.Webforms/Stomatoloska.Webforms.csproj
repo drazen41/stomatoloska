@@ -491,10 +491,6 @@
       <Project>{b6ef7a58-6e74-48e6-b357-0418f0689ab8}</Project>
       <Name>Stomatoloska.DAL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\StomatoloskaReports\StomatoloskaReports.csproj">
-      <Project>{6bc07e71-719f-43b7-aff6-f6c45426f335}</Project>
-      <Name>StomatoloskaReports</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Reports\rptTest.rdlc" />

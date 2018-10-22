@@ -16,13 +16,13 @@ namespace Stomatoloska.Webforms.Reports
         
         private NarudzbaBLL narudzbaBLL = new NarudzbaBLL();
         private RadnoVrijemeBLL radnoVrijemeBll = new RadnoVrijemeBLL();
+        private string connString = ConfigurationManager.ConnectionStrings["stomatoloskaConnectionString"].ConnectionString;
         public DataTable PribaviIskoristeneTerminePoZahvatu()
         {
             DataTable table = new DataTable();
             StringBuilder sb = new StringBuilder();
             sb.Append("SELECT b.sifra, b.naziv, b.cijena,a.termin_pocetak, a.termin_kraj FROM tNarudzba a JOIN tZahvat b on a.zahvat_id = b.zahvat_id ");
             sb.Append("where a.status = 'Izvrsena' ORDER by a.termin_pocetak ");
-            string connString = ConfigurationManager.ConnectionStrings["stomatoloskaConnectionStringProd"].ConnectionString;
             SqlConnection conn = new SqlConnection(connString);
             SqlCommand comm = new SqlCommand(sb.ToString(), conn);
             SqlDataAdapter sda = new SqlDataAdapter(comm);
@@ -36,7 +36,6 @@ namespace Stomatoloska.Webforms.Reports
             StringBuilder sb = new StringBuilder();
             sb.Append("SELECT b.sifra, b.naziv, b.cijena,a.termin_pocetak, a.termin_kraj FROM tNarudzba a JOIN tZahvat b on a.zahvat_id = b.zahvat_id ");
             sb.Append("where a.status = 'NijeDosao' ORDER by a.termin_pocetak ");
-            string connString = ConfigurationManager.ConnectionStrings["stomatoloskaConnectionStringProd"].ConnectionString;
             SqlConnection conn = new SqlConnection(connString);
             SqlCommand comm = new SqlCommand(sb.ToString(), conn);
             SqlDataAdapter sda = new SqlDataAdapter(comm);
@@ -50,7 +49,6 @@ namespace Stomatoloska.Webforms.Reports
             StringBuilder sb = new StringBuilder();
             sb.Append("SELECT CAST(a.termin_pocetak AS DATE) dan, b.sifra, b.naziv, b.cijena, a.termin_pocetak, a.termin_kraj FROM tNarudzba a JOIN tZahvat b on a.zahvat_id = b.zahvat_id ");
             sb.Append("where a.status = 'Izvrsena' ORDER BY a.termin_pocetak ");
-            string connString = ConfigurationManager.ConnectionStrings["stomatoloskaConnectionStringProd"].ConnectionString;
             SqlConnection conn = new SqlConnection(connString);
             SqlCommand comm = new SqlCommand(sb.ToString(), conn);
             SqlDataAdapter sda = new SqlDataAdapter(comm);

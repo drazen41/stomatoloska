@@ -253,7 +253,5 @@ D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.Webforms\bin\pt\Microsoft.R
 D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.Webforms\bin\ru\Microsoft.ReportViewer.WinForms.resources.dll
 D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.Webforms\bin\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
 D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.Webforms\bin\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
-D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.Webforms\bin\StomatoloskaReports.exe
-D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.Webforms\bin\StomatoloskaReports.pdb
 D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.Webforms\obj\Debug\RdlCompile.cache
 D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.Webforms\obj\Debug\RdlCompile.compiled
