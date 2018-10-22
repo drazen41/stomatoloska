@@ -15,13 +15,15 @@ namespace Stomatoloska.Webforms
         Pacijent pacijent = new Pacijent();
         protected void Page_Load(object sender, EventArgs e)
         {
-            PopuniGridPacijenti();
+
+            
         }
-        private void PopuniGridPacijenti()
+        private void PopuniGridPacijenti(int brojStranice, int velicinaStranice)
         {
-            var pacijenti = pacijentBll.PribaviPacijente();
+            var pacijenti = pacijentBll.PribaviPacijente(brojStranice,velicinaStranice);
             gvPacijenti.DataSource = pacijenti;
             gvPacijenti.DataBind();
+            
         }
 
         protected void btnUnosPacijenta_Click(object sender, EventArgs e)
@@ -55,7 +57,7 @@ namespace Stomatoloska.Webforms
 
             gvPacijenti.SelectedIndex = -1;
             btnUnosPacijenta.Text = "Unos pacijenta";
-            PopuniGridPacijenti();
+            PopuniGridPacijenti(gvPacijenti.PageIndex, gvPacijenti.PageCount);
             btnOdustani.Visible = false;
         }
 
@@ -88,9 +90,27 @@ namespace Stomatoloska.Webforms
             {
                 var pacijentId = int.Parse(e.CommandArgument.ToString());
                 pacijentBll.ObrisiPacijent(pacijentId);
-                PopuniGridPacijenti();
+                PopuniGridPacijenti(gvPacijenti.PageIndex, gvPacijenti.PageCount);
             }
         }
+
+        protected void gvPacijenti_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            
+            PopuniGridPacijenti(e.NewPageIndex, gvPacijenti.PageSize);
+            gvPacijenti.PageIndex = e.NewPageIndex;
+        }
+
+        protected void gvPacijenti_PreRender(object sender, EventArgs e)
+        {
+            var pacijenti = pacijentBll.PribaviPacijente();
+            gvPacijenti.DataSource = pacijenti;
+            gvPacijenti.DataBind();
+        }
+
+        
+
+        
 
         
     }

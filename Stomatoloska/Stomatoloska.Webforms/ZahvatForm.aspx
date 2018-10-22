@@ -24,7 +24,9 @@
                 <asp:ValidationSummary ID="ValidationSummaryZahvat" runat="server" ForeColor="Red" />
             </asp:Panel>
 <asp:Panel runat="server" GroupingText="Pregled zahvata">
-    <asp:GridView runat="server" ID="gvZahvati" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" DataKeyNames="sifra" OnSelectedIndexChanged="gvZahvati_SelectedIndexChanged" OnPreRender="gvZahvati_PreRender" OnRowDeleting="gvZahvati_RowDeleting" AllowPaging="True" OnPageIndexChanging="gvZahvati_PageIndexChanging" Width="100%">
+    <asp:GridView runat="server" ID="gvZahvati" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" DataKeyNames="sifra" 
+        OnSelectedIndexChanged="gvZahvati_SelectedIndexChanged" OnPreRender="gvZahvati_PreRender" OnRowDeleting="gvZahvati_RowDeleting" 
+        AllowPaging="True" OnPageIndexChanging="gvZahvati_PageIndexChanging" Width="100%">
 
         <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
         <Columns>

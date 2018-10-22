@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
-            <asp:Panel ID="Panel1" runat="server" GroupingText ="Unos i ažuriranje pacijenata">
+            <asp:Panel ID="Panel1" runat="server" GroupingText ="Unos i ažuriranje pacijenata" >
                 Prezime:<asp:TextBox ID="txtPrezime" runat="server" Width="150px"></asp:TextBox><br />
                 Ime:<asp:TextBox ID="txtIme" runat="server" Width="150px"></asp:TextBox><br />
                 Telefon:<asp:TextBox ID="txtTelefon" runat="server"></asp:TextBox><br />
@@ -19,12 +19,15 @@
             </asp:Panel>
             <asp:Panel ID="Panel2" runat="server" GroupingText ="Pregled pacijenata">
                 <asp:GridView ID="gvPacijenti" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" 
-                    OnSelectedIndexChanged="gvPacijenti_SelectedIndexChanged" Width="100%" DataKeyNames="pacijent_id" OnRowCommand="gvPacijenti_RowCommand"  >
+                    OnSelectedIndexChanged="gvPacijenti_SelectedIndexChanged" Width="100%" DataKeyNames="pacijent_id" OnRowCommand="gvPacijenti_RowCommand" 
+                    AllowPaging="True" OnPageIndexChanging="gvPacijenti_PageIndexChanging" OnPreRender="gvPacijenti_PreRender" PageSize="5"  >
 
                     <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
 
                     <Columns>
-                        <asp:CommandField ButtonType="Button" SelectText="Odaberi" ShowSelectButton="True" ControlStyle-CssClass="btn btn-default" />
+                        <asp:CommandField ButtonType="Button" SelectText="Odaberi" ShowSelectButton="True" ControlStyle-CssClass="btn btn-default" >
+                        <ControlStyle CssClass="btn btn-default" />
+                        </asp:CommandField>
                         <asp:BoundField DataField="pacijent_id" HeaderText="pacijent_id" SortExpression="pacijent_id" Visible="False" />
                         <asp:BoundField DataField="prezime" HeaderText="Prezime" SortExpression="prezime" />
                         <asp:BoundField DataField="ime" HeaderText="Ime" SortExpression="ime" />
@@ -55,7 +58,7 @@
                 </asp:GridView>
 
 
-                <asp:ObjectDataSource ID="ObjectDataSourcePacijenti" runat="server" SelectMethod="PribaviPacijente" TypeName="Stomatoloska.BLL.PacijentBLL"></asp:ObjectDataSource>
+                <asp:ObjectDataSource ID="ObjectDataSourcePacijenti" runat="server" SelectMethod="PribaviPacijente" TypeName="Stomatoloska.BLL.PacijentBLL" EnablePaging="True" OldValuesParameterFormatString="original_{0}"></asp:ObjectDataSource>
 
 
             </asp:Panel>

@@ -18,6 +18,10 @@ namespace Stomatoloska.BLL
         {
             return uow.PacijentRepo.Get().ToList<Pacijent>();
         }
+        public List<Pacijent> PribaviPacijente(int skip, int take)
+        {
+            return uow.PacijentRepo.Get().Skip(skip * take).Take(take).ToList<Pacijent>();
+        }
         public void UnesiPacijenta(Pacijent pacijent)
         {
             
@@ -56,6 +60,16 @@ namespace Stomatoloska.BLL
         {
             uow.PacijentRepo.Delete(pacijentId);
             uow.Spremi();
+        }
+        public static List<Pacijent> GetPacijenti(int maximumRows,int startRowIndex, string sortVal)
+        {
+            List<Pacijent> pacijenti = new List<Pacijent>();
+            StomatoloskaUoW uows = new StomatoloskaUoW();
+            pacijenti = uows.PacijentRepo.PribaviPodskupPacijenata(maximumRows, startRowIndex);
+            //var sortirani = uows.PacijentRepo.SortirajPacijente(pacijenti,sortVal)
+
+            return pacijenti;
+
         }
     }
 }

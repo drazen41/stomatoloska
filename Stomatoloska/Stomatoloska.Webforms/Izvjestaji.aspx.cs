@@ -43,20 +43,24 @@ namespace Stomatoloska.Webforms
             {
                 case 1:
                     path = Server.MapPath("~/Reports/rptTerminZahvat.rdlc");
+                    
                     rds.Name = "DataSet1";
                     rds.Value = reportsData.PribaviIskoristeneTerminePoZahvatu();
+                    localReport.DataSources.Clear();
                     localReport.DataSources.Add(rds);
                     break;
                 case 2:
                     path = Server.MapPath("~/Reports/rptTerminDan.rdlc");
                     rds.Name = "DataSet1";
                     rds.Value = reportsData.PribaviIskoristeneTerminePoDanima();
+                    localReport.DataSources.Clear();
                     localReport.DataSources.Add(rds);
                     break;
                 case 3:
                     path = Server.MapPath("~/Reports/rptNeiskoristeniTerminiZahvat.rdlc");
                     rds.Name = "DataSet1";
                     rds.Value = reportsData.PribaviNeiskoristeneTerminePoZahvatu();
+                    localReport.DataSources.Clear();
                     localReport.DataSources.Add(rds);
                     break;
                 case 4:
@@ -64,6 +68,7 @@ namespace Stomatoloska.Webforms
                     //DataTable table = reportsData.PribaviNeiskoristeneTerminePoDanima();
                     rds.Name = "DataSet1";
                     rds.Value = reportsData.PribaviNeiskoristeneTerminePoDanima();
+                    localReport.DataSources.Clear();
                     localReport.DataSources.Add(rds);
                     break;
                 default:
