@@ -62,5 +62,3 @@ D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.Winforms\bin\Debug\Baza\Sto
 D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.Winforms\bin\Debug\Baza\StomatoloskaModel.edmx.diagram
 D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.Winforms\bin\Debug\EntityFramework.SqlServer.dll
 D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.Winforms\bin\Debug\EntityFramework.SqlServer.xml
-D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.Winforms\bin\Debug\Stomatoloska.DAL.dll.config
-D:\Aplikacije\stomatoloska\Stomatoloska\Stomatoloska.Winforms\obj\Debug\Stomatoloska.Winforms.csproj.CoreCompileInputs.cache

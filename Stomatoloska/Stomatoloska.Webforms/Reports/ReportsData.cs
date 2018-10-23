@@ -59,11 +59,12 @@ namespace Stomatoloska.Webforms.Reports
         public DataTable PribaviNeiskoristeneTerminePoDanima()
         {
             DataTable table = new DataTable();
-            var radnoVrijeme = radnoVrijemeBll.PribaviRadnaVremena();
+            //var radnoVrijeme = radnoVrijemeBll.PribaviRadnaVremena();
             var narudzbe = narudzbaBLL.PribaviNarudzbe()
                 .Where(x=>x.status == NarudzbaBLL.Status.Izvrsena.ToString() || x.status==NarudzbaBLL.Status.Kreirana.ToString() || x.status == NarudzbaBLL.Status.NijeDosao.ToString()).ToList();
             var minDatum = narudzbe.Min(x => x.termin_pocetak).Date;
-            int dana = (DateTime.Now - minDatum).Days;
+            var maxDatum = narudzbe.Max(x => x.termin_pocetak).Date;
+            int dana = (maxDatum - minDatum).Days;
             table.Columns.Add("datum",typeof(DateTime));
             table.Columns.Add("termin_pocetak",typeof(DateTime));
             table.Columns.Add("termin_kraj",typeof(DateTime));
@@ -82,7 +83,8 @@ namespace Stomatoloska.Webforms.Reports
             {
                 trenutniDatum = minDatum.AddDays(i).Date;
                 var radniDan = radnoVrijemeBll.RadniDanZaDatum(trenutniDatum);
-                var radnoVrijemeDan = radnoVrijeme.Where(x => x.radni_dan == radniDan).FirstOrDefault();
+                //var radnoVrijemeDan = radnoVrijeme.Where(x => x.radni_dan == radniDan).FirstOrDefault();
+                var radnoVrijemeDan = radnoVrijemeBll.PribaviRadnoVrijemeZaDatum(trenutniDatum);
                 Narudzba termin = null;
                 double minuta = 0;
                 if (radnoVrijemeDan != null)
