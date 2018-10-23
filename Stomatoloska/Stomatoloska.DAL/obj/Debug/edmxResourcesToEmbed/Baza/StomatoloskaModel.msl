@@ -1,17 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
   <EntityContainerMapping StorageEntityContainer="stomatoloskaModelStoreContainer" CdmEntityContainer="stomatoloskaEntities">
-    <EntitySetMapping Name="tRadnoVrijeme">
-      <EntityTypeMapping TypeName="stomatoloskaModel.RadnoVrijeme">
-        <MappingFragment StoreEntitySet="tRadnoVrijeme">
-          <ScalarProperty Name="dcr" ColumnName="dcr" />
-          <ScalarProperty Name="kraj" ColumnName="kraj" />
-          <ScalarProperty Name="pocetak" ColumnName="pocetak" />
-          <ScalarProperty Name="radni_dan" ColumnName="radni_dan" />
-          <ScalarProperty Name="radno_vrijeme_id" ColumnName="radno_vrijeme_id" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="tNarudzba">
       <EntityTypeMapping TypeName="stomatoloskaModel.Narudzba">
         <MappingFragment StoreEntitySet="tNarudzba">
@@ -46,6 +35,18 @@
           <ScalarProperty Name="ime" ColumnName="ime" />
           <ScalarProperty Name="prezime" ColumnName="prezime" />
           <ScalarProperty Name="pacijent_id" ColumnName="pacijent_id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tRadnoVrijeme">
+      <EntityTypeMapping TypeName="stomatoloskaModel.RadnoVrijeme">
+        <MappingFragment StoreEntitySet="tRadnoVrijeme">
+          <ScalarProperty Name="od_datuma" ColumnName="od_datuma" />
+          <ScalarProperty Name="dcr" ColumnName="dcr" />
+          <ScalarProperty Name="kraj" ColumnName="kraj" />
+          <ScalarProperty Name="pocetak" ColumnName="pocetak" />
+          <ScalarProperty Name="radni_dan" ColumnName="radni_dan" />
+          <ScalarProperty Name="radno_vrijeme_id" ColumnName="radno_vrijeme_id" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

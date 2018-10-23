@@ -37,6 +37,7 @@
           <Property Name="pocetak" Type="time" Precision="0" Nullable="false" />
           <Property Name="kraj" Type="time" Precision="0" Nullable="false" />
           <Property Name="dcr" Type="datetime" Nullable="false" />
+          <Property Name="od_datuma" Type="datetime" />
         </EntityType>
         <EntityType Name="tZahvat">
           <Key>
@@ -92,7 +93,6 @@
     <edmx:ConceptualModels>
       <Schema Namespace="stomatoloskaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="stomatoloskaEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="tRadnoVrijeme" EntityType="stomatoloskaModel.RadnoVrijeme" />
           <EntitySet Name="tNarudzba" EntityType="stomatoloskaModel.Narudzba" />
           <EntitySet Name="tZahvat" EntityType="stomatoloskaModel.Zahvat" />
           <AssociationSet Name="FK_tNarudzba_tZahvat" Association="stomatoloskaModel.FK_tNarudzba_tZahvat">
@@ -104,17 +104,8 @@
             <End Role="tPacijent" EntitySet="tPacijent" />
             <End Role="Narudzba" EntitySet="tNarudzba" />
           </AssociationSet>
+          <EntitySet Name="tRadnoVrijeme" EntityType="stomatoloskaModel.RadnoVrijeme" />
           </EntityContainer>
-        <EntityType Name="RadnoVrijeme">
-          <Key>
-            <PropertyRef Name="radno_vrijeme_id" />
-          </Key>
-          <Property Name="radno_vrijeme_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="radni_dan" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="pocetak" Type="Time" Nullable="false" Precision="0" />
-          <Property Name="kraj" Type="Time" Nullable="false" Precision="0" />
-          <Property Name="dcr" Type="DateTime" Nullable="false" Precision="3" />
-        </EntityType>
         <EntityType Name="Narudzba">
           <Key>
             <PropertyRef Name="narudzba_id" />
@@ -177,23 +168,23 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="RadnoVrijeme">
+          <Key>
+            <PropertyRef Name="radno_vrijeme_id" />
+          </Key>
+          <Property Name="radno_vrijeme_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="radni_dan" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="pocetak" Type="Time" Nullable="false" Precision="0" />
+          <Property Name="kraj" Type="Time" Nullable="false" Precision="0" />
+          <Property Name="dcr" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="od_datuma" Type="DateTime" Precision="3" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="stomatoloskaModelStoreContainer" CdmEntityContainer="stomatoloskaEntities">
-          <EntitySetMapping Name="tRadnoVrijeme">
-            <EntityTypeMapping TypeName="stomatoloskaModel.RadnoVrijeme">
-              <MappingFragment StoreEntitySet="tRadnoVrijeme">
-                <ScalarProperty Name="dcr" ColumnName="dcr" />
-                <ScalarProperty Name="kraj" ColumnName="kraj" />
-                <ScalarProperty Name="pocetak" ColumnName="pocetak" />
-                <ScalarProperty Name="radni_dan" ColumnName="radni_dan" />
-                <ScalarProperty Name="radno_vrijeme_id" ColumnName="radno_vrijeme_id" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="tNarudzba">
             <EntityTypeMapping TypeName="stomatoloskaModel.Narudzba">
               <MappingFragment StoreEntitySet="tNarudzba">
@@ -228,6 +219,18 @@
                 <ScalarProperty Name="ime" ColumnName="ime" />
                 <ScalarProperty Name="prezime" ColumnName="prezime" />
                 <ScalarProperty Name="pacijent_id" ColumnName="pacijent_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tRadnoVrijeme">
+            <EntityTypeMapping TypeName="stomatoloskaModel.RadnoVrijeme">
+              <MappingFragment StoreEntitySet="tRadnoVrijeme">
+                <ScalarProperty Name="od_datuma" ColumnName="od_datuma" />
+                <ScalarProperty Name="dcr" ColumnName="dcr" />
+                <ScalarProperty Name="kraj" ColumnName="kraj" />
+                <ScalarProperty Name="pocetak" ColumnName="pocetak" />
+                <ScalarProperty Name="radni_dan" ColumnName="radni_dan" />
+                <ScalarProperty Name="radno_vrijeme_id" ColumnName="radno_vrijeme_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

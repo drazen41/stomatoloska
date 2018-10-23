@@ -32,6 +32,7 @@
     <Property Name="pocetak" Type="time" Precision="0" Nullable="false" />
     <Property Name="kraj" Type="time" Precision="0" Nullable="false" />
     <Property Name="dcr" Type="datetime" Nullable="false" />
+    <Property Name="od_datuma" Type="datetime" />
   </EntityType>
   <EntityType Name="tZahvat">
     <Key>

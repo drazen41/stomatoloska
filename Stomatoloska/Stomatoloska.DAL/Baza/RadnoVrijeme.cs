@@ -19,5 +19,6 @@ namespace Stomatoloska.DAL.Baza
         public System.TimeSpan pocetak { get; set; }
         public System.TimeSpan kraj { get; set; }
         public System.DateTime dcr { get; set; }
+        public Nullable<System.DateTime> od_datuma { get; set; }
     }
 }

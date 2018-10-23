@@ -21,7 +21,8 @@
                 <asp:DropDownList ID="DropDownListPocetakMinuta" runat="server"></asp:DropDownList><br /><br />
         Kraj radnog vremena: &nbsp;&nbsp;
                 <asp:DropDownList ID="DropDownListKrajSat" runat="server"></asp:DropDownList>
-        <asp:DropDownList ID="DropDownListKrajMinuta" runat="server"></asp:DropDownList>
+        <asp:DropDownList ID="DropDownListKrajMinuta" runat="server"></asp:DropDownList><br />
+        Od datuma:&nbsp;&nbsp;<asp:TextBox ID="txtOdDatuma" runat="server"></asp:TextBox>
                                     
                                     <br /><br />
 <asp:Button Text="Unesi radno vrijeme" ID="btnUnos" runat="server" OnClick="btnUnos_Click" CssClass="btn btn-primary" />

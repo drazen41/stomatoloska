@@ -76,6 +76,15 @@ namespace Stomatoloska.Webforms {
         protected global::System.Web.UI.WebControls.DropDownList DropDownListKrajMinuta;
         
         /// <summary>
+        /// txtOdDatuma control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtOdDatuma;
+        
+        /// <summary>
         /// btnUnos control.
         /// </summary>
         /// <remarks>
