@@ -102,7 +102,7 @@ namespace Stomatoloska.BLL
         {
             var radniDan = RadniDanZaDatum(datum);
 
-            return uow.RadnoVrijemeRepo.Get(x => x.radni_dan == radniDan).FirstOrDefault();
+            return uow.RadnoVrijemeRepo.Get(x => x.radni_dan == radniDan && x.od_datuma < datum,q=>q.OrderByDescending(x=>x.od_datuma)).FirstOrDefault();
         }
         public bool ProvjeriRadnoVrijeme(DateTime datum)
         {
