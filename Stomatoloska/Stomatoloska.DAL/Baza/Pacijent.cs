@@ -17,7 +17,7 @@ namespace Stomatoloska.DAL.Baza
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Pacijent()
         {
-            this.Narudzba = new HashSet<Narudzba>();
+            this.tNarudzba = new HashSet<Narudzba>();
         }
     
         public int pacijent_id { get; set; }
@@ -28,6 +28,6 @@ namespace Stomatoloska.DAL.Baza
         public string adresa { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Narudzba> Narudzba { get; set; }
+        public virtual ICollection<Narudzba> tNarudzba { get; set; }
     }
 }

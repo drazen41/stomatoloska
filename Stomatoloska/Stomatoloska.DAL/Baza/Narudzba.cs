@@ -21,8 +21,10 @@ namespace Stomatoloska.DAL.Baza
         public int pacijent_id { get; set; }
         public int zahvat_id { get; set; }
         public System.DateTime dcr { get; set; }
+        public int radno_vrijeme_id { get; set; }
     
-        public virtual Zahvat Zahvat { get; set; }
         public virtual Pacijent Pacijent { get; set; }
+        public virtual RadnoVrijeme RadnoVrijeme { get; set; }
+        public virtual Zahvat Zahvat { get; set; }
     }
 }

@@ -31,11 +31,21 @@ namespace Stomatoloska.BLL
         {
             return uow.NarudzbaRepo.Get().ToList<Narudzba>();
         }
-        public List<Narudzba> PribaviNarudzbe(DateTime start,DateTime end)
+        public List<Narudzba> PribaviNarudzbe(DateTime start,DateTime end, bool include = true)
         {
-            return uow.NarudzbaRepo
-                .Get(x => x.termin_pocetak >= start && x.termin_kraj  <= end, q => q.OrderBy(x => x.termin_pocetak), "Pacijent,Zahvat")
+            if (include )
+            {
+                return uow.NarudzbaRepo
+                .Get(x => x.termin_pocetak >= start && x.termin_kraj <= end, q => q.OrderBy(x => x.termin_pocetak), "Pacijent,Zahvat")
                 .ToList<Narudzba>();
+            }
+            else
+            {
+                return uow.NarudzbaRepo
+                .Get(x => x.termin_pocetak >= start && x.termin_kraj <= end, q => q.OrderBy(x => x.termin_pocetak))
+                .ToList<Narudzba>();
+            }
+            
         }
         public List<Narudzba >PribaviNarudzbe(DateTime datum)
         {
@@ -103,7 +113,12 @@ namespace Stomatoloska.BLL
             //var zahvat = uow.ZahvatRepo.GetByID(/*sifraZahvata*/);
             var radnoVrijemeBll = new RadnoVrijemeBLL();
             var dan = radnoVrijemeBll.RadniDanZaDatum(narudzba.termin_pocetak);
-            var radnoVrijeme = uow.RadnoVrijemeRepo.Get(x => x.radni_dan == dan).FirstOrDefault();
+            var radnoVrijeme = uow.RadnoVrijemeRepo
+                .PribaviRadnaVremenaManjaJednakaOdDatuma(narudzba.termin_pocetak)
+                .Where(x => x.radni_dan == dan)
+                .FirstOrDefault();
+
+            //var radnoVrijeme = uow.RadnoVrijemeRepo.Get(x => x.radni_dan == dan).FirstOrDefault();
 
             if (narudzba.termin_pocetak.TimeOfDay < radnoVrijeme.pocetak || narudzba.termin_kraj.TimeOfDay > radnoVrijeme.kraj)
                 return false;
@@ -161,6 +176,10 @@ namespace Stomatoloska.BLL
                     break;
             }
             return lista;
+        }
+        public IEnumerable<Narudzba> PribaviNarudzbe(RadnoVrijeme radnoVrijeme )
+        {
+            return  uow.NarudzbaRepo.Get(x => x.radno_vrijeme_id == radnoVrijeme.radno_vrijeme_id).ToList();
         }
     }
 }

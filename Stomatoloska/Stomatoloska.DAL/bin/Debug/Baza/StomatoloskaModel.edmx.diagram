@@ -5,12 +5,13 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="706b1509add248d9a77d1444531bd437" Name="Diagram1">
-        <EntityTypeShape EntityType="stomatoloskaModel.Narudzba" Width="1.5" PointX="4" PointY="1.875" />
         <EntityTypeShape EntityType="stomatoloskaModel.Zahvat" Width="1.5" PointX="0.75" PointY="0.875" />
-        <AssociationConnector Association="stomatoloskaModel.FK_tNarudzba_tZahvat" />
         <EntityTypeShape EntityType="stomatoloskaModel.Pacijent" Width="1.5" PointX="0.75" PointY="5" />
+        <EntityTypeShape EntityType="stomatoloskaModel.RadnoVrijeme" Width="1.5" PointX="6.5" PointY="1.75" />
+        <EntityTypeShape EntityType="stomatoloskaModel.Narudzba" Width="1.5" PointX="4.125" PointY="2.25" />
         <AssociationConnector Association="stomatoloskaModel.FK_tNarudzba_tPacijent" />
-        <EntityTypeShape EntityType="stomatoloskaModel.RadnoVrijeme" Width="1.5" PointX="6.625" PointY="1.5" />
+        <AssociationConnector Association="stomatoloskaModel.FK_tNarudzba_tRadnoVrijeme" />
+        <AssociationConnector Association="stomatoloskaModel.FK_tNarudzba_tZahvat" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -156,6 +156,9 @@ namespace Stomatoloska.Webforms
 
             DateTime start = DateTime.ParseExact(TextBoxCreateStart.Text, "dd.MM.yyyy HH:mm", Thread.CurrentThread.CurrentCulture);
             DateTime end = DateTime.ParseExact(TextBoxCreateEnd.Text, "dd.MM.yyyy HH:mm", Thread.CurrentThread.CurrentCulture);
+            RadnoVrijemeBLL radnoVrijemeBLL = new RadnoVrijemeBLL();
+            var dan = radnoVrijemeBLL.RadniDanZaDatum(start);
+            var rv = radnoVrijemeBLL.PribaviAktivnoRadnoVrijeme().Where(x => x.radni_dan == dan).FirstOrDefault();
             string name = TextBoxCreateName.Text;
 
             Narudzba narudzba = new Narudzba();
@@ -165,6 +168,7 @@ namespace Stomatoloska.Webforms
             narudzba.termin_pocetak = start;
             narudzba.termin_kraj = end;
             NarudzbaBLL.Status status = NarudzbaBLL.Status.Kreirana;
+            narudzba.radno_vrijeme_id = rv.radno_vrijeme_id;
             narudzba.status = status.ToString();
             try
             {

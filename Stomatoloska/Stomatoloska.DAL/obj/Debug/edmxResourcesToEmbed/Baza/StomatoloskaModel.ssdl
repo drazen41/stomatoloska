@@ -11,6 +11,7 @@
     <Property Name="pacijent_id" Type="int" Nullable="false" />
     <Property Name="zahvat_id" Type="int" Nullable="false" />
     <Property Name="dcr" Type="datetime" Nullable="false" />
+    <Property Name="radno_vrijeme_id" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="tPacijent">
     <Key>
@@ -32,7 +33,7 @@
     <Property Name="pocetak" Type="time" Precision="0" Nullable="false" />
     <Property Name="kraj" Type="time" Precision="0" Nullable="false" />
     <Property Name="dcr" Type="datetime" Nullable="false" />
-    <Property Name="od_datuma" Type="datetime" />
+    <Property Name="od_datuma" Type="datetime" Nullable="false" />
   </EntityType>
   <EntityType Name="tZahvat">
     <Key>
@@ -57,6 +58,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_tNarudzba_tRadnoVrijeme">
+    <End Role="tRadnoVrijeme" Type="Self.tRadnoVrijeme" Multiplicity="1" />
+    <End Role="tNarudzba" Type="Self.tNarudzba" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tRadnoVrijeme">
+        <PropertyRef Name="radno_vrijeme_id" />
+      </Principal>
+      <Dependent Role="tNarudzba">
+        <PropertyRef Name="radno_vrijeme_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_tNarudzba_tZahvat">
     <End Role="tZahvat" Type="Self.tZahvat" Multiplicity="1" />
     <End Role="tNarudzba" Type="Self.tNarudzba" Multiplicity="*" />
@@ -76,6 +89,10 @@
     <EntitySet Name="tZahvat" EntityType="Self.tZahvat" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_tNarudzba_tPacijent" Association="Self.FK_tNarudzba_tPacijent">
       <End Role="tPacijent" EntitySet="tPacijent" />
+      <End Role="tNarudzba" EntitySet="tNarudzba" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tNarudzba_tRadnoVrijeme" Association="Self.FK_tNarudzba_tRadnoVrijeme">
+      <End Role="tRadnoVrijeme" EntitySet="tRadnoVrijeme" />
       <End Role="tNarudzba" EntitySet="tNarudzba" />
     </AssociationSet>
     <AssociationSet Name="FK_tNarudzba_tZahvat" Association="Self.FK_tNarudzba_tZahvat">

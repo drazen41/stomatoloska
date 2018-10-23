@@ -25,7 +25,8 @@ namespace Stomatoloska.Webforms
 
         private void PrikaziRadnoVrijeme()
         {
-            List<RadnoVrijeme> dani = radnoVrijemeBLL.PribaviRadnaVremena();
+            //List<RadnoVrijeme> dani = radnoVrijemeBLL.PribaviRadnaVremena();
+            List<RadnoVrijeme> dani = radnoVrijemeBLL.PribaviAktivnoRadnoVrijeme();
             foreach (var dan in dani)
             {
                 string radnoVrijeme = dan.pocetak.ToString(@"hh\:mm") + "-" + dan.kraj.ToString(@"hh\:mm");
@@ -72,8 +73,47 @@ namespace Stomatoloska.Webforms
 
         protected void btnUnos_Click(object sender, EventArgs e)
         {
+            RadnoVrijeme radnoVrijeme = new RadnoVrijeme();
+            radnoVrijeme.dcr = DateTime.Now;
+            radnoVrijeme.kraj = new TimeSpan(Convert.ToInt32(DropDownListKrajSat.SelectedValue), Convert.ToInt32(DropDownListKrajMinuta.SelectedValue), 0);
+            radnoVrijeme.pocetak = new TimeSpan(Convert.ToInt32(DropDownListPocetakSat.SelectedValue), Convert.ToInt32(DropDownListPocetakMinuta.SelectedValue), 0);
+            radnoVrijeme.od_datuma = DateTime.Parse(txtOdDatuma.Text);
+
+            if (gvVremena.SelectedIndex == -1)
+            {
+                foreach (ListItem  item in CheckBoxListRadniDan.Items )
+                {
+                    if (item.Selected )
+                    {
+                        radnoVrijeme.radni_dan = item.Value;
+                        radnoVrijemeBLL.UnesiRadnoVrijeme(radnoVrijeme);
+                    }
+                }
+            }
+            else
+            {
+                radnoVrijeme.radno_vrijeme_id = (int)ViewState["rvid"];
+                try
+                {
+                    radnoVrijemeBLL.AzurirajRadnoVrijeme(radnoVrijeme);
+                    gvVremena.DataBind();
+                    gvVremena.SelectedIndex = -1;
+                    btnOdustani.Visible = false;
+                    btnUnos.Text = "Unos radnog vremena";
+                   
+                }
+                catch (Exception ex)
+                {
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "alert", "alert('" + ex.Message + "')", true);
+
+                }
+                ViewState["rvid"] = null;
+            }
+        }
+        private void UnesiRadnaVremena()
+        {
             List<RadnoVrijeme> vremena = new List<RadnoVrijeme>();
-            foreach (ListItem dan  in CheckBoxListRadniDan.Items)
+            foreach (ListItem dan in CheckBoxListRadniDan.Items)
             {
                 if (dan.Selected)
                 {
@@ -89,7 +129,46 @@ namespace Stomatoloska.Webforms
             radnoVrijemeBLL.UnesiRadnaVremena(vremena);
             PrikaziRadnoVrijeme();
         }
+        protected void gvVremena_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnOdustani.Visible = true;
+            btnUnos.Text = "Ažuriranje radnog vremana";
+            var id = (int)gvVremena.SelectedDataKey.Value;
 
-        
+            ViewState["rvid"] = id;
+            var rv = radnoVrijemeBLL.PribaviRadnoVrijeme(id);
+            txtOdDatuma.Text = rv.od_datuma.ToShortDateString();
+            DropDownListPocetakSat.SelectedValue = rv.pocetak.Hours.ToString();
+            string minutePocetak = rv.pocetak.Minutes.ToString();
+            if (minutePocetak == "0")
+            {
+                minutePocetak = "00";
+            }
+            string minuteKraj = rv.kraj.Minutes.ToString();
+            if (minuteKraj == "0")
+            {
+                minuteKraj = "00";
+            }
+            DropDownListPocetakMinuta.SelectedValue = minutePocetak;
+            DropDownListKrajSat.SelectedValue = rv.kraj.Hours.ToString();
+            DropDownListKrajMinuta.SelectedValue = minuteKraj;
+            foreach (ListItem item in CheckBoxListRadniDan.Items )
+            {
+                if (item.Text == rv.radni_dan )
+                {
+                    item.Selected = true;
+                }
+                else
+                {
+                    item.Selected = false;
+                }
+            }
+        }
+
+        protected void btnOdustani_Click(object sender, EventArgs e)
+        {
+            gvVremena.SelectedIndex = -1;
+            btnOdustani.Visible = false;
+        }
     }
 }

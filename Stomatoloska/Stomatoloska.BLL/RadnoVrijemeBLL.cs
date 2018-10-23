@@ -24,8 +24,7 @@ namespace Stomatoloska.BLL
 
         public void UnesiRadnaVremena(List<RadnoVrijeme> vremena)
         {
-            var vremenaBaza = uow.RadnoVrijemeRepo.Get();
-            
+            var vremenaBaza = uow.RadnoVrijemeRepo.Get(null, q => q.OrderByDescending(x => x.od_datuma), null);
 
             foreach (var vrijeme in vremena)
             {
@@ -45,6 +44,23 @@ namespace Stomatoloska.BLL
 
             }
             uow.Spremi();
+        }
+        public void UnesiRadnoVrijeme(RadnoVrijeme radnoVrijeme )
+        {
+            var rv = uow.RadnoVrijemeRepo.Get(x => x.radni_dan == radnoVrijeme.radni_dan, q => q.OrderByDescending(x => x.od_datuma)).FirstOrDefault();
+            if (rv == null || rv.od_datuma < radnoVrijeme.od_datuma)
+            {
+                uow.RadnoVrijemeRepo.Insert(radnoVrijeme);
+                uow.Spremi();
+            }
+            else
+            {
+                //throw new Exception("Nije moguće unesti radno vrijeme.");
+            }
+        }
+        public RadnoVrijeme PribaviRadnoVrijeme(int id)
+        {
+            return uow.RadnoVrijemeRepo.GetByID(id);
         }
         public List<RadnoVrijeme> PribaviRadnaVremena()
         {
@@ -93,6 +109,32 @@ namespace Stomatoloska.BLL
             var radnoVrijeme = PribaviRadnoVrijemeZaDatum(datum);
             return  (datum.TimeOfDay >= radnoVrijeme.pocetak && datum.TimeOfDay <= radnoVrijeme.kraj); 
             
+        }
+        public List<RadnoVrijeme> PribaviAktivnoRadnoVrijeme()
+        {
+            return uow.RadnoVrijemeRepo.PribaviRadnaVremenaManjaJednakaOdDatuma(DateTime.Now).ToList();
+        }
+        public void AzurirajRadnoVrijeme(RadnoVrijeme radnoVrijeme )
+        {
+            var rv = uow.RadnoVrijemeRepo.GetByID(radnoVrijeme.radno_vrijeme_id);
+            if (rv != null)
+            {
+                NarudzbaBLL narudzbaBLL = new NarudzbaBLL();
+                var narudzbe = narudzbaBLL.PribaviNarudzbe(rv);
+                foreach (var narudzba in narudzbe )
+                {
+                    if (narudzba.termin_pocetak.TimeOfDay < radnoVrijeme.pocetak || narudzba.termin_kraj.TimeOfDay > radnoVrijeme.kraj )
+                    {
+                        throw new Exception("Za radno vrijeme ima narudžbi.");
+                    }
+                }
+                rv.dcr = radnoVrijeme.dcr;
+                rv.kraj = radnoVrijeme.kraj;
+                rv.pocetak = radnoVrijeme.pocetak;
+                rv.od_datuma = radnoVrijeme.od_datuma;
+                uow.RadnoVrijemeRepo.Update(rv);
+                uow.Spremi();
+            }
         }
     }
 }

@@ -94,6 +94,15 @@ namespace Stomatoloska.Webforms {
         protected global::System.Web.UI.WebControls.Button btnUnos;
         
         /// <summary>
+        /// btnOdustani control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnOdustani;
+        
+        /// <summary>
         /// pnlRadnoVrijeme control.
         /// </summary>
         /// <remarks>
@@ -155,5 +164,23 @@ namespace Stomatoloska.Webforms {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TableCell petRadnoVrijeme;
+        
+        /// <summary>
+        /// gvVremena control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvVremena;
+        
+        /// <summary>
+        /// ObjectDataSourceVrijeme control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource ObjectDataSourceVrijeme;
     }
 }

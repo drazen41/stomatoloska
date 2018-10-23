@@ -14,11 +14,20 @@ namespace Stomatoloska.DAL.Baza
     
     public partial class RadnoVrijeme
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public RadnoVrijeme()
+        {
+            this.tNarudzba = new HashSet<Narudzba>();
+        }
+    
         public int radno_vrijeme_id { get; set; }
         public string radni_dan { get; set; }
         public System.TimeSpan pocetak { get; set; }
         public System.TimeSpan kraj { get; set; }
         public System.DateTime dcr { get; set; }
-        public Nullable<System.DateTime> od_datuma { get; set; }
+        public System.DateTime od_datuma { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Narudzba> tNarudzba { get; set; }
     }
 }
